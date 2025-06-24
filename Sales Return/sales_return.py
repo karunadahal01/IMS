@@ -1,3 +1,4 @@
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -5,8 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
-import random
-import string
 import time
 
 
@@ -78,26 +77,25 @@ except Exception as e:
     print("Error clicking 'Transactions':", e)
     time.sleep(10)
 
-
-# Hover over "Purchase Transaction"
-purchase_transaction = wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Purchase Transaction")))
-ActionChains(driver).move_to_element(purchase_transaction).perform()
-time.sleep(8)
+# Hover over "Sales Transaction"
+sales_transaction = wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Sales Transaction")))
+ActionChains(driver).move_to_element(sales_transaction).perform()
+time.sleep(5)
 # Wait for "Sales Tax Invoice" to be visible and click it
-debit_note = wait.until(EC.visibility_of_element_located((By.LINK_TEXT, "Debit Note (Purchase Return)")))
-debit_note.click()
+sales_return = wait.until(EC.visibility_of_element_located((By.LINK_TEXT, "Credit Note (Sales Return)")))
+sales_return.click()
 
-print("Clicked 'debit note'")
+print("Clicked 'Credit Note (Sales Return)'")
 
-time.sleep(8)
+time.sleep(5)
 
 
 
-# Click on the invoiceNO input field
-invoiceNO_input = driver.find_element(By.ID, "invoiceNO")
-driver.execute_script("arguments[0].removeAttribute('readonly')", invoiceNO_input)  # Remove readonly
-invoiceNO_input.click()
-invoiceNO_input.send_keys(Keys.ENTER)  # First Enter to load the dropdown
+# Click on the Ref Bill No input field
+refbill_input = driver.find_element(By.ID, "refbill")
+driver.execute_script("arguments[0].removeAttribute('readonly')", refbill_input)  # Remove readonly
+refbill_input.click()
+refbill_input.send_keys(Keys.ENTER)  # First Enter to load the dropdown
 
 # Wait for options to appear (adjust time or use WebDriverWait if possible)
 time.sleep(2)
@@ -109,27 +107,6 @@ body = driver.find_element(By.TAG_NAME, "body")
 body.send_keys(Keys.ENTER)
 
 
-#
-# # Create a random alphanumeric string of length 8
-# def generate_random_refPI(length=8):
-#     letters_and_digits = string.ascii_letters + string.digits
-#     return ''.join(random.choice(letters_and_digits) for i in range(length))
-#
-#
-# # Generate the random refPI
-# random_refPI = generate_random_refPI()
-# print(f"Generated RefPI: {random_refPI}")
-#
-# # Find the input field by ID and input the random refPI
-# ref_input = driver.find_element(By.ID, "invoiceNO")
-# ref_input.clear()
-# ref_input.send_keys(random_refPI)
-
-
-time.sleep(3)
-
-
-
 # For remakrs:
 remarks_field = WebDriverWait(driver, 5).until(
     EC.element_to_be_clickable((By.ID, "remarksid"))
@@ -139,7 +116,7 @@ time.sleep(5)
 
 # Clear the field and type the remark
 remarks_field.clear()
-remarks_field.send_keys("Purchase Return by automation. ")
+remarks_field.send_keys("sales Return by automation. ")
 time.sleep(5)
 print("✅ Remarks entered successfully.")
 
@@ -150,28 +127,9 @@ save_button.click()
 time.sleep(10)
 
 
-
-# Handle alert ONLY if present
-try:
-    WebDriverWait(driver, 5).until(EC.alert_is_present())
-    alert = driver.switch_to.alert
-    alert.accept()
-    print("Alert accepted successfully.")
-except TimeoutException:
-    print("No alert appeared after clicking SAVE.")
-
-# For click on cancel button in print
-import pyautogui
-# Wait for print preview to open
-time.sleep(10)
-
-# Press Escape key to close the print dialog
-pyautogui.press('esc')
-time.sleep(5)
-
-
 #  Click on "BACK" button
 back_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'BACK')]")))
 back_btn.click()
+
 print("Keeping browser open for 15 seconds for observation...")
 time.sleep(15)

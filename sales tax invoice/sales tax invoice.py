@@ -76,7 +76,7 @@ finally:
 
 # waiting for dashboard to load
 print("Step 5: Waiting for dashboard to load...")
-time.sleep(5)  # Give additional time for page to fully load
+time.sleep(15)  # Give additional time for page to fully load
 
 
 # Wait until the menu is loaded
@@ -306,7 +306,7 @@ time.sleep(5)
 # time.sleep(5)
 body = driver.find_element(By.TAG_NAME, 'body')
 body.send_keys(Keys.END)
-time.sleep(5)
+time.sleep(10)
 
 
 # To view Voucher
@@ -320,13 +320,13 @@ time.sleep(2)  # Let the list load, or use explicit wait if needed
 actions = ActionChains(driver)
 actions.send_keys(Keys.ENTER).perform()
 
-time.sleep(3)  # wait for page to load details after clicking
+time.sleep(5)  # wait for page to load details after clicking
 
 # click on reset button
 reset_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'RESET')]")))
 reset_btn.click()
 
-time.sleep(3)
+time.sleep(5)
 # click on  alert
 wait.until(EC.alert_is_present())
 alert = driver.switch_to.alert

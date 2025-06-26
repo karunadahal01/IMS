@@ -138,11 +138,7 @@ main_group_input.send_keys(Keys.ENTER)
 main_group_input.send_keys(Keys.ENTER)
 
 time.sleep(8)
-#  Wait for the OK button and click it
-# ok_button = wait.until(EC.element_to_be_clickable((
-#     By.XPATH, "//button[contains(text(), 'OK')]"
-# )))
-# ok_button.click()
+
 ok_button = wait.until(EC.element_to_be_clickable((
     By.XPATH, "//button[.//span[normalize-space()='Ok']]"
 )))
@@ -154,7 +150,7 @@ item_name_input = wait.until(EC.element_to_be_clickable((
     By.XPATH, "//input[@placeholder='Enter Item Name']"
 )))
 item_name_input.clear()
-item_name_input.send_keys("Test Item")
+item_name_input.send_keys("Test Item1")
 
 #Press Tab from keyboard
 driver.switch_to.active_element.send_keys(Keys.TAB)
@@ -164,7 +160,7 @@ time.sleep(5)
 # Enter HSC code
 driver.switch_to.active_element.send_keys("123", Keys.TAB)
 
-# CLick on vataable check box
+# CLick on vatable check box
 
 # Wait until the checkbox is present
 wait = WebDriverWait(driver, 10)
@@ -246,28 +242,73 @@ input_field.clear()
 
 # Enter 1000
 input_field.send_keys("1000")
-# driver.switch_to.active_element.send_keys("23", Keys.TAB)
-# print("factor selected")
 
-# Locate the number input field
-input_field = wait.until(EC.element_to_be_clickable((
-    By.XPATH, "//input[@type='number' and contains(@class, 'ng-valid')]"
+
+# Find and click the tab by its text
+barcode_mapping = wait.until(EC.element_to_be_clickable((
+    By.XPATH, "//div[@class='mat-tab-label-content' and normalize-space()='Barcode Mapping']"
 )))
+barcode_mapping.click()
+time.sleep(8)
 
-# Clear any existing value
-input_field.clear()
 
-# Enter 20
-input_field.send_keys("20")
-driver.switch_to.active_element.send_keys(Keys.TAB)
-checkbox.click()
+# ----- Step 1: Enter Barcode -----
+barcode_input = wait.until(EC.presence_of_element_located(
+    (By.XPATH, "//input[@placeholder='Enter Bar Code']")
+))
+barcode_input.clear()
+barcode_input.send_keys("2020")
+barcode_input.click()
 time.sleep(5)
-#press TAB
 driver.switch_to.active_element.send_keys(Keys.TAB)
-checkbox.click()
+
+
 time.sleep(5)
+select_element = driver.find_element(By.CSS_SELECTOR, 'div.col-2.p-0 select')
+select_element.click()
+driver.switch_to.active_element.send_keys("gm", Keys.TAB)
+time.sleep(5)
+
+wait = WebDriverWait(driver, 10)
+map_button = wait.until(EC.element_to_be_clickable((By.ID, "map")))
+
+# Click the button
+map_button.click()
+time.sleep(10)
+
+
+# Barcdode for "kg"
+
+# ----- Step 1: Enter Barcode -----
+barcode_input = wait.until(EC.presence_of_element_located(
+    (By.XPATH, "//input[@placeholder='Enter Bar Code']")
+))
+barcode_input.clear()
+barcode_input.send_keys("2021")
+barcode_input.click()
+time.sleep(5)
+driver.switch_to.active_element.send_keys(Keys.TAB)
+
+
+time.sleep(5)
+select_element = driver.find_element(By.CSS_SELECTOR, 'div.col-2.p-0 select')
+select_element.click()
+driver.switch_to.active_element.send_keys("kg", Keys.TAB)
+time.sleep(5)
+
+wait = WebDriverWait(driver, 10)
+map_button = wait.until(EC.element_to_be_clickable((By.ID, "map")))
+
+# Click the button
+map_button.click()
+time.sleep(10)
+# driver.switch_to.active_element.send_keys(Keys.TAB)
+
 #click on save button
 save_button = driver.find_element(By.XPATH, "//button[contains(text(),'SAVE')]")
 save_button.click()
 
-time.sleep(50)
+print("Keeping browser open for observation...")
+time.sleep(40)
+
+

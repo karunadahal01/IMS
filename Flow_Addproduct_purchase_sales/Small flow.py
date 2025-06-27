@@ -571,6 +571,7 @@ if not purchase_invoice_clicked:
 
     def Main_function_productitem(driver, barcode):
         try:
+
             barcode_input = driver.find_element(By.ID, "barcodeField")
             barcode_input.clear()
             barcode_input.send_keys(barcode)

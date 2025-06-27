@@ -221,3 +221,6 @@ def sales_tax_invoice(driver, barcode_sales):
 
 sales_tax_invoice(driver,
                   barcode_sales=2020)
+
+print("Keeping browser open for 30 seconds for observation...")
+time.sleep(30)

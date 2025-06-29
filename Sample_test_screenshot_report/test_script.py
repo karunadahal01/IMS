@@ -9,11 +9,11 @@ import random
 import string
 import time
 
-driver = webdriver.Chrome()
+
 
 ##########################################LOG IN###########################################################
 
-def Login(username,password,link):
+def Login(driver,username,password,link):
 
     driver.maximize_window()
     driver.get(link)
@@ -754,38 +754,44 @@ def sales_tax_invoice(driver, barcode_sales):
     back_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'BACK')]")))
     back_btn.click()
 
+def test_full_flow(driver):
+    # Log in
+    Login(
+        driver,
+        username="gedehim917@decodewp.com",
+        password="Tebahal1!",
+        link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard"
+    )
 
-#Function call
-Login(
-      username="gedehim917@decodewp.com",
-      password="Tebahal1!",
-      link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+    # Product Master
+    product_master(
+        driver,
+        product_item="Testing5",
+        HS_code="123",
+        unit="kg.",
+        item_type="Service Item",
+        description="This is description",
+        category="N/A",
+        short_name="XYZ",
+        purchase_price="120",
+        sales_price="140",
+        alt_unit="Each",
+        conversion_factor="1000",
+        barcode_map="14",
+        barcode_unit="kg."
+    )
 
-product_master(driver,
-               product_item="Testing1",
-               HS_code = "123",
-               unit="kg.",
-               item_type= "Service Item",
-               description= "This is description",
-               category="N/A",
-               short_name="XYZ",
-               purchase_price="120",
-               sales_price="140",
-               alt_unit="Each",
-               conversion_factor="1000",
-               barcode_map="2020",
-               barcode_unit="kg."
+    # Purchase Invoice
+    Purchase_invoice(
+        driver,
+        barcode_purchase=14
+    )
 
-
-               )
-
-
-
-Purchase_invoice(driver,
-                 barcode_purchase=11)
-
-sales_tax_invoice(driver,
-                  barcode_sales=11)
+    # Sales Tax Invoice
+    sales_tax_invoice(
+        driver,
+        barcode_sales=14
+    )
 
 
 print("Keeping browser open for 30 seconds for observation...")

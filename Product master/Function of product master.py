@@ -234,7 +234,7 @@ Login(
       link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
 
 product_master(driver,
-               product_item="Testing",
+               product_item="Testing1",
                HS_code = "123",
                unit="kg.",
                item_type= "Service Item",
@@ -243,7 +243,7 @@ product_master(driver,
                short_name="XYZ",
                purchase_price="120",
                sales_price="140",
-               alt_unit="gm",
+               alt_unit="Each",
                conversion_factor="1000",
                barcode_map="2020",
                barcode_unit="kg."

@@ -766,7 +766,7 @@ def test_full_flow(driver):
     # Product Master
     product_master(
         driver,
-        product_item="Testing5",
+        product_item="Testing6",
         HS_code="123",
         unit="kg.",
         item_type="Service Item",
@@ -784,15 +784,21 @@ def test_full_flow(driver):
     # Purchase Invoice
     Purchase_invoice(
         driver,
-        barcode_purchase=14
+        barcode_purchase=""
     )
-
+    Purchase_invoice(
+        driver,
+        barcode_purchase="14"
+    )
     # Sales Tax Invoice
+    sales_tax_invoice(
+        driver,
+        barcode_sales=""
+    )
     sales_tax_invoice(
         driver,
         barcode_sales=14
     )
-
 
 print("Keeping browser open for 30 seconds for observation...")
 time.sleep(50)

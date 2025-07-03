@@ -1,0 +1,3 @@
+✓ Already Logged In popup detected
+✓ Clicked Logout button
+✓ Clicked Sign In again after logout

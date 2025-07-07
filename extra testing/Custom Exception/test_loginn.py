@@ -2,7 +2,7 @@ import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import time
 
@@ -23,7 +23,7 @@ def login(username, password, url):
     try:
         with allure.step("Filling login form"):
             WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, 'input[formcontrolname="username"]'))
+                ec.presence_of_element_located((By.CSS_SELECTOR, 'input[formcontrolname="username"]'))
             ).send_keys(username)
 
             driver.find_element(By.CSS_SELECTOR, 'input[formcontrolname="password"]').send_keys(password)
@@ -34,7 +34,7 @@ def login(username, password, url):
         time.sleep(3)  # Wait for page to potentially show errors
 
         # Manual logic check
-        if (password != "Tebahal1!" or username != "gedehim917@decodewp.com"):
+        if password != "Tebahal1!" or username != "gedehim917@decodewp.com":
             allure.attach(driver.get_screenshot_as_png(), name="invalid_credentials",
                           attachment_type=allure.attachment_type.PNG)
             raise InvalidCredentialsError("Invalid username or password by manual check.")
@@ -68,7 +68,7 @@ def login(username, password, url):
 # Test / usage example
 def test_login_invalid_credentials():
     try:
-        login("wronguser@example.com", "wrongpassword",
+        login("gedehim917@decodewp.com", "Tebahal1!",
               "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
     except InvalidCredentialsError as e:
         print(f"❌ {e}")

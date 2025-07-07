@@ -1,0 +1,30 @@
+[33mWARNING [0m test_flow_product:test_flow_product.py:1205 Item group input not found or not interactable, continuing
+[33mWARNING [0m test_flow_product:test_flow_product.py:1219 Main group selection failed, continuing
+[33mWARNING [0m test_flow_product:test_flow_product.py:1007 Regular click failed for Save button, trying JavaScript click: Message: element click intercepted: Element <button _ngcontent-vkq-c205="" id="save" class="btn mr-2 px-4">...</button> is not clickable at point (1139, 73). Other element would receive the click: <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"></div>
+  (Session info: chrome=137.0.7151.122)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6e505cda5+78885]
+	GetHandleVerifier [0x0x7ff6e505ce00+78976]
+	(No symbol) [0x0x7ff6e4e19bca]
+	(No symbol) [0x0x7ff6e4e78779]
+	(No symbol) [0x0x7ff6e4e76112]
+	(No symbol) [0x0x7ff6e4e73151]
+	(No symbol) [0x0x7ff6e4e72041]
+	(No symbol) [0x0x7ff6e4e63654]
+	(No symbol) [0x0x7ff6e4e98b8a]
+	(No symbol) [0x0x7ff6e4e62f06]
+	(No symbol) [0x0x7ff6e4e98da0]
+	(No symbol) [0x0x7ff6e4ec122f]
+	(No symbol) [0x0x7ff6e4e98963]
+	(No symbol) [0x0x7ff6e4e616b1]
+	(No symbol) [0x0x7ff6e4e62443]
+	GetHandleVerifier [0x0x7ff6e5334eed+3061101]
+	GetHandleVerifier [0x0x7ff6e532f33d+3037629]
+	GetHandleVerifier [0x0x7ff6e534e592+3165202]
+	GetHandleVerifier [0x0x7ff6e507730e+186766]
+	GetHandleVerifier [0x0x7ff6e507eb3f+217535]
+	GetHandleVerifier [0x0x7ff6e50659b4+114740]
+	GetHandleVerifier [0x0x7ff6e5065b69+115177]
+	GetHandleVerifier [0x0x7ff6e504c368+10728]
+	BaseThreadInitThunk [0x0x7fffc23f7374+20]
+	RtlUserThreadStart [0x0x7fffc31fcc91+33]

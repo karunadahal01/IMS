@@ -1,0 +1,2 @@
+[33mWARNING [0m test_flow_product:test_flow_product.py:1205 Item group input not found or not interactable, continuing
+[33mWARNING [0m test_flow_product:test_flow_product.py:1219 Main group selection failed, continuing

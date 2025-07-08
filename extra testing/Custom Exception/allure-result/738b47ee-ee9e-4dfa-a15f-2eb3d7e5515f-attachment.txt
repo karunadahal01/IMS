@@ -1,0 +1,33 @@
+[33mWARNING [0m selenium.webdriver.common.selenium_manager:selenium_manager.py:137 There was an error managing chromedriver (error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)); using driver found in the cache
+[33mWARNING [0m selenium.webdriver.common.selenium_manager:selenium_manager.py:137 Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+[1m[31mERROR   [0m test_flow_product:test_flow_product.py:211 WebDriver error during login: Message: unknown error: net::ERR_INTERNET_DISCONNECTED
+  (Session info: chrome=137.0.7151.122)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff76016cda5+78885]
+	GetHandleVerifier [0x0x7ff76016ce00+78976]
+	(No symbol) [0x0x7ff75ff29bca]
+	(No symbol) [0x0x7ff75ff265e2]
+	(No symbol) [0x0x7ff75ff17319]
+	(No symbol) [0x0x7ff75ff190c1]
+	(No symbol) [0x0x7ff75ff17636]
+	(No symbol) [0x0x7ff75ff17096]
+	(No symbol) [0x0x7ff75ff16d5a]
+	(No symbol) [0x0x7ff75ff1492f]
+	(No symbol) [0x0x7ff75ff151ac]
+	(No symbol) [0x0x7ff75ff2db7a]
+	(No symbol) [0x0x7ff75ffd201e]
+	(No symbol) [0x0x7ff75ffa8b8a]
+	(No symbol) [0x0x7ff75ffd122f]
+	(No symbol) [0x0x7ff75ffa8963]
+	(No symbol) [0x0x7ff75ff716b1]
+	(No symbol) [0x0x7ff75ff72443]
+	GetHandleVerifier [0x0x7ff760444eed+3061101]
+	GetHandleVerifier [0x0x7ff76043f33d+3037629]
+	GetHandleVerifier [0x0x7ff76045e592+3165202]
+	GetHandleVerifier [0x0x7ff76018730e+186766]
+	GetHandleVerifier [0x0x7ff76018eb3f+217535]
+	GetHandleVerifier [0x0x7ff7601759b4+114740]
+	GetHandleVerifier [0x0x7ff760175b69+115177]
+	GetHandleVerifier [0x0x7ff76015c368+10728]
+	BaseThreadInitThunk [0x0x7fffc23f7374+20]
+	RtlUserThreadStart [0x0x7fffc31fcc91+33]

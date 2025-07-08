@@ -38,7 +38,7 @@ TEST_CONFIG = {
     "password": "Tebahal1!",
     "url": "https://velvet.webredirect.himshang.com.np/#/pages/dashboard",
     "product_data": {
-        "product_item": "Testing1",
+        "product_item": "Testing10",
         "HS_code": "123",
         "unit": "kg.",
         "item_type": "Service Item",
@@ -49,8 +49,8 @@ TEST_CONFIG = {
         "sales_price": "140",
         "alt_unit": "Each",
         "conversion_factor": "1000",
-        "barcode_map": "2020",
-        "barcode_unit": "kg." 
+        "barcode_map": "20",
+        "barcode_unit": "kg."
     }
 }
 
@@ -421,35 +421,66 @@ class TestProductFlow:
                     logger.warning(f"Barcode mapping section failed: {e}")
 
                 # Save the product with fallback clicking methods
+                # try:
+                #     save_button = wait.until(
+                #         EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'SAVE')]")))
+                #     self.safe_click(save_button, "Save button")
+                #     time.sleep(3)
+                # except TimeoutException:
+                #     raise ProductMasterCreationError("Save button not found or not clickable")
+                # # for popup
+                # try:
+                #     # wait for popup (you can adjust the locator as per your popup)
+                #     popup = WebDriverWait(self.driver, 5).until(
+                #         EC.visibility_of_element_located((By.XPATH, "//div[@class='popup']"))
+                #     )
+                #
+                #     # take screenshot and attach to allure
+                #     allure.attach(self.driver.get_screenshot_as_png(), name="Popup Screenshot",
+                #                   attachment_type=allure.attachment_type.PNG)
+                #
+                #     # raise exception so test fails
+                #     raise Exception("Unexpected popup appeared while saving the product.")
+                #
+                # except TimeoutException:
+                #     # no popup found, continue
+                #     pass
+                #
+                # # Verify save success
+                # allure.attach(self.driver.get_screenshot_as_png(), name="product_created",
+                #               attachment_type=allure.attachment_type.PNG)
+                # logger.info("Product master created successfully")
                 try:
+                    # Click SAVE
                     save_button = wait.until(
-                        EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'SAVE')]")))
-                    self.safe_click(save_button, "Save button")
-                    time.sleep(3)
-                except TimeoutException:
-                    raise ProductMasterCreationError("Save button not found or not clickable")
-                # for popup
-                try:
-                    # wait for popup (you can adjust the locator as per your popup)
-                    popup = WebDriverWait(self.driver, 5).until(
-                        EC.visibility_of_element_located((By.XPATH, "//div[@class='popup']"))
+                        EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'SAVE')]"))
                     )
+                    self.safe_click(save_button, "Save button")
+                    time.sleep(2)
 
-                    # take screenshot and attach to allure
-                    allure.attach(self.driver.get_screenshot_as_png(), name="Popup Screenshot",
+                    # Check for error modal popup after saving
+                    try:
+                        error_message_element = WebDriverWait(self.driver, 5).until(
+                            EC.visibility_of_element_located((By.XPATH, "//div[contains(@class,'modal')]//p"))
+                        )
+                        error_text = error_message_element.text
+                        allure.attach(self.driver.get_screenshot_as_png(), name="Error Modal Screenshot",
+                                      attachment_type=allure.attachment_type.PNG)
+                        raise Exception(f"Error popup appeared after saving: {error_text}")
+
+                    except TimeoutException:
+                        # No error popup appeared
+                        pass
+
+                    # Normal success screenshot
+                    allure.attach(self.driver.get_screenshot_as_png(), name="Product_Created",
+                                  attachment_type=allure.attachment_type.PNG)
+                    logger.info("Product master created successfully.")
+
+                except Exception as e:
+                    allure.attach(self.driver.get_screenshot_as_png(), name="Unexpected_Error",
                                   attachment_type=allure.attachment_type.PNG)
 
-                    # raise exception so test fails
-                    raise Exception("Unexpected popup appeared while saving the product.")
-
-                except TimeoutException:
-                    # no popup found, continue
-                    pass
-
-                # Verify save success
-                allure.attach(self.driver.get_screenshot_as_png(), name="product_created",
-                              attachment_type=allure.attachment_type.PNG)
-                logger.info("Product master created successfully")
 
         except ProductMasterCreationError:
             # Re-raise our custom exceptions
@@ -479,6 +510,31 @@ class TestProductFlow:
                           attachment_type=allure.attachment_type.PNG)
             raise ProductMasterCreationError(f"Failed to create product master due to unexpected error: {e}")
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Functions call
+# user Authentication
     @allure.feature("User Authentication")
     @allure.story("Login Functionality")
     @pytest.hookimpl(hookwrapper=True)

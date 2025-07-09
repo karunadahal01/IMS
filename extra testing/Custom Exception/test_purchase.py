@@ -584,6 +584,21 @@ class WebDriverInitializationError(Exception):
     """Raised when WebDriver initialization fails."""
     pass
 
+class NavigationError(Exception):
+    """Raised when navigation to a menu or page fails."""
+    pass
+
+class FormFieldNotFoundError(Exception):
+    """Raised when a required form field is not found or not interactable."""
+    pass
+
+class PopupHandlingError(Exception):
+    """Raised when a popup/modal cannot be handled as expected."""
+    pass
+
+class SaveInvoiceError(Exception):
+    """Raised when saving the invoice fails."""
+    pass
 # --------------------------------------------------------
 # Test Configuration
 TEST_CONFIG = {

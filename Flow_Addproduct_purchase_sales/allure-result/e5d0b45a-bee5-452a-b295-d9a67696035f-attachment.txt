@@ -1,0 +1,28 @@
+[1m[31mERROR   [0m test_purchase_invoice:test_purchase_invoice.py:228 Navigation failed: Message: invalid selector: Unable to locate an element with the xpath expression //a | //div[@class*='nav'] | //span[@class*='nav'] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//a | //div[@class*='nav'] | //span[@class*='nav']' is not a valid XPath expression.
+  (Session info: chrome=138.0.7204.98); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff784416f75+76917]
+	GetHandleVerifier [0x0x7ff784416fd0+77008]
+	(No symbol) [0x0x7ff7841c9dea]
+	(No symbol) [0x0x7ff7841d1789]
+	(No symbol) [0x0x7ff7841d482c]
+	(No symbol) [0x0x7ff7841d48ff]
+	(No symbol) [0x0x7ff78421fb07]
+	(No symbol) [0x0x7ff78422050c]
+	(No symbol) [0x0x7ff7842738b7]
+	(No symbol) [0x0x7ff7842484af]
+	(No symbol) [0x0x7ff78427065c]
+	(No symbol) [0x0x7ff784248243]
+	(No symbol) [0x0x7ff784211431]
+	(No symbol) [0x0x7ff7842121c3]
+	GetHandleVerifier [0x0x7ff7846ed2ad+3051437]
+	GetHandleVerifier [0x0x7ff7846e7903+3028483]
+	GetHandleVerifier [0x0x7ff78470589d+3151261]
+	GetHandleVerifier [0x0x7ff78443183e+185662]
+	GetHandleVerifier [0x0x7ff7844396ff+218111]
+	GetHandleVerifier [0x0x7ff78441faf4+112628]
+	GetHandleVerifier [0x0x7ff78441fca9+113065]
+	GetHandleVerifier [0x0x7ff784406c78+10616]
+	BaseThreadInitThunk [0x0x7ffc80797374+20]
+	RtlUserThreadStart [0x0x7ffc809bcc91+33]

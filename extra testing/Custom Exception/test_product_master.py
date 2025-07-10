@@ -74,7 +74,7 @@ def Login(username, password, link):
 
 
 @allure.step("Creating product master for item: {product_item}")
-def product_master(driver, product_item, HS_code, unit, item_type,
+def product_master(self, product_item, HS_code, unit, item_type,
                    description, category, short_name, purchase_price, sales_price,
                    alt_unit, conversion_factor, barcode_map, barcode_unit):
     wait = WebDriverWait(driver, 10)

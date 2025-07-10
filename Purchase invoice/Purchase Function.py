@@ -141,6 +141,9 @@ def Purchase_invoice(driver, barcode_purchase):
             raise Exception("Could not find or hover over 'Purchase Transaction' menu")
 
         print("Step 8: Clicking on 'Purchase Invoice' from dropdown...")
+
+
+
         purchase_invoice_clicked = False
         purchase_invoice_selectors = [
             "//*[@class='dropdown-item' and contains(text(), 'Purchase Invoice')]",

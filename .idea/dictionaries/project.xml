@@ -2,7 +2,12 @@
   <dictionary name="project">
     <words>
       <w>formcontrolname</w>
+      <w>inddiscountrate</w>
+      <w>klmo</w>
+      <w>remarksid</w>
+      <w>tbody</w>
       <w>tebahal</w>
+      <w>xpaths</w>
     </words>
   </dictionary>
 </component>

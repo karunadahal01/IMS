@@ -58,6 +58,8 @@ def Login(username,password,link):
         time.sleep(10)
 Login(username="gedehim917@decodewp.com",password="Tebahal1!",link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
 
+
+
 def sales_tax_invoice(driver, barcode_sales):
     # Wait until the menu is loaded
     wait = WebDriverWait(driver, 10)
@@ -133,7 +135,7 @@ def sales_tax_invoice(driver, barcode_sales):
             "//table//tbody//tr[1]//td[9]//input",
         ]
 
-        quantity_field = None
+        # quantity_field = None
         for xpath in xpaths:
             try:
                 quantity_field = WebDriverWait(driver, 5).until(

@@ -226,6 +226,14 @@ def product_master(driver,product_item,HS_code,unit,item_type,
     # Click on save button
     save_button = driver.find_element(By.XPATH, "//button[contains(text(),'SAVE')]")
     save_button.click()
+    # Press enter to handle alert of "Do you want to add another product?"
+    try:
+        body = driver.find_element(By.TAG_NAME, "body")
+        body.send_keys(Keys.ENTER)
+        time.sleep(10)
+    except Exception as e:
+        print(f"Error handling 'Do you wanna add another product?' alert: {e}")
+
 
 #Function call
 Login(

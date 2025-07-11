@@ -1,0 +1,25 @@
+Clicked on 'Masters'
+Clicked 'Product Master'
+Unit selected.
+Navigation debug failed: Alert Text: Data Saved Successfully. Do you want to continue adding products to this group ?
+Message: unexpected alert open: {Alert text : Data Saved Successfully. Do you want to continue adding products to this group ?}
+  (Session info: chrome=138.0.7204.98)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6a7446f75+76917]
+	GetHandleVerifier [0x0x7ff6a7446fd0+77008]
+	(No symbol) [0x0x7ff6a71f9dea]
+	(No symbol) [0x0x7ff6a72a110c]
+	(No symbol) [0x0x7ff6a7278243]
+	(No symbol) [0x0x7ff6a7241431]
+	(No symbol) [0x0x7ff6a72421c3]
+	GetHandleVerifier [0x0x7ff6a771d2ad+3051437]
+	GetHandleVerifier [0x0x7ff6a7717903+3028483]
+	GetHandleVerifier [0x0x7ff6a773589d+3151261]
+	GetHandleVerifier [0x0x7ff6a746183e+185662]
+	GetHandleVerifier [0x0x7ff6a74696ff+218111]
+	GetHandleVerifier [0x0x7ff6a744faf4+112628]
+	GetHandleVerifier [0x0x7ff6a744fca9+113065]
+	GetHandleVerifier [0x0x7ff6a7436c78+10616]
+	BaseThreadInitThunk [0x0x7ffd2c157374+20]
+	RtlUserThreadStart [0x0x7ffd2c85cc91+33]
+

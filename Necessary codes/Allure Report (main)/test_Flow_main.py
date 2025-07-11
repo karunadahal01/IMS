@@ -568,7 +568,7 @@ class TestERPFlowCreation:
                           attachment_type=allure.attachment_type.PNG)
             raise NavigationError(f"Failed to click 'Save': {e}")
         time.sleep(4)
-        # Press enter to handle alert of "Do you wanna add another product?"
+        # Press enter to handle alert of "Do you want to add another product?"
         try:
            with allure.step("Handling 'Do you wanna add another product?' alert"):
                 body = self.driver.find_element(By.TAG_NAME, "body")
@@ -1391,9 +1391,437 @@ class TestERPFlowCreation:
             raise NavigationError(f"Failed to click on 'Back': {e}")
 
 
-#######################################################################################################################
+###################################################################Purchase return ####################################################
+    def purchase_return(self, Remarks):
+        # Wait until the menu is loaded
+        wait = WebDriverWait(self.driver, 10)
+        time.sleep(10)
+        # Click on "Transactions"
+        try:
+           with allure.step("Clicking on 'Transactions' menu"):
+               transaction_menu = self.driver.find_element(By.LINK_TEXT, "Transactions")
+               transaction_menu.click()
+               print("Clicked on 'Transactions'")
+        except Exception as e:
+            print("Error clicking 'Transactions':", e)
+            logger.error(f"Error clicking 'Transactions': {e}")
+            raise NavigationError(f"Failed to click on 'Transactions': {e}")
 
-# Test case first ( Login)
+        # Hover over "Purchase Transaction"
+        try:
+          with allure.step("Hovering over 'Purchase Transaction'"):
+              purchase_transaction = wait.until(ec.presence_of_element_located((By.LINK_TEXT, "Purchase Transaction")))
+              ActionChains(self.driver).move_to_element(purchase_transaction).perform()
+              time.sleep(8)
+        except Exception as e:
+            logger.error(f"Error hovering over 'Purchase Transaction': {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Purchase Transaction Hover Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to hover over 'Purchase Transaction': {e}")
+
+        #Navigte to purchase return
+        try:
+            with allure.step("Clicking on 'Purchase Return'"):
+                debit_note = wait.until(
+                    ec.visibility_of_element_located((By.LINK_TEXT, "Debit Note (Purchase Return)")))
+                debit_note.click()
+                print("Clicked 'debit note'")
+                time.sleep(8)
+        except Exception  as e:
+            logger.error(f"Error clicking 'Purchase Return': {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Purchase Return Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click on 'Purchase Return': {e}")
+
+        # Click on the invoiceNO input field
+        try:
+            with allure.step("Clicking on invoiceNO input field"):
+                invoiceNO_input = self.driver.find_element(By.ID, "invoiceNO")
+                self.driver.execute_script("arguments[0].removeAttribute('readonly')", invoiceNO_input)  # Remove readonly
+                invoiceNO_input.click()
+                invoiceNO_input.send_keys(Keys.ENTER)  # First Enter to load the dropdown
+
+                # Wait for options to appear
+                time.sleep(2)
+
+                # Find the body element and send Enter key
+                body = self.driver.find_element(By.TAG_NAME, "body")
+                body.send_keys(Keys.ENTER)
+
+                time.sleep(3)
+        except Exception as e:
+            logger.error(f"Failed to click on invoiceNO input field: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="InvoiceNO Input Field Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to click on invoiceNO input field: {e}")
+
+        # For remarks
+        try:
+          with allure.step("Entering remarks for Purchase Return"):
+             remarks_field = WebDriverWait(self.driver, 5).until(
+                 ec.element_to_be_clickable((By.ID, "remarksid"))
+             )
+             time.sleep(5)
+             remarks_field.clear()
+             remarks_field.send_keys(Remarks)
+             time.sleep(5)
+             print("✅ Remarks entered successfully.")
+
+             time.sleep(5)
+        except Exception    as e:
+            logger.error(f"Failed to enter remarks: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Remarks Input Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to enter remarks: {e}")
+
+        # Click on SAVE button
+        try:
+          with allure.step("Clicking on 'Save' button"):
+               save_button = self.driver.find_element(By.XPATH, "//button[contains(text(),'SAVE')]")
+               save_button.click()
+               time.sleep(10)
+        except Exception    as e:
+            logger.error(f"Failed to click on 'Save' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Save Button Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise PurchaseNotSuccessError(f"Failed to click on 'Save': {e}")
+
+        # Handle alert ONLY if present
+        try:
+          with allure.step("Handling alert after clicking 'Save' button"):
+              WebDriverWait(self.driver, 5).until(ec.alert_is_present())
+              alert = self.driver.switch_to.alert
+              alert.accept()
+              print("Alert accepted successfully.")
+        except Exception    as e:
+            logger.error(f"Failed to handle alert after clicking 'Save' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Alert Handling Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise PopupHandlingError(f"Failed to handle alert after clicking 'Save': {e}")
+
+        # Cancel the print invoice bye Esc button
+        try:
+          with allure.step("Cancelling print invoice"):
+              time.sleep(10)
+              pyautogui.press('esc')
+              time.sleep(5)
+        except Exception    as e:
+            logger.error(f"Failed to cancel print invoice: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Print Invoice Cancel Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise PopupHandlingError(f"Failed to cancel print invoice: {e}")
+
+        # Click on back button to come in dashboard
+        try:
+          with allure.step("Clicking on 'Back' button"):
+                back_btn = wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'BACK')]")))
+                back_btn.click()
+        except Exception    as e:
+            logger.error(f"Failed to click on 'Back' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Back Button Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click on 'Back': {e}")
+
+#########################################sales return Full ######################################################
+    def sales_return_full(self):
+        # Wait until the menu is loaded
+        wait = WebDriverWait(self.driver, 10)
+
+        # Click on "Transactions"
+        try:
+            transaction_menu = self.driver.find_element(By.LINK_TEXT, "Transactions")
+            transaction_menu.click()
+            print("Clicked on 'Transactions'")
+        except Exception as e:
+            print("Error clicking 'Transactions':", e)
+            logger.error(f"Error clicking 'Transactions': {e}")
+            raise NavigationError(f"Failed to click on 'Transactions': {e}")
+
+        # Hover over "Sales Transaction"
+        try:
+            sales_transaction = wait.until(ec.presence_of_element_located((By.LINK_TEXT, "Sales Transaction")))
+            ActionChains(self.driver).move_to_element(sales_transaction).perform()
+            time.sleep(5)
+        except Exception as e:
+            logger.error(f"Error hovering over 'Sales Transaction': {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Sales Transaction Hover Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to hover over 'Sales Transaction': {e}")
+
+        # Wait for "Credit Note (Sales Return)" to be visible and click it
+        try:
+          with allure.step("Clicking on 'Credit Note (Sales Return)'"):
+              sales_return = wait.until(ec.visibility_of_element_located((By.LINK_TEXT, "Credit Note (Sales Return)")))
+              sales_return.click()
+              print("Clicked 'Credit Note (Sales Return)'")
+              time.sleep(5)
+
+        except Exception as e:
+            logger.error(f"Error clicking 'Credit Note (Sales Return)': {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Sales Return Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click on 'Credit Note (Sales Return)': {e}")
+
+        # Click on the Ref Bill No input field
+        try:
+            with allure.step("Clicking on Ref Bill No input field"):
+
+                refbill_input = self.driver.find_element(By.ID, "refbill")
+                self.driver.execute_script("arguments[0].removeAttribute('readonly')", refbill_input)
+                refbill_input.click()
+                refbill_input.send_keys(Keys.ENTER)
+                time.sleep(2)
+
+
+                # Find the body element and send Enter key
+                body = self.driver.find_element(By.TAG_NAME, "body")
+                body.send_keys(Keys.ENTER)
+
+                time.sleep(3)
+        except Exception as e:
+            logger.error(f"Failed to click on Ref Bill No input field: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Ref Bill No Input Field Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to click on Ref Bill No input field: {e}")
+
+
+        # For remarks
+        try:
+          with allure.step("Entering remarks for Sales Return"):
+              remarks_field = WebDriverWait(self.driver, 5).until(
+                 ec.element_to_be_clickable((By.ID, "remarksid"))
+              )
+              time.sleep(5)
+              remarks_field.clear()
+              remarks_field.send_keys("sales Return by automation. ")
+              time.sleep(5)
+              print("✅ Remarks entered successfully.")
+        except Exception    as e:
+            logger.error(f"Failed to enter remarks: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Remarks Input Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to enter remarks: {e}")
+        time.sleep(5)
+
+
+
+        # Click on SAVE button
+        try:
+            with allure.step("Clicking on 'Save' button"):
+                save_button = self.driver.find_element(By.XPATH, "//button[contains(text(),'SAVE')]")
+                save_button.click()
+                time.sleep(10)
+
+        except Exception  as e:
+            logger.error(f"Failed to click on 'Save' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Save Button Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise PurchaseNotSuccessError(f"Failed to click on 'Save': {e}")
+
+
+        # Click on back button to come in dashboard
+        try:
+            with allure.step("Clicking on 'Back' button"):
+                back_btn = wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'BACK')]")))
+                back_btn.click()
+        except Exception as e:
+            logger.error(f"Failed to click on 'Back' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Back Button Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click on 'Back': {e}")
+
+############################################################## Sales Return partial ######################################################
+    def sales_return_partial(self, return_barcode):
+        # Wait until the menu is loaded
+        wait = WebDriverWait(self.driver, 10)
+
+        # Click on "Transactions"
+        try:
+            transaction_menu = self.driver.find_element(By.LINK_TEXT, "Transactions")
+            transaction_menu.click()
+            print("Clicked on 'Transactions'")
+
+        except Exception as e:
+            print("Error clicking 'Transactions':", e)
+            logger.error(f"Error clicking 'Transactions': {e}")
+            raise NavigationError(f"Failed to click on 'Transactions': {e}")
+
+        # Hover over "Sales Transaction"
+        try:
+          with allure.step("Hovering over 'Sales Transaction'"):
+                sales_transaction = wait.until(ec.presence_of_element_located((By.LINK_TEXT, "Sales Transaction")))
+                ActionChains(self.driver).move_to_element(sales_transaction).perform()
+                time.sleep(5)
+        except Exception    as e:
+            logger.error(f"Error hovering over 'Sales Transaction': {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Sales Transaction Hover Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to hover over 'Sales Transaction': {e}")
+
+        # Wait for "Credit Note (Sales Return)" to be visible and click it
+        try:
+          with allure.step("Clicking on 'Credit Note (Sales Return)'"):
+              sales_return = wait.until(ec.visibility_of_element_located((By.LINK_TEXT, "Credit Note (Sales Return)")))
+              sales_return.click()
+              print("Clicked 'Credit Note (Sales Return)'")
+              time.sleep(5)
+        except Exception    as e:
+            logger.error(f"Error clicking 'Credit Note (Sales Return)': {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Sales Return Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click on 'Credit Note (Sales Return)': {e}")
+
+        # wait until the checkbox is present and click
+        try:
+            with allure.step("Clicking on checkbox"):
+                checkbox = wait.until(
+                    ec.element_to_be_clickable(
+                        (By.XPATH, "//input[@type='checkbox' and contains(@class, 'ng-pristine')]")))
+                checkbox.click()
+                time.sleep(5)
+
+        except Exception  as e:
+            logger.error(f"Error clicking checkbox: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Checkbox Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click on checkbox: {e}")
+
+
+        # Click on the Ref Bill No input field
+        try:
+            with allure.step("Clicking on Ref Bill No input field"):
+                # Click on the Ref Bill No input field
+                refbill_input = self.driver.find_element(By.ID, "refbill")
+                self.driver.execute_script("arguments[0].removeAttribute('readonly')", refbill_input)
+                refbill_input.click()
+                refbill_input.send_keys(Keys.ENTER)
+                time.sleep(2)
+
+                # Send Enter to the body
+                body = self.driver.find_element(By.TAG_NAME, "body")
+                body.send_keys(Keys.ENTER)
+
+                time.sleep(3)
+        except Exception as e:
+            logger.error(f"Failed to click on Ref Bill No input field: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Ref Bill No Input Field Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to click on Ref Bill No input field: {e}")
+
+        # For remarks
+        try:
+          with allure.step("Entering remarks for Sales Return"):
+              remarks_field = WebDriverWait(self.driver, 5).until(
+                 ec.element_to_be_clickable((By.ID, "remarksid"))
+              )
+              time.sleep(5)
+              remarks_field.clear()
+              remarks_field.send_keys("Partial sales Return by automation. ")
+              time.sleep(5)
+              print("✅ Remarks entered successfully.")
+        except Exception    as e:
+            logger.error(f"Failed to enter remarks: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Remarks Input Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to enter remarks: {e}")
+
+        # ===   barcode Enter ===
+        try:
+           with allure.step("Entering barcode for Sales Return"):
+               barcode_input = self.driver.find_element(By.ID, "barcodeField")
+               barcode_input.clear()
+               barcode_input.send_keys(return_barcode)
+               barcode_input.send_keys(Keys.ENTER)
+
+               quantity = random.randint(1, 20)
+               print(f"Generated quantity for barcode {return_barcode}: {quantity}")
+
+               xpaths = [
+                   "//table//tr//td[position()=9]//input",
+                   "//input[contains(@name, 'quantity') or contains(@name, 'Quantity')]",
+                   "//input[contains(@id, 'quantity') or contains(@id, 'Quantity')]",
+                   "//td[contains(@class, 'quantity')]//input",
+                   "//table//tbody//tr[1]//td[9]//input",
+               ]
+
+               for xpath in xpaths:
+                   try:
+                       quantity_field = WebDriverWait(self.driver, 5).until(
+                           ec.element_to_be_clickable((By.XPATH, xpath))
+                       )
+                       quantity_field.clear()
+                       quantity_field.send_keys(str(quantity) + Keys.ENTER)
+                       print(f"✅ Quantity entered for barcode {return_barcode}")
+                       time.sleep(2)
+                       break
+                   except Exception as e:
+                       print(f"⚠ Failed with XPath: {xpath} -> {e}")
+                       logger.error(f"Failed with XPath: {xpath} -> {e}")
+                       allure.attach(self.driver.get_screenshot_as_png(),
+                                        name="Quantity Input Error",
+                                        attachment_type=allure.attachment_type.PNG)
+                       raise FormFieldNotFoundError(f"Failed to enter quantity for barcode {return_barcode}: {e}")
+               else:
+                   print(f"❌ Could not locate quantity input for barcode {return_barcode}")
+
+        except Exception as e:
+            logger.error(f"❌ Error in processing barcode '{return_barcode}': {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Barcode Input Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to process barcode '{return_barcode}': {e}")
+        time.sleep(5)
+
+        # Click on SAVE button
+        try:
+          with allure.step("Clicking on 'Save' button"):
+              save_button = self.driver.find_element(By.XPATH, "//button[contains(text(),'SAVE')]")
+              save_button.click()
+              time.sleep(10)
+        except Exception    as e:
+            logger.error(f"Failed to click on 'Save' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Save Button Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise PurchaseNotSuccessError(f"Failed to click on 'Save': {e}")
+
+        # Click on back button
+        try:
+          with allure.step("Clicking on 'Back' button"):
+              back_btn = wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'BACK')]")))
+              back_btn.click()
+        except Exception as e:
+            logger.error(f"Failed to click on 'Back' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Back Button Click Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click on 'Back': {e}")
+
+
+
+
+
+########################################################################################################################
+    # Test case first ( Login)
 
     def test_login(self):
         allure.step("Login to the application")
@@ -1428,7 +1856,7 @@ class TestERPFlowCreation:
 # Test case Third (Login,Product master, Purchase Invoice)
 
     def test_purchase_invoice(self):
-        allure.step("Creating new product item")
+        allure.step("PURCHASE a product item")
         self.login("gedehim917@decodewp.com",
                    "Tebahal1!",
                    "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
@@ -1453,7 +1881,7 @@ class TestERPFlowCreation:
 # Test case Fourth (Login,Product master, Sales Tax Invoice)
 
     def test_sales_tax_invoice(self):
-        allure.step("Creating new product item")
+        allure.step("Sales a product item")
         self.login("gedehim917@decodewp.com",
                    "Tebahal1!",
                    "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
@@ -1477,6 +1905,42 @@ class TestERPFlowCreation:
 
         self.sales_tax_invoice(
                         barcode_sales=777)
+
+
+# Test case Fifth (Login,purchase, purchase  Return)
+
+    def test_purchase_return(self):
+        allure.step("Return a purchase invoice")
+        self.login("gedehim917@decodewp.com",
+                   "Tebahal1!",
+                   "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+
+        self.purchase_return( Remarks="Testing Purchase Return by automation.")
+
+    # Test case Sixth (Login,sales, sales  Return full)
+    def test_sales_return(self):
+            allure.step("sales return full")
+            self.login("gedehim917@decodewp.com",
+                       "Tebahal1!",
+                       "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+
+
+            self.sales_tax_invoice(
+                barcode_sales=777)
+            self.sales_return_full( )
+
+# Test case Sixth (Login,sales, sales  Return partial)
+
+    def test_sales_return_Partial(self):
+        allure.step("sales return partial")
+        self.login("gedehim917@decodewp.com",
+                   "Tebahal1!",
+                   "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+
+        self.sales_tax_invoice(
+            barcode_sales=777)
+        self.sales_return_partial( return_barcode="15")
+
 
 
 print("Keeping browser open for 30 seconds for observation...")

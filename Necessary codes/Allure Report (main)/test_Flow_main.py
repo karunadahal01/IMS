@@ -85,10 +85,12 @@ class TestERPFlowCreation:
     # def __init__(self):
     #     self.driver = None
 
+    def __init__(self):
+        self.driver = None
 
     def setup_method(self):
         try:
-            driver = webdriver.Chrome()
+            self.driver = webdriver.Chrome()
             self.driver.implicitly_wait(10)
             logger.info("WebDriver initialized successfully")
         except WebDriverException as e:

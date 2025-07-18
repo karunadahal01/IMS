@@ -7,12 +7,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.keys import Keys
+import string
+import random
 from selenium.webdriver.common.action_chains import ActionChains
 
 
 #--------------------------------------------------------
 # Logging setup
-logging.basicConfig(level=logging.INFO, format='%(pastime)s - %(levelness)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 
@@ -60,7 +62,7 @@ class TestERPFlowCreation:
 
 
     @allure.step("Setup WebDriver")
-    def setup_method(self):
+    def setup_method(self, method):
         try:
             self.driver = webdriver.Chrome()
             self.driver.implicitly_wait(10)
@@ -71,10 +73,7 @@ class TestERPFlowCreation:
 
 
     @allure.step("Teardown WebDriver")
-    def __init__(self):
-        self.driver = None
-
-    def teardown_method(self):
+    def teardown_method(self, method):
         if hasattr(self, 'driver') and self.driver:
             try:
                 logger.info("Cleaning up - closing driver")
@@ -167,17 +166,29 @@ class TestERPFlowCreation:
                           name="Login Error",
                           attachment_type=allure.attachment_type.PNG)
             raise LoginFailedError(f"Login failed: {e}")
-        time.sleep(10)  # Wait for the page to load after login
+        time.sleep(20)  # Wait for the page to load after login
 
 #################################Navigation to Accounting Module############################################################
     @allure.step("Navigate to Accounting Module")
-    def navigate_to_accounting(self):
+    def navigate_to_accounting(self ,ledgeraccount1, ledgeraccount2):
      #Accounting Module
         try:
-            accounting_menu = WebDriverWait(self.driver, 10).until(
-                ec.element_to_be_clickable((By.XPATH, "//span[text()='Accounting Module']"))
-            )
-            self.safe_click(accounting_menu, "Accounting Module")
+            wait = WebDriverWait(self.driver, 10)
+            time.sleep(5)
+            accounting_menu =self.driver.find_element(By.LINK_TEXT, "Accounting Module")
+            accounting_menu.click()
+            # Wait for new tab to open
+            wait.until(lambda d: len(d.window_handles) > 1)
+
+            # Switch to the new tab
+            self.driver.switch_to.window(self.driver.window_handles[1])
+
+            # Wait until URL contains WEBACCOUNTREDIRECT
+            wait.until(ec.url_contains("WEBACCOUNTREDIRECT"))
+
+            # ✅ Now you can continue actions on the new tab
+            print("Now working in:", self.driver.current_url)
+            #self.safe_click(accounting_menu, "Accounting Module")
             logger.info("Clicked on Accounting menu")
         except Exception as e:
             logger.error(f"Failed to click on Accounting menu: {e}")
@@ -186,12 +197,192 @@ class TestERPFlowCreation:
                           attachment_type=allure.attachment_type.PNG)
             raise NavigationError(f"Could not navigate to Accounting module: {e}")
 
+        #Navigate to Transactions
+        try:
+            time.sleep(5)
+            transactions_menu = WebDriverWait(self.driver, 10).until(
+                ec.element_to_be_clickable(
+                    (By.XPATH, "//a[contains(@class, 'main-menu-button') and contains(., 'Transactions')]"))
+            )
+            self.safe_click(transactions_menu, "Transactions menu")
+            logger.info("Successfully clicked on Transactions menu")
+        except Exception  as e:
+            logger.error(f"Failed to click on Transactions menu: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Transactions Menu Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Could not navigate to Transactions: {e}")
 
+        #Navigate to Voucher Entries
+        try:
+            time.sleep(10)
+            voucher_entries_menu = self.driver.find_element(By.LINK_TEXT, "Voucher Entries")
+            voucher_entries_menu.click()
+            logger.info("Clicked on Voucher Entries menu")
+        except Exception as e:
+            logger.error(f"Failed to click on Voucher Entries menu: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Voucher Entries Menu Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Could not navigate to Voucher Entries: {e}")
+
+        # CLick on Dropdown named Journal Voucher
+        try:
+            time.sleep(5)
+            # journal_voucher_dropdown = WebDriverWait(self.driver, 10).until(
+            #     ec.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'dropdown-toggle') and contains(., 'Journal Voucher')]"))
+            # )
+            # self.safe_click(journal_voucher_dropdown, "Journal Voucher dropdown")
+            sales_tax_invoice = wait.until(ec.visibility_of_element_located((By.LINK_TEXT, "Journal Voucher")))
+            sales_tax_invoice.click()
+            time.sleep(10)
+            logger.info("Clicked on Journal Voucher dropdown")
+        except Exception as e:
+            logger.error(f"Failed to click on Journal Voucher dropdown: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Journal Voucher Dropdown Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Could not navigate to Journal Voucher: {e}")
+
+         # Generate Random Refno
+        try:
+            time.sleep(5)
+            # ref_no_field = WebDriverWait(self.driver, 10).until(
+            #     ec.element_to_be_clickable((By.XPATH, "//input[@formcontrolname='refNo']"))
+            # )
+            # ref_no_field.clear()
+            # ref_no_field.send_keys("RefNo-" + str(int(time.time())))
+
+            def generate_random_refno(length=8):
+                letters_and_digits = string.ascii_letters + string.digits
+                return ''.join(random.choice(letters_and_digits) for i in range(length))
+
+            # Generate the random refno
+            random_refno = generate_random_refno()
+            print(f"Generated Refno: {random_refno}")
+
+            # Find the input field by ID and input the random refno
+            refno_input = self.driver.find_element(By.ID, "refno")
+            refno_input.clear()
+            refno_input.send_keys(random_refno)
+
+            time.sleep(3)
+            logger.info("Entered random RefNo")
+        except Exception as e:
+            logger.error(f"Failed to enter RefNo: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="RefNo Field Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Could not find or interact with RefNo field: {e}")
+
+        # Entering Account first ledger
+        try:
+            time.sleep(5)
+            wait = WebDriverWait(self.driver, 10)
+            ledger1 = wait.until(ec.presence_of_element_located((By.ID, "ACCODEInput_0")))
+            ledger1.send_keys(Keys.ENTER)
+            time.sleep(5)
+            self.driver.switch_to.active_element.send_keys(ledgeraccount1 ,"PURCHASE A/C", Keys.ENTER)
+            time.sleep(5)
+            logger.info("Entered first Account Ledger")
+        except Exception as e:
+            logger.error(f"Failed to enter first Account Ledger: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Account Ledger Field Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Could not find or interact with Account Ledger field: {e}")
+
+        # Entering Amount for first ledger
+        try:
+            time.sleep(5)
+            self.driver.switch_to.active_element.send_keys('10', Keys.TAB)
+            time.sleep(3)
+            logger.info("Entered Amount for first ledger")
+        except Exception as e:
+            logger.error(f"Failed to enter Amount for first ledger: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Amount Field Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Could not find or interact with Amount field: {e}")
+
+        #Press enter in narration to add another ledger
+        try:
+
+            self.driver.switch_to.active_element.send_keys( Keys.ENTER)
+            logger.info("Pressed Enter to add another ledger")
+
+        except Exception as e:
+            logger.error(f"Failed to press Enter for adding another ledger: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Enter Key Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Could not press Enter key: {e}")
+
+            # Entering Account first ledger
+        try:
+                time.sleep(5)
+                wait = WebDriverWait(self.driver, 10)
+                ledger2 = wait.until(ec.presence_of_element_located((By.ID, "ACCODEInput_1")))
+                ledger2.send_keys(Keys.ENTER)
+                time.sleep(5)
+                self.driver.switch_to.active_element.send_keys(ledgeraccount2, "PURCHASE A/C", Keys.ARROW_DOWN ,Keys.ENTER)
+                time.sleep(5)
+                logger.info("Entered first Account Ledger")
+        except Exception as e:
+                logger.error(f"Failed to enter first Account Ledger: {e}")
+                allure.attach(self.driver.get_screenshot_as_png(),
+                              name="Account Ledger Field Error",
+                              attachment_type=allure.attachment_type.PNG)
+                raise FormFieldNotFoundError(f"Could not find or interact with Account Ledger field: {e}")
+
+        # Entering Amount for second ledger
+        try:
+                time.sleep(5)
+                self.driver.switch_to.active_element.send_keys(Keys.TAB)
+                self.driver.switch_to.active_element.send_keys('10', Keys.TAB)
+                time.sleep(3)
+                logger.info("Entered Amount for first ledger")
+        except Exception as e:
+                logger.error(f"Failed to enter Amount for first ledger: {e}")
+                allure.attach(self.driver.get_screenshot_as_png(),
+                              name="Amount Field Error",
+                              attachment_type=allure.attachment_type.PNG)
+                raise FormFieldNotFoundError(f"Could not find or interact with Amount field: {e}")
+        #saving the voucher
+        try:
+            time.sleep(5)
+            save_button = self.driver.find_element(By.XPATH, "//button[contains(text(),'SAVE')]")
+            save_button.click()
+
+            logger.info("Clicked on Save button")
+        except Exception as e:
+            logger.error(f"Failed to click on Save button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Save Button Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise AccountingError(f"Could not save the voucher: {e}")
+        #Print alert Handle
+        try:
+           time.sleep(10)
+           self.driver.switch_to.active_element.send_keys(Keys.ENTER)
+           time.sleep(10)
+           self.driver.switch_to.active_element.send_keys(Keys.ENTER)
+        except Exception as e:
+            logger.error(f"Failed to handle alert after saving: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Alert Handling Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise PopupHandlingError(f"Could not handle alert after saving: {e}")
+
+
+        time.sleep(10)
+
+    allure.step("Login to the application")
     def test_login(self):
-         allure.step("Login to the application")
          self.login("gedehim917@decodewp.com",
                "Tebahal1!",
                "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
 
-         self.navigate_to_accounting()
+         self.navigate_to_accounting(ledgeraccount1="PURCHASE A/C" , ledgeraccount2="PURCHASE A/C")
 
+    time.sleep(10)

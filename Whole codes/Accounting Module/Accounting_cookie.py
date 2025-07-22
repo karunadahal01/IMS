@@ -9,9 +9,9 @@ from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.keys import Keys
 import string
 import random
-import pyautogui
 from selenium.webdriver.common.action_chains import ActionChains
-
+import pickle
+import os
 
 #--------------------------------------------------------
 # Logging setup
@@ -60,7 +60,30 @@ class AccountingError(Exception):
 # Test class
 @allure.feature("Test ERP FLow Creation")
 class TestERPFlowCreation:
+    ##############################################################################################################
+    # Cookie based login
 
+
+    def save_cookies(self, path="cookies.pkl"):
+        with open(path, "wb") as file:
+            pickle.dump(self.driver.get_cookies(), file)
+        logger.info("Cookies saved successfully")
+
+    def load_cookies(self, path="cookies.pkl", domain="https://velvet.webredirect.himshang.com.np"):
+        self.driver.get(domain)
+        if not os.path.exists(path):
+            logger.warning("Cookies file not found, performing fresh login")
+            return False
+
+        with open(path, "rb") as file:
+            cookies = pickle.load(file)
+        for cookie in cookies:
+            self.driver.add_cookie(cookie)
+        self.driver.refresh()
+        logger.info("Cookies loaded and session restored")
+        return True
+
+    ###################################################
 
     @allure.step("Setup WebDriver")
     def setup_method(self, method):
@@ -246,15 +269,7 @@ class TestERPFlowCreation:
             raise NavigationError(f"Could not navigate to Journal Voucher: {e}")
 
          # Generate Random Refno
-
-        # pyautogui.click()
-
-        body = self.driver.find_element(By.TAG_NAME, "body")
-
-        # Perform click
-        body.click()
         try:
-
             time.sleep(5)
             # ref_no_field = WebDriverWait(self.driver, 10).until(
             #     ec.element_to_be_clickable((By.XPATH, "//input[@formcontrolname='refNo']"))
@@ -263,8 +278,8 @@ class TestERPFlowCreation:
             # ref_no_field.send_keys("RefNo-" + str(int(time.time())))
 
             def generate_random_refno(length=8):
-                digits = string.digits
-                return ''.join(random.choice(digits) for i in range(length))
+                letters_and_digits = string.ascii_letters + string.digits
+                return ''.join(random.choice(letters_and_digits) for i in range(length))
 
             # Generate the random refno
             random_refno = generate_random_refno()
@@ -283,7 +298,7 @@ class TestERPFlowCreation:
                           name="RefNo Field Error",
                           attachment_type=allure.attachment_type.PNG)
             raise FormFieldNotFoundError(f"Could not find or interact with RefNo field: {e}")
-#########################################################################################
+
         # Entering Account first ledger
         try:
             time.sleep(5)
@@ -291,9 +306,7 @@ class TestERPFlowCreation:
             ledger1 = wait.until(ec.presence_of_element_located((By.ID, "ACCODEInput_0")))
             ledger1.send_keys(Keys.ENTER)
             time.sleep(5)
-            self.driver.switch_to.active_element.send_keys(ledgeraccount1 )
-           # self.driver.switch_to.active_element.send_keys(Keys.ARROW_DOWN)
-            self.driver.switch_to.active_element.send_keys(Keys.ENTER)
+            self.driver.switch_to.active_element.send_keys(ledgeraccount1 ,"PURCHASE A/C", Keys.ENTER)
             time.sleep(5)
             logger.info("Entered first Account Ledger")
         except Exception as e:
@@ -306,7 +319,7 @@ class TestERPFlowCreation:
         # Entering Amount for first ledger
         try:
             time.sleep(5)
-            self.driver.switch_to.active_element.send_keys('100', Keys.TAB)
+            self.driver.switch_to.active_element.send_keys('10', Keys.TAB)
             time.sleep(3)
             logger.info("Entered Amount for first ledger")
         except Exception as e:
@@ -328,17 +341,15 @@ class TestERPFlowCreation:
                           name="Enter Key Error",
                           attachment_type=allure.attachment_type.PNG)
             raise FormFieldNotFoundError(f"Could not press Enter key: {e}")
-##############################################################################################
-            # Entering Account second ledger
+
+            # Entering Account first ledger
         try:
                 time.sleep(5)
                 wait = WebDriverWait(self.driver, 10)
                 ledger2 = wait.until(ec.presence_of_element_located((By.ID, "ACCODEInput_1")))
                 ledger2.send_keys(Keys.ENTER)
                 time.sleep(5)
-                self.driver.switch_to.active_element.send_keys(ledgeraccount2)
-                self.driver.switch_to.active_element.send_keys(Keys.ARROW_DOWN)
-                self.driver.switch_to.active_element.send_keys(Keys.ENTER)
+                self.driver.switch_to.active_element.send_keys(ledgeraccount2, "PURCHASE A/C", Keys.ARROW_DOWN ,Keys.ENTER)
                 time.sleep(5)
                 logger.info("Entered first Account Ledger")
         except Exception as e:
@@ -350,25 +361,20 @@ class TestERPFlowCreation:
 
         # Entering Amount for second ledger
         try:
-
-                self.driver.switch_to.active_element.send_keys(Keys.TAB)
-                self.driver.switch_to.active_element.send_keys(Keys.ENTER)
-                time.sleep(3)
-                self.driver.switch_to.active_element.send_keys('100')
                 time.sleep(5)
-                logger.info("Entered Amount for second ledger")
+                self.driver.switch_to.active_element.send_keys(Keys.TAB)
+                self.driver.switch_to.active_element.send_keys('10', Keys.TAB)
+                time.sleep(3)
+                logger.info("Entered Amount for first ledger")
         except Exception as e:
-                logger.error(f"Failed to enter Amount for Second ledger: {e}")
+                logger.error(f"Failed to enter Amount for first ledger: {e}")
                 allure.attach(self.driver.get_screenshot_as_png(),
                               name="Amount Field Error",
                               attachment_type=allure.attachment_type.PNG)
                 raise FormFieldNotFoundError(f"Could not find or interact with Amount field: {e}")
-
-    ######################################################################################
-
         #saving the voucher
         try:
-            #self.driver.switch_to.active_element.send_keys(Keys.SHIFT)
+            self.driver.switch_to.active_element.send_keys(Keys.SHIFT)
             time.sleep(5)
             save_button = self.driver.find_element(By.XPATH, "//button[contains(text(),'SAVE')]")
             save_button.click()
@@ -382,11 +388,9 @@ class TestERPFlowCreation:
             raise AccountingError(f"Could not save the voucher: {e}")
         #Print alert Handle
         try:
-           time.sleep(6)
+           time.sleep(10)
            self.driver.switch_to.active_element.send_keys(Keys.ENTER)
-           time.sleep(6)
-           self.driver.switch_to.active_element.send_keys(Keys.ENTER)
-           time.sleep(6)
+           time.sleep(10)
            self.driver.switch_to.active_element.send_keys(Keys.ENTER)
         except Exception as e:
             logger.error(f"Failed to handle alert after saving: {e}")
@@ -398,12 +402,27 @@ class TestERPFlowCreation:
 
         time.sleep(10)
 
-    allure.step("Login to the application")
+    @allure.step("Login to the application")
     def test_login(self):
-         self.login("gedehim917@decodewp.com",
-               "Tebahal1!",
-               "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+        logged_in = self.load_cookies()
 
-         self.navigate_to_accounting(ledgeraccount1="PURCHASE A/C" , ledgeraccount2="PURCHASE A/C")
+        if not logged_in:
+            self.login(
+                "gedehim917@decodewp.com",
+                "Tebahal1!",
+                "https://velvet.webredirect.himshang.com.np/#/pages/dashboard"
+            )
+            self.save_cookies()  # Save after successful login
+
+        self.navigate_to_accounting(ledgeraccount1="PURCHASE A/C", ledgeraccount2="PURCHASE A/C")
+
+    #
+    # allure.step("Login to the application")
+    # def test_login(self):
+    #      self.login("gedehim917@decodewp.com",
+    #            "Tebahal1!",
+    #            "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+    #
+    #      self.navigate_to_accounting(ledgeraccount1="PURCHASE A/C" , ledgeraccount2="PURCHASE A/C")
 
     time.sleep(10)

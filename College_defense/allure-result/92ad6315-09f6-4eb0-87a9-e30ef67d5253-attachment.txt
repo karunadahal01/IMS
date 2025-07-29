@@ -1,0 +1,1 @@
+[31m[1mERROR   [0m test_flow:test_flow.py:630 Error handling 'Do you wanna add another product?' alert: Message:

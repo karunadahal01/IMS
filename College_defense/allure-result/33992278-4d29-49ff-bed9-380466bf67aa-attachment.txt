@@ -1,0 +1,207 @@
+Step 5: Waiting for dashboard to load...
+Step 6: Clicking on 'Transactions' menu...
+Step 6.1: Debugging available navigation elements...
+Navigation debug failed: Message: invalid selector: Unable to locate an element with the xpath expression //a | //div[@class*='nav'] | //span[@class*='nav'] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//a | //div[@class*='nav'] | //span[@class*='nav']' is not a valid XPath expression.
+  (Session info: chrome=138.0.7204.169); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e885e935+77845]
+	GetHandleVerifier [0x0x7ff7e885e990+77936]
+	(No symbol) [0x0x7ff7e8619cda]
+	(No symbol) [0x0x7ff7e8621679]
+	(No symbol) [0x0x7ff7e862471c]
+	(No symbol) [0x0x7ff7e86247ef]
+	(No symbol) [0x0x7ff7e866ff57]
+	(No symbol) [0x0x7ff7e867095c]
+	(No symbol) [0x0x7ff7e86c3d37]
+	(No symbol) [0x0x7ff7e869890f]
+	(No symbol) [0x0x7ff7e86c0b07]
+	(No symbol) [0x0x7ff7e86986a3]
+	(No symbol) [0x0x7ff7e8661791]
+	(No symbol) [0x0x7ff7e8662523]
+	GetHandleVerifier [0x0x7ff7e8b3684d+3059501]
+	GetHandleVerifier [0x0x7ff7e8b30c0d+3035885]
+	GetHandleVerifier [0x0x7ff7e8b50400+3164896]
+	GetHandleVerifier [0x0x7ff7e8878c3e+185118]
+	GetHandleVerifier [0x0x7ff7e888054f+216111]
+	GetHandleVerifier [0x0x7ff7e88672e4+113092]
+	GetHandleVerifier [0x0x7ff7e8867499+113529]
+	GetHandleVerifier [0x0x7ff7e884e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+  Trying selector 1: //a[contains(text(), 'Transactions')]
+  ✗ Selector 1 failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7...
+  Trying selector 2: //div[contains(text(), 'Transactions')]
+  ✗ Selector 2 failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7...
+  Trying selector 3: //span[contains(text(), 'Transactions')]
+✓ Successfully clicked on 'Transactions' using selector 3
+⚠️ Trying alternative approach for Purchase Transaction hover...
+✓ Hovered over 'Purchase Transaction' using fallback method
+Step 8: Clicking on 'Purchase Invoice' from dropdown...
+  Trying Purchase Invoice selector 1: //*[@class='dropdown-item' and contains(text(), 'Purchase Invoice')]
+  ✗ Purchase Invoice selector 1 failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e885e935+77845]
+	GetHandleVerifier [0x0x7ff7e885e9...
+  Trying Purchase Invoice selector 2: //*[contains(@class, 'menu-item') and contains(text(), 'Purchase Invoice')]
+  ✗ Purchase Invoice selector 2 failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e885e935+77845]
+	GetHandleVerifier [0x0x7ff7e885e9...
+⚠️ Trying alternative approach for Purchase Invoice...
+Found 2 elements containing 'Purchase Invoice'
+✓ Clicked on 'Purchase Invoice' using fallback method
+Generated Invoice Number: INV-PS0II0
+✓ Successfully entered Invoice Number: INV-PS0II0
+⚠️ Failed to open Account dropdown using primary method: Could not find Account field
+✓ Successfully opened Account dropdown using fallback method
+Step 11: Selecting first account by pressing Enter again...
+✓ Successfully pressed Enter on focused element to select first account
+
+==================================================
+✓ NEW FUNCTIONALITY COMPLETED SUCCESSFULLY!
+✓ Account dropdown opened by pressing Enter
+✓ First account selected by pressing Enter again
+==================================================
+
+✅ Remarks entered successfully.
+Generated quantity: 149
+⚠ Failed with XPath: //table//tr//td[position()=9]//input -> Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e885e935+77845]
+	GetHandleVerifier [0x0x7ff7e885e990+77936]
+	(No symbol) [0x0x7ff7e8619cda]
+	(No symbol) [0x0x7ff7e86706aa]
+	(No symbol) [0x0x7ff7e867095c]
+	(No symbol) [0x0x7ff7e86c3d07]
+	(No symbol) [0x0x7ff7e869890f]
+	(No symbol) [0x0x7ff7e86c0b07]
+	(No symbol) [0x0x7ff7e86986a3]
+	(No symbol) [0x0x7ff7e8661791]
+	(No symbol) [0x0x7ff7e8662523]
+	GetHandleVerifier [0x0x7ff7e8b3684d+3059501]
+	GetHandleVerifier [0x0x7ff7e8b30c0d+3035885]
+	GetHandleVerifier [0x0x7ff7e8b50400+3164896]
+	GetHandleVerifier [0x0x7ff7e8878c3e+185118]
+	GetHandleVerifier [0x0x7ff7e888054f+216111]
+	GetHandleVerifier [0x0x7ff7e88672e4+113092]
+	GetHandleVerifier [0x0x7ff7e8867499+113529]
+	GetHandleVerifier [0x0x7ff7e884e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+⚠ Failed with XPath: //input[contains(@name, 'quantity') or contains(@name, 'Quantity')] -> Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e885e935+77845]
+	GetHandleVerifier [0x0x7ff7e885e990+77936]
+	(No symbol) [0x0x7ff7e8619cda]
+	(No symbol) [0x0x7ff7e86706aa]
+	(No symbol) [0x0x7ff7e867095c]
+	(No symbol) [0x0x7ff7e86c3d07]
+	(No symbol) [0x0x7ff7e869890f]
+	(No symbol) [0x0x7ff7e86c0b07]
+	(No symbol) [0x0x7ff7e86986a3]
+	(No symbol) [0x0x7ff7e8661791]
+	(No symbol) [0x0x7ff7e8662523]
+	GetHandleVerifier [0x0x7ff7e8b3684d+3059501]
+	GetHandleVerifier [0x0x7ff7e8b30c0d+3035885]
+	GetHandleVerifier [0x0x7ff7e8b50400+3164896]
+	GetHandleVerifier [0x0x7ff7e8878c3e+185118]
+	GetHandleVerifier [0x0x7ff7e888054f+216111]
+	GetHandleVerifier [0x0x7ff7e88672e4+113092]
+	GetHandleVerifier [0x0x7ff7e8867499+113529]
+	GetHandleVerifier [0x0x7ff7e884e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+✅ Quantity entered and Enter key pressed.
+Generated discount: 4%
+✅ Discount entered.
+❌ Discount input not found: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e885e935+77845]
+	GetHandleVerifier [0x0x7ff7e885e990+77936]
+	(No symbol) [0x0x7ff7e8619cda]
+	(No symbol) [0x0x7ff7e86706aa]
+	(No symbol) [0x0x7ff7e867095c]
+	(No symbol) [0x0x7ff7e86c3d07]
+	(No symbol) [0x0x7ff7e869890f]
+	(No symbol) [0x0x7ff7e86c0b07]
+	(No symbol) [0x0x7ff7e86986a3]
+	(No symbol) [0x0x7ff7e8661791]
+	(No symbol) [0x0x7ff7e8662523]
+	GetHandleVerifier [0x0x7ff7e8b3684d+3059501]
+	GetHandleVerifier [0x0x7ff7e8b30c0d+3035885]
+	GetHandleVerifier [0x0x7ff7e8b50400+3164896]
+	GetHandleVerifier [0x0x7ff7e8878c3e+185118]
+	GetHandleVerifier [0x0x7ff7e888054f+216111]
+	GetHandleVerifier [0x0x7ff7e88672e4+113092]
+	GetHandleVerifier [0x0x7ff7e8867499+113529]
+	GetHandleVerifier [0x0x7ff7e884e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+Alert accepted successfully.
+Clicked on 'Transactions'
+Clicked 'Sales Tax Invoice'
+Generated Refno: tDX20GvX
+✅ Remarks entered successfully.
+Generated quantity: 40
+⚠ Failed with XPath: //table//tr//td[position()=9]//input -> Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e885e935+77845]
+	GetHandleVerifier [0x0x7ff7e885e990+77936]
+	(No symbol) [0x0x7ff7e8619cda]
+	(No symbol) [0x0x7ff7e86706aa]
+	(No symbol) [0x0x7ff7e867095c]
+	(No symbol) [0x0x7ff7e86c3d07]
+	(No symbol) [0x0x7ff7e869890f]
+	(No symbol) [0x0x7ff7e86c0b07]
+	(No symbol) [0x0x7ff7e86986a3]
+	(No symbol) [0x0x7ff7e8661791]
+	(No symbol) [0x0x7ff7e8662523]
+	GetHandleVerifier [0x0x7ff7e8b3684d+3059501]
+	GetHandleVerifier [0x0x7ff7e8b30c0d+3035885]
+	GetHandleVerifier [0x0x7ff7e8b50400+3164896]
+	GetHandleVerifier [0x0x7ff7e8878c3e+185118]
+	GetHandleVerifier [0x0x7ff7e888054f+216111]
+	GetHandleVerifier [0x0x7ff7e88672e4+113092]
+	GetHandleVerifier [0x0x7ff7e8867499+113529]
+	GetHandleVerifier [0x0x7ff7e884e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+⚠ Failed with XPath: //input[contains(@name, 'quantity') or contains(@name, 'Quantity')] -> Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e885e935+77845]
+	GetHandleVerifier [0x0x7ff7e885e990+77936]
+	(No symbol) [0x0x7ff7e8619cda]
+	(No symbol) [0x0x7ff7e86706aa]
+	(No symbol) [0x0x7ff7e867095c]
+	(No symbol) [0x0x7ff7e86c3d07]
+	(No symbol) [0x0x7ff7e869890f]
+	(No symbol) [0x0x7ff7e86c0b07]
+	(No symbol) [0x0x7ff7e86986a3]
+	(No symbol) [0x0x7ff7e8661791]
+	(No symbol) [0x0x7ff7e8662523]
+	GetHandleVerifier [0x0x7ff7e8b3684d+3059501]
+	GetHandleVerifier [0x0x7ff7e8b30c0d+3035885]
+	GetHandleVerifier [0x0x7ff7e8b50400+3164896]
+	GetHandleVerifier [0x0x7ff7e8878c3e+185118]
+	GetHandleVerifier [0x0x7ff7e888054f+216111]
+	GetHandleVerifier [0x0x7ff7e88672e4+113092]
+	GetHandleVerifier [0x0x7ff7e8867499+113529]
+	GetHandleVerifier [0x0x7ff7e884e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+✅ Quantity entered and Enter key pressed.
+Generated Flat Discount: 40%
+Clicked on 'Transactions'
+Clicked 'Credit Note (Sales Return)'
+✅ Remarks entered successfully.

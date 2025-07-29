@@ -1,0 +1,4 @@
+Clicked on 'Masters'
+Clicked 'Product Master'
+Unit selected.
+Keeping browser open for 30 seconds for observation...

@@ -1,0 +1,58 @@
+Clicked on 'Transactions'
+Clicked 'Sales Tax Invoice'
+Generated Refno: oL7z79qF
+✅ Remarks entered successfully.
+Generated quantity: 80
+⚠ Failed with XPath: //table//tr//td[position()=9]//input -> Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff65331e935+77845]
+	GetHandleVerifier [0x0x7ff65331e990+77936]
+	(No symbol) [0x0x7ff6530d9cda]
+	(No symbol) [0x0x7ff6531306aa]
+	(No symbol) [0x0x7ff65313095c]
+	(No symbol) [0x0x7ff653183d07]
+	(No symbol) [0x0x7ff65315890f]
+	(No symbol) [0x0x7ff653180b07]
+	(No symbol) [0x0x7ff6531586a3]
+	(No symbol) [0x0x7ff653121791]
+	(No symbol) [0x0x7ff653122523]
+	GetHandleVerifier [0x0x7ff6535f684d+3059501]
+	GetHandleVerifier [0x0x7ff6535f0c0d+3035885]
+	GetHandleVerifier [0x0x7ff653610400+3164896]
+	GetHandleVerifier [0x0x7ff653338c3e+185118]
+	GetHandleVerifier [0x0x7ff65334054f+216111]
+	GetHandleVerifier [0x0x7ff6533272e4+113092]
+	GetHandleVerifier [0x0x7ff653327499+113529]
+	GetHandleVerifier [0x0x7ff65330e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+⚠ Failed with XPath: //input[contains(@name, 'quantity') or contains(@name, 'Quantity')] -> Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff65331e935+77845]
+	GetHandleVerifier [0x0x7ff65331e990+77936]
+	(No symbol) [0x0x7ff6530d9cda]
+	(No symbol) [0x0x7ff6531306aa]
+	(No symbol) [0x0x7ff65313095c]
+	(No symbol) [0x0x7ff653183d07]
+	(No symbol) [0x0x7ff65315890f]
+	(No symbol) [0x0x7ff653180b07]
+	(No symbol) [0x0x7ff6531586a3]
+	(No symbol) [0x0x7ff653121791]
+	(No symbol) [0x0x7ff653122523]
+	GetHandleVerifier [0x0x7ff6535f684d+3059501]
+	GetHandleVerifier [0x0x7ff6535f0c0d+3035885]
+	GetHandleVerifier [0x0x7ff653610400+3164896]
+	GetHandleVerifier [0x0x7ff653338c3e+185118]
+	GetHandleVerifier [0x0x7ff65334054f+216111]
+	GetHandleVerifier [0x0x7ff6533272e4+113092]
+	GetHandleVerifier [0x0x7ff653327499+113529]
+	GetHandleVerifier [0x0x7ff65330e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+✅ Quantity entered and Enter key pressed.
+Generated Flat Discount: 44%
+Clicked on 'Transactions'
+Clicked 'Credit Note (Sales Return)'
+✅ Remarks entered successfully.

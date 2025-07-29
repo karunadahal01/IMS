@@ -576,6 +576,7 @@ class TestERPFlowCreation:
                 body = self.driver.find_element(By.TAG_NAME, "body")
                 body.send_keys(Keys.ENTER)
                 time.sleep(10)
+
         except Exception  as e:
             logger.error(f"Error handling 'Do you wanna add another product?' alert: {e}")
             allure.attach(self.driver.get_screenshot_as_png(),

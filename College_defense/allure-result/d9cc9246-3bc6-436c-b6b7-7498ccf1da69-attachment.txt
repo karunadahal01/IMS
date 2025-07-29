@@ -1,0 +1,28 @@
+[1m[31mERROR   [0m test_flow:test_flow.py:815 Failed to Open Account Name list: Message: invalid selector: Unable to locate an element with the xpath expression //input[preceding-sibling::label[contains(text(), 'Account')] or @placeholder*='Account' or contains(@formcontrolname, 'account')] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//input[preceding-sibling::label[contains(text(), 'Account')] or @placeholder*='Account' or contains(@formcontrolname, 'account')]' is not a valid XPath expression.
+  (Session info: chrome=138.0.7204.169); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6ad16e935+77845]
+	GetHandleVerifier [0x0x7ff6ad16e990+77936]
+	(No symbol) [0x0x7ff6acf29cda]
+	(No symbol) [0x0x7ff6acf31679]
+	(No symbol) [0x0x7ff6acf3471c]
+	(No symbol) [0x0x7ff6acf347ef]
+	(No symbol) [0x0x7ff6acf7ff57]
+	(No symbol) [0x0x7ff6acf8095c]
+	(No symbol) [0x0x7ff6acfd3d07]
+	(No symbol) [0x0x7ff6acfa890f]
+	(No symbol) [0x0x7ff6acfd0b07]
+	(No symbol) [0x0x7ff6acfa86a3]
+	(No symbol) [0x0x7ff6acf71791]
+	(No symbol) [0x0x7ff6acf72523]
+	GetHandleVerifier [0x0x7ff6ad44684d+3059501]
+	GetHandleVerifier [0x0x7ff6ad440c0d+3035885]
+	GetHandleVerifier [0x0x7ff6ad460400+3164896]
+	GetHandleVerifier [0x0x7ff6ad188c3e+185118]
+	GetHandleVerifier [0x0x7ff6ad19054f+216111]
+	GetHandleVerifier [0x0x7ff6ad1772e4+113092]
+	GetHandleVerifier [0x0x7ff6ad177499+113529]
+	GetHandleVerifier [0x0x7ff6ad15e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]

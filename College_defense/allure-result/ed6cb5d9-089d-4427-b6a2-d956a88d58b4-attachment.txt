@@ -1,0 +1,17 @@
+⚠️ Trying alternative approach for Purchase Transaction hover...
+✓ Hovered over 'Purchase Transaction' using fallback method
+  Trying Purchase Invoice selector 1: //*[@class='dropdown-item' and contains(text(), 'Purchase Invoice')]
+  ✗ Purchase Invoice selector 1 failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6ad16e935+77845]
+	GetHandleVerifier [0x0x7ff6ad16e9...
+  Trying Purchase Invoice selector 2: //*[contains(@class, 'menu-item') and contains(text(), 'Purchase Invoice')]
+  ✗ Purchase Invoice selector 2 failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6ad16e935+77845]
+	GetHandleVerifier [0x0x7ff6ad16e9...
+⚠️Trying alternative approach for Purchase Invoice...
+Found 2 elements containing 'Purchase Invoice'
+✓ Clicked on 'Purchase Invoice' using fallback method
+Generated Invoice Number: INV-0S9X9W
+✓ Successfully entered Invoice Number: INV-0S9X9W

@@ -1,0 +1,56 @@
+Clicked on 'Transactions'
+Clicked 'Sales Tax Invoice'
+Generated Refno: DkUkAhWA
+✅ Remarks entered successfully.
+Generated quantity: 28
+⚠ Failed with XPath: //table//tr//td[position()=9]//input -> Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6d9ace935+77845]
+	GetHandleVerifier [0x0x7ff6d9ace990+77936]
+	(No symbol) [0x0x7ff6d9889cda]
+	(No symbol) [0x0x7ff6d98e06aa]
+	(No symbol) [0x0x7ff6d98e095c]
+	(No symbol) [0x0x7ff6d9933d07]
+	(No symbol) [0x0x7ff6d990890f]
+	(No symbol) [0x0x7ff6d9930b07]
+	(No symbol) [0x0x7ff6d99086a3]
+	(No symbol) [0x0x7ff6d98d1791]
+	(No symbol) [0x0x7ff6d98d2523]
+	GetHandleVerifier [0x0x7ff6d9da684d+3059501]
+	GetHandleVerifier [0x0x7ff6d9da0c0d+3035885]
+	GetHandleVerifier [0x0x7ff6d9dc0400+3164896]
+	GetHandleVerifier [0x0x7ff6d9ae8c3e+185118]
+	GetHandleVerifier [0x0x7ff6d9af054f+216111]
+	GetHandleVerifier [0x0x7ff6d9ad72e4+113092]
+	GetHandleVerifier [0x0x7ff6d9ad7499+113529]
+	GetHandleVerifier [0x0x7ff6d9abe298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+⚠ Failed with XPath: //input[contains(@name, 'quantity') or contains(@name, 'Quantity')] -> Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6d9ace935+77845]
+	GetHandleVerifier [0x0x7ff6d9ace990+77936]
+	(No symbol) [0x0x7ff6d9889cda]
+	(No symbol) [0x0x7ff6d98e06aa]
+	(No symbol) [0x0x7ff6d98e095c]
+	(No symbol) [0x0x7ff6d9933d07]
+	(No symbol) [0x0x7ff6d990890f]
+	(No symbol) [0x0x7ff6d9930b07]
+	(No symbol) [0x0x7ff6d99086a3]
+	(No symbol) [0x0x7ff6d98d1791]
+	(No symbol) [0x0x7ff6d98d2523]
+	GetHandleVerifier [0x0x7ff6d9da684d+3059501]
+	GetHandleVerifier [0x0x7ff6d9da0c0d+3035885]
+	GetHandleVerifier [0x0x7ff6d9dc0400+3164896]
+	GetHandleVerifier [0x0x7ff6d9ae8c3e+185118]
+	GetHandleVerifier [0x0x7ff6d9af054f+216111]
+	GetHandleVerifier [0x0x7ff6d9ad72e4+113092]
+	GetHandleVerifier [0x0x7ff6d9ad7499+113529]
+	GetHandleVerifier [0x0x7ff6d9abe298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+
+✅ Quantity entered and Enter key pressed.
+Generated Flat Discount: 45%
+Keeping browser open for 30 seconds for observation...

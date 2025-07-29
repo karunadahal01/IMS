@@ -1,0 +1,26 @@
+[31m[1mERROR   [0m test_flow:test_flow.py:346 Error entering HSC code: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: Unable to receive message from renderer
+  (Session info: chrome=138.0.7204.169)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e0f2e935+77845]
+	GetHandleVerifier [0x0x7ff7e0f2e990+77936]
+	(No symbol) [0x0x7ff7e0ce9cda]
+	(No symbol) [0x0x7ff7e0cd75ec]
+	(No symbol) [0x0x7ff7e0cd72da]
+	(No symbol) [0x0x7ff7e0cd613e]
+	(No symbol) [0x0x7ff7e0cfaabe]
+	(No symbol) [0x0x7ff7e0d6feb5]
+	(No symbol) [0x0x7ff7e0d90432]
+	(No symbol) [0x0x7ff7e0d686a3]
+	(No symbol) [0x0x7ff7e0d31791]
+	(No symbol) [0x0x7ff7e0d32523]
+	GetHandleVerifier [0x0x7ff7e120684d+3059501]
+	GetHandleVerifier [0x0x7ff7e1200c0d+3035885]
+	GetHandleVerifier [0x0x7ff7e1220400+3164896]
+	GetHandleVerifier [0x0x7ff7e0f48c3e+185118]
+	GetHandleVerifier [0x0x7ff7e0f5054f+216111]
+	GetHandleVerifier [0x0x7ff7e0f372e4+113092]
+	GetHandleVerifier [0x0x7ff7e0f37499+113529]
+	GetHandleVerifier [0x0x7ff7e0f1e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]

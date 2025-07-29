@@ -1,0 +1,3 @@
+Clicked on 'Masters'
+Clicked 'Product Master'
+Unit selected.

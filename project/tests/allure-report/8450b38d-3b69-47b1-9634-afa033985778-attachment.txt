@@ -1,0 +1,34 @@
+[32mINFO    [0m utils.driver_utils:driver_utils.py:23 WebDriver initialized successfully
+[32mINFO    [0m pages.login_page:login_page.py:30 Navigated to: https://velvet.webredirect.himshang.com.np/#/pages/dashboard
+[32mINFO    [0m pages.login_page:login_page.py:36 Entered username
+[32mINFO    [0m pages.login_page:login_page.py:42 Entered password
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Sign In button using normal click
+[32mINFO    [0m pages.login_page:login_page.py:56 Already Logged In popup detected
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Logout button using normal click
+[32mINFO    [0m pages.login_page:login_page.py:60 Logout button clicked successfully
+[32mINFO    [0m pages.login_page:login_page.py:67 Pressed Enter on Sign In button after logout
+[1m[31mERROR   [0m pages.purchase_return_page:purchase_return_page.py:71 Failed to navigate to Purchase Return: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff73e5de935+77845]
+	GetHandleVerifier [0x0x7ff73e5de990+77936]
+	(No symbol) [0x0x7ff73e399cda]
+	(No symbol) [0x0x7ff73e3f06aa]
+	(No symbol) [0x0x7ff73e3f095c]
+	(No symbol) [0x0x7ff73e443d07]
+	(No symbol) [0x0x7ff73e41890f]
+	(No symbol) [0x0x7ff73e440b07]
+	(No symbol) [0x0x7ff73e4186a3]
+	(No symbol) [0x0x7ff73e3e1791]
+	(No symbol) [0x0x7ff73e3e2523]
+	GetHandleVerifier [0x0x7ff73e8b684d+3059501]
+	GetHandleVerifier [0x0x7ff73e8b0c0d+3035885]
+	GetHandleVerifier [0x0x7ff73e8d0400+3164896]
+	GetHandleVerifier [0x0x7ff73e5f8c3e+185118]
+	GetHandleVerifier [0x0x7ff73e60054f+216111]
+	GetHandleVerifier [0x0x7ff73e5e72e4+113092]
+	GetHandleVerifier [0x0x7ff73e5e7499+113529]
+	GetHandleVerifier [0x0x7ff73e5ce298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+[32mINFO    [0m utils.driver_utils:driver_utils.py:33 Cleaning up - closing driver
+[32mINFO    [0m utils.driver_utils:driver_utils.py:35 Driver closed successfully

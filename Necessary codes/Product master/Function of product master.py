@@ -8,7 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import random
 import string
 import time
-
+from selenium.webdriver.common.alert import Alert
 driver = webdriver.Chrome()
 def Login(username,password,link):
 
@@ -228,12 +228,16 @@ def product_master(driver,product_item,HS_code,unit,item_type,
     save_button.click()
     # Press enter to handle alert of "Do you want to add another product?"
     try:
-        body = driver.find_element(By.TAG_NAME, "body")
-        body.send_keys(Keys.ENTER)
-        time.sleep(10)
+        WebDriverWait(driver, 10).until(EC.alert_is_present())
+        driver.switch_to.alert.dismiss()
+        # alert = Alert(driver)
+        # alert.dismiss()
+        # body = driver.find_element(By.TAG_NAME, "body")
+        # body.send_keys(Keys.ENTER)
+        # time.sleep(10)
     except Exception as e:
         print(f"Error handling 'Do you wanna add another product?' alert: {e}")
-
+    time.sleep(20)
 
 #Function call
 Login(
@@ -242,7 +246,7 @@ Login(
       link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
 
 product_master(driver,
-               product_item="Testing1",
+               product_item="Testing67841",
                HS_code = "123",
                unit="kg.",
                item_type= "Service Item",
@@ -253,7 +257,7 @@ product_master(driver,
                sales_price="140",
                alt_unit="Each",
                conversion_factor="1000",
-               barcode_map="2020",
+               barcode_map="8067",
                barcode_unit="kg."
 
 

@@ -1,0 +1,2 @@
+Clicked on 'Masters'
+Clicked 'Product Master'

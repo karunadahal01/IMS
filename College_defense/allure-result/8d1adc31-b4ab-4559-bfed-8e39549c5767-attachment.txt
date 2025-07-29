@@ -1,0 +1,21 @@
+[1m[31mERROR   [0m test_flow:test_flow.py:590 Error handling 'Do you wanna add another product?' alert: Alert Text: Data Saved Successfully. Do you want to continue adding products to this group ?
+Message: unexpected alert open: {Alert text : Data Saved Successfully. Do you want to continue adding products to this group ?}
+  (Session info: chrome=138.0.7204.169)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6250de935+77845]
+	GetHandleVerifier [0x0x7ff6250de990+77936]
+	(No symbol) [0x0x7ff624e99cda]
+	(No symbol) [0x0x7ff624f41582]
+	(No symbol) [0x0x7ff624f186a3]
+	(No symbol) [0x0x7ff624ee1791]
+	(No symbol) [0x0x7ff624ee2523]
+	GetHandleVerifier [0x0x7ff6253b684d+3059501]
+	GetHandleVerifier [0x0x7ff6253b0c0d+3035885]
+	GetHandleVerifier [0x0x7ff6253d0400+3164896]
+	GetHandleVerifier [0x0x7ff6250f8c3e+185118]
+	GetHandleVerifier [0x0x7ff62510054f+216111]
+	GetHandleVerifier [0x0x7ff6250e72e4+113092]
+	GetHandleVerifier [0x0x7ff6250e7499+113529]
+	GetHandleVerifier [0x0x7ff6250ce298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]

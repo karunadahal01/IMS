@@ -1,0 +1,32 @@
+Clicked on 'Masters'
+Clicked 'Product Master'
+Unit selected.
+Navigation debug failed: Message: invalid selector: Unable to locate an element with the xpath expression //a | //div[@class*='nav'] | //span[@class*='nav'] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//a | //div[@class*='nav'] | //span[@class*='nav']' is not a valid XPath expression.
+  (Session info: chrome=138.0.7204.169); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7e0f2e935+77845]
+	GetHandleVerifier [0x0x7ff7e0f2e990+77936]
+	(No symbol) [0x0x7ff7e0ce9cda]
+	(No symbol) [0x0x7ff7e0cf1679]
+	(No symbol) [0x0x7ff7e0cf471c]
+	(No symbol) [0x0x7ff7e0cf47ef]
+	(No symbol) [0x0x7ff7e0d3ff57]
+	(No symbol) [0x0x7ff7e0d4095c]
+	(No symbol) [0x0x7ff7e0d93d37]
+	(No symbol) [0x0x7ff7e0d6890f]
+	(No symbol) [0x0x7ff7e0d90b07]
+	(No symbol) [0x0x7ff7e0d686a3]
+	(No symbol) [0x0x7ff7e0d31791]
+	(No symbol) [0x0x7ff7e0d32523]
+	GetHandleVerifier [0x0x7ff7e120684d+3059501]
+	GetHandleVerifier [0x0x7ff7e1200c0d+3035885]
+	GetHandleVerifier [0x0x7ff7e1220400+3164896]
+	GetHandleVerifier [0x0x7ff7e0f48c3e+185118]
+	GetHandleVerifier [0x0x7ff7e0f5054f+216111]
+	GetHandleVerifier [0x0x7ff7e0f372e4+113092]
+	GetHandleVerifier [0x0x7ff7e0f37499+113529]
+	GetHandleVerifier [0x0x7ff7e0f1e298+10616]
+	BaseThreadInitThunk [0x0x7ff840aa7374+20]
+	RtlUserThreadStart [0x0x7ff8419dcc91+33]
+

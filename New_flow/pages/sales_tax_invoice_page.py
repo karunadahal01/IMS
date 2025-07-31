@@ -19,7 +19,7 @@ class SalesTaxInvoicePage(BasePage):
     """Sales Tax Invoice page class with sales functionality."""
 
     # Locators
-    TRANSACTIONS_MENU = (By.LINK_TEXT, "Transactions")
+    TRANSACTIONS_MENU = (By.LINK_TEXT, "Transactions" , (By.XPATH, "//a[@title='Transactions']//span[contains(text(), 'Transactions')]"))
     SALES_TRANSACTION_MENU = (By.LINK_TEXT, "Sales Transaction")
     SALES_TAX_INVOICE_MENU = (By.LINK_TEXT, "Sales Tax Invoice")
     REFNO_INPUT = (By.ID, "refnoInput")

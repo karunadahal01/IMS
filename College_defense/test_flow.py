@@ -2214,7 +2214,7 @@ class TestERPFlowCreation:
                    "Tebahal1!",
                    "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
         self.product_master(
-            product_item="citizen2",
+            product_item="citizen23",
 
             HS_code="123",
             unit="kg.",
@@ -2226,7 +2226,7 @@ class TestERPFlowCreation:
             sales_price="140",
             alt_unit="Each",
             conversion_factor="1000",
-            barcode_map="57835",
+            barcode_map="5456035",
             barcode_unit="kg.")
 
     def test_purchase_flow(self):
@@ -2235,14 +2235,14 @@ class TestERPFlowCreation:
                    "Tebahal1!",
                    "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
         self.Purchase_invoice(
-                         barcode_purchase=57835)
+                         barcode_purchase=5456035)
 
     def test_sales_flow(self):
         self.login("gedehim917@decodewp.com",
                        "Tebahal1!",
                        "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
         self.sales_tax_invoice(
-                        barcode_sales=57835)
+                        barcode_sales=5456035)
 
         self.sales_return_full()
 

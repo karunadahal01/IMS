@@ -1,0 +1,33 @@
+[32mINFO    [0m utils.driver_utils:driver_utils.py:23 WebDriver initialized successfully
+[32mINFO    [0m pages.login_page:login_page.py:30 Navigated to: https://velvet.webredirect.himshang.com.np/#/pages/dashboard
+[32mINFO    [0m pages.login_page:login_page.py:36 Entered username
+[32mINFO    [0m pages.login_page:login_page.py:42 Entered password
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Sign In button using normal click
+[32mINFO    [0m pages.login_page:login_page.py:56 Already Logged In popup detected
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Logout button using normal click
+[32mINFO    [0m pages.login_page:login_page.py:60 Logout button clicked successfully
+[32mINFO    [0m pages.login_page:login_page.py:67 Pressed Enter on Sign In button after logout
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Add Product button using normal click
+[1m[31mERROR   [0m pages.product_master_page:product_master_page.py:290 Error saving product: Alert Text: Data Saved Successfully. Do you want to continue adding products to this group ?
+Message: unexpected alert open: {Alert text : Data Saved Successfully. Do you want to continue adding products to this group ?}
+  (Session info: chrome=138.0.7204.169)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6883be415+77285]
+	GetHandleVerifier [0x0x7ff6883be470+77376]
+	(No symbol) [0x0x7ff688189a6a]
+	(No symbol) [0x0x7ff688231336]
+	(No symbol) [0x0x7ff6882083e3]
+	(No symbol) [0x0x7ff6881d1521]
+	(No symbol) [0x0x7ff6881d22b3]
+	GetHandleVerifier [0x0x7ff6886a1efd+3107021]
+	GetHandleVerifier [0x0x7ff68869c29d+3083373]
+	GetHandleVerifier [0x0x7ff6886bbedd+3213485]
+	GetHandleVerifier [0x0x7ff6883d884e+184862]
+	GetHandleVerifier [0x0x7ff6883e055f+216879]
+	GetHandleVerifier [0x0x7ff6883c7084+113236]
+	GetHandleVerifier [0x0x7ff6883c7239+113673]
+	GetHandleVerifier [0x0x7ff6883ae298+11368]
+	BaseThreadInitThunk [0x0x7ffe85327374+20]
+	RtlUserThreadStart [0x0x7ffe8617cc91+33]
+[32mINFO    [0m utils.driver_utils:driver_utils.py:33 Cleaning up - closing driver
+[32mINFO    [0m utils.driver_utils:driver_utils.py:35 Driver closed successfully

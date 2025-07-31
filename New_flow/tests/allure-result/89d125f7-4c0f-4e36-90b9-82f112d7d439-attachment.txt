@@ -1,0 +1,39 @@
+[32mINFO    [0m utils.driver_utils:driver_utils.py:23 WebDriver initialized successfully
+[32mINFO    [0m pages.login_page:login_page.py:30 Navigated to: https://velvet.webredirect.himshang.com.np/#/pages/dashboard
+[32mINFO    [0m pages.login_page:login_page.py:36 Entered username
+[32mINFO    [0m pages.login_page:login_page.py:42 Entered password
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Sign In button using normal click
+[32mINFO    [0m pages.login_page:login_page.py:56 Already Logged In popup detected
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Logout button using normal click
+[32mINFO    [0m pages.login_page:login_page.py:60 Logout button clicked successfully
+[32mINFO    [0m pages.login_page:login_page.py:67 Pressed Enter on Sign In button after logout
+[31m[1mERROR   [0m pages.purchase_invoice_page:purchase_invoice_page.py:110 Failed to navigate to Purchase Invoice: Message: invalid selector: Unable to locate an element with the xpath expression //a | //div[@class*='nav'] | //span[@class*='nav'] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//a | //div[@class*='nav'] | //span[@class*='nav']' is not a valid XPath expression.
+  (Session info: chrome=138.0.7204.169); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff656e5e415+77285]
+	GetHandleVerifier [0x0x7ff656e5e470+77376]
+	(No symbol) [0x0x7ff656c29a6a]
+	(No symbol) [0x0x7ff656c31419]
+	(No symbol) [0x0x7ff656c344cc]
+	(No symbol) [0x0x7ff656c3459f]
+	(No symbol) [0x0x7ff656c7fcb7]
+	(No symbol) [0x0x7ff656c806bc]
+	(No symbol) [0x0x7ff656cd3af7]
+	(No symbol) [0x0x7ff656ca864f]
+	(No symbol) [0x0x7ff656cd087f]
+	(No symbol) [0x0x7ff656ca83e3]
+	(No symbol) [0x0x7ff656c71521]
+	(No symbol) [0x0x7ff656c722b3]
+	GetHandleVerifier [0x0x7ff657141efd+3107021]
+	GetHandleVerifier [0x0x7ff65713c29d+3083373]
+	GetHandleVerifier [0x0x7ff65715bedd+3213485]
+	GetHandleVerifier [0x0x7ff656e7884e+184862]
+	GetHandleVerifier [0x0x7ff656e8055f+216879]
+	GetHandleVerifier [0x0x7ff656e67084+113236]
+	GetHandleVerifier [0x0x7ff656e67239+113673]
+	GetHandleVerifier [0x0x7ff656e4e298+11368]
+	BaseThreadInitThunk [0x0x7ffe85327374+20]
+	RtlUserThreadStart [0x0x7ffe8617cc91+33]
+[32mINFO    [0m utils.driver_utils:driver_utils.py:33 Cleaning up - closing driver
+[32mINFO    [0m utils.driver_utils:driver_utils.py:35 Driver closed successfully

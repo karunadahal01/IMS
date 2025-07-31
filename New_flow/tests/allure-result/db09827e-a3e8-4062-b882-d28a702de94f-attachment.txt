@@ -1,0 +1,1308 @@
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 130, in runtestprotocol
+    rep = call_and_report(item, "setup", log)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 164, in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 514, in setup
+    col.setup()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1674, in setup
+    self._request._fillfixtures()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 719, in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 548, in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 639, in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 1127, in execute
+    result = ihook.pytest_fixture_setup(fixturedef=self, request=request)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 1195, in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 929, in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\project\tests\conftest.py", line 24, in driver
+    return driver_manager.initialize_driver()
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\utils\driver_utils.py", line 23, in initialize_driver
+    logger.info("WebDriver initialized successfully")
+Message: 'WebDriver initialized successfully'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 88, in test_sales_tax_invoice
+    login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\login_page.py", line 30, in login
+    logger.info(f"Navigated to: {link}")
+Message: 'Navigated to: https://velvet.webredirect.himshang.com.np/#/pages/dashboard'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 88, in test_sales_tax_invoice
+    login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\login_page.py", line 36, in login
+    logger.info("Entered username")
+Message: 'Entered username'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 88, in test_sales_tax_invoice
+    login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\login_page.py", line 42, in login
+    logger.info("Entered password")
+Message: 'Entered password'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 88, in test_sales_tax_invoice
+    login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\login_page.py", line 47, in login
+    self.safe_click(sign_in_btn, "Sign In button")
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\base_page.py", line 23, in safe_click
+    logger.info(f"Clicked {description} using normal click")
+Message: 'Clicked Sign In button using normal click'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 88, in test_sales_tax_invoice
+    login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\login_page.py", line 56, in login
+    logger.info("Already Logged In popup detected")
+Message: 'Already Logged In popup detected'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 88, in test_sales_tax_invoice
+    login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\login_page.py", line 59, in login
+    self.safe_click(logout_btn, "Logout button")
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\base_page.py", line 23, in safe_click
+    logger.info(f"Clicked {description} using normal click")
+Message: 'Clicked Logout button using normal click'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 88, in test_sales_tax_invoice
+    login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\login_page.py", line 60, in login
+    logger.info("Logout button clicked successfully")
+Message: 'Logout button clicked successfully'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 88, in test_sales_tax_invoice
+    login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\login_page.py", line 67, in login
+    logger.info("Pressed Enter on Sign In button after logout")
+Message: 'Pressed Enter on Sign In button after logout'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 92, in test_sales_tax_invoice
+    product_page.create_product_master(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\product_master_page.py", line 85, in create_product_master
+    self.safe_click(add_product_btn, "Add Product button")
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\base_page.py", line 23, in safe_click
+    logger.info(f"Clicked {description} using normal click")
+Message: 'Clicked Add Product button using normal click'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\product_master_page.py", line 285, in _save_product
+    body = self.driver.find_element(By.TAG_NAME, "body")
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\selenium\webdriver\remote\webdriver.py", line 914, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\selenium\webdriver\remote\webdriver.py", line 447, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\selenium\webdriver\remote\errorhandler.py", line 231, in check_response
+    raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: Data Saved Successfully. Do you want to continue adding products to this group ?
+Message: unexpected alert open: {Alert text : Data Saved Successfully. Do you want to continue adding products to this group ?}
+  (Session info: chrome=138.0.7204.169)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6883be415+77285]
+	GetHandleVerifier [0x0x7ff6883be470+77376]
+	(No symbol) [0x0x7ff688189a6a]
+	(No symbol) [0x0x7ff688231336]
+	(No symbol) [0x0x7ff6882083e3]
+	(No symbol) [0x0x7ff6881d1521]
+	(No symbol) [0x0x7ff6881d22b3]
+	GetHandleVerifier [0x0x7ff6886a1efd+3107021]
+	GetHandleVerifier [0x0x7ff68869c29d+3083373]
+	GetHandleVerifier [0x0x7ff6886bbedd+3213485]
+	GetHandleVerifier [0x0x7ff6883d884e+184862]
+	GetHandleVerifier [0x0x7ff6883e055f+216879]
+	GetHandleVerifier [0x0x7ff6883c7084+113236]
+	GetHandleVerifier [0x0x7ff6883c7239+113673]
+	GetHandleVerifier [0x0x7ff6883ae298+11368]
+	BaseThreadInitThunk [0x0x7ffe85327374+20]
+	RtlUserThreadStart [0x0x7ffe8617cc91+33]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 136, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 178, in pytest_runtest_call
+    item.runtest()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 1671, in runtest
+    self.ihook.pytest_pyfunc_call(pyfuncitem=self)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\python.py", line 157, in pytest_pyfunc_call
+    result = testfunction(**testargs)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\tests\test_erp_flow.py", line 92, in test_sales_tax_invoice
+    product_page.create_product_master(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\product_master_page.py", line 183, in create_product_master
+    self._save_product()
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\pages\product_master_page.py", line 290, in _save_product
+    logger.error(f"Error saving product: {e}")
+Message: 'Error saving product: Alert Text: Data Saved Successfully. Do you want to continue adding products to this group ?\nMessage: unexpected alert open: {Alert text : Data Saved Successfully. Do you want to continue adding products to this group ?}\n  (Session info: chrome=138.0.7204.169)\nStacktrace:\n\tGetHandleVerifier [0x0x7ff6883be415+77285]\n\tGetHandleVerifier [0x0x7ff6883be470+77376]\n\t(No symbol) [0x0x7ff688189a6a]\n\t(No symbol) [0x0x7ff688231336]\n\t(No symbol) [0x0x7ff6882083e3]\n\t(No symbol) [0x0x7ff6881d1521]\n\t(No symbol) [0x0x7ff6881d22b3]\n\tGetHandleVerifier [0x0x7ff6886a1efd+3107021]\n\tGetHandleVerifier [0x0x7ff68869c29d+3083373]\n\tGetHandleVerifier [0x0x7ff6886bbedd+3213485]\n\tGetHandleVerifier [0x0x7ff6883d884e+184862]\n\tGetHandleVerifier [0x0x7ff6883e055f+216879]\n\tGetHandleVerifier [0x0x7ff6883c7084+113236]\n\tGetHandleVerifier [0x0x7ff6883c7239+113673]\n\tGetHandleVerifier [0x0x7ff6883ae298+11368]\n\tBaseThreadInitThunk [0x0x7ffe85327374+20]\n\tRtlUserThreadStart [0x0x7ffe8617cc91+33]\n'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 141, in runtestprotocol
+    reports.append(call_and_report(item, "teardown", log, nextitem=nextitem))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 193, in pytest_runtest_teardown
+    item.session._setupstate.teardown_exact(nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 546, in teardown_exact
+    fin()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 1057, in finish
+    fin()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 231, in __call__
+    return self._fixture_function(*args, **kwargs)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 938, in _teardown_yield_fixture
+    next(it)
+  File "C:\Users\karun\PycharmProjects\PythonProject\project\tests\conftest.py", line 18, in driver_manager
+    manager.cleanup_driver()
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\utils\driver_utils.py", line 33, in cleanup_driver
+    logger.info("Cleaning up - closing driver")
+Message: 'Cleaning up - closing driver'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 472, in format
+    return self._format(record)
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 468, in _format
+    return self._fmt % values
+           ~~~~~~~~~~^~~~~~~~
+KeyError: 'pastime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1151, in emit
+    msg = self.format(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 999, in format
+    return fmt.format(record)
+           ~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 715, in format
+    s = self.formatMessage(record)
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 684, in formatMessage
+    return self._style.format(record)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 474, in format
+    raise ValueError('Formatting field not found in record: %s' % e)
+ValueError: Formatting field not found in record: 'pastime'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\Scripts\pytest.exe\__main__.py", line 7, in <module>
+    sys.exit(console_main())
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 201, in console_main
+    code = main()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\config\__init__.py", line 175, in main
+    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 336, in pytest_cmdline_main
+    return wrap_session(config, _main)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 289, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 343, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\main.py", line 367, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 117, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 141, in runtestprotocol
+    reports.append(call_and_report(item, "teardown", log, nextitem=nextitem))
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 245, in call_and_report
+    call = CallInfo.from_call(
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 344, in from_call
+    result: TResult | None = func()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 246, in <lambda>
+    lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_hooks.py", line 512, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\pluggy\_callers.py", line 121, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 193, in pytest_runtest_teardown
+    item.session._setupstate.teardown_exact(nextitem)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\runner.py", line 546, in teardown_exact
+    fin()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 1057, in finish
+    fin()
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\allure_commons\_allure.py", line 231, in __call__
+    return self._fixture_function(*args, **kwargs)
+  File "C:\Users\karun\AppData\Roaming\Python\Python313\site-packages\_pytest\fixtures.py", line 938, in _teardown_yield_fixture
+    next(it)
+  File "C:\Users\karun\PycharmProjects\PythonProject\project\tests\conftest.py", line 18, in driver_manager
+    manager.cleanup_driver()
+  File "C:\Users\karun\PycharmProjects\PythonProject\New_flow\utils\driver_utils.py", line 35, in cleanup_driver
+    logger.info("Driver closed successfully")
+Message: 'Driver closed successfully'
+Arguments: ()

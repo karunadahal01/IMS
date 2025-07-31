@@ -1,0 +1,12 @@
+[32mINFO    [0m utils.driver_utils:driver_utils.py:23 WebDriver initialized successfully
+[32mINFO    [0m pages.login_page:login_page.py:30 Navigated to: https://velvet.webredirect.himshang.com.np/#/pages/dashboard
+[32mINFO    [0m pages.login_page:login_page.py:36 Entered username
+[32mINFO    [0m pages.login_page:login_page.py:42 Entered password
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Sign In button using normal click
+[32mINFO    [0m pages.login_page:login_page.py:56 Already Logged In popup detected
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Logout button using normal click
+[32mINFO    [0m pages.login_page:login_page.py:60 Logout button clicked successfully
+[32mINFO    [0m pages.login_page:login_page.py:67 Pressed Enter on Sign In button after logout
+[32mINFO    [0m pages.base_page:base_page.py:23 Clicked Add Product button using normal click
+[32mINFO    [0m utils.driver_utils:driver_utils.py:33 Cleaning up - closing driver
+[32mINFO    [0m utils.driver_utils:driver_utils.py:35 Driver closed successfully

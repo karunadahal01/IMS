@@ -1,0 +1,3 @@
+Clicked on 'Masters'
+Clicked 'Product Master'
+Keeping browser open for 30 seconds for observation...

@@ -79,39 +79,39 @@ class TestERPFlowCreation:
     #         purchase_page = PurchaseInvoicePage(driver)
     #         purchase_page.create_purchase_invoice(barcode_purchase=666)
 
-    @allure.story("Sales Tax Invoice Creation")
-    def test_sales_tax_invoice(self, driver):
+    @allure.story("testing small flow")
+    def test_flow(self, driver):
         """Test case for creating sales tax invoice."""
         with allure.step("Sales a product item"):
             # Login
             login_page = LoginPage(driver)
             login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
-
-            # Create product master
-            product_page = ProductMasterPage(driver)
-            product_page.create_product_master(
-                product_item="Testtingggg3",
-                HS_code="123",
-                unit="Each",
-                item_type="Inventory Item",
-                description="This is description",
-                category="N/A",
-                short_name="XYZ",
-                purchase_price="120",
-                sales_price="140",
-                alt_unit="kg",
-                conversion_factor="1000",
-                barcode_map="222",
-                barcode_unit="Each"
-            )
+            #
+            # # Create product master
+            # product_page = ProductMasterPage(driver)
+            # product_page.create_product_master(
+            #     product_item="bb",
+            #     HS_code="123",
+            #     unit="Each",
+            #     item_type="Inventory Item",
+            #     description="This is description",
+            #     category="N/A",
+            #     short_name="XYZ",
+            #     purchase_price="120",
+            #     sales_price="140",
+            #     alt_unit="kg",
+            #     conversion_factor="1000",
+            #     barcode_map="82",
+            #     barcode_unit="Each"
+            # )
 
             # Create purchase invoice
             purchase_page = PurchaseInvoicePage(driver)
-            purchase_page.create_purchase_invoice(barcode_purchase=222)
+            purchase_page.create_purchase_invoice(barcode_purchase=82)
 
             # Create sales tax invoice
             sales_page = SalesTaxInvoicePage(driver)
-            sales_page.create_sales_tax_invoice(barcode_sales=222)
+            sales_page.create_sales_tax_invoice(barcode_sales=82)
 
     # @allure.story("Purchase Return")
     # def test_purchase_return(self, driver):

@@ -9,6 +9,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as ec
 from pages.base_page import BasePage
 from exceptions.custom_exceptions import NavigationError, FormFieldNotFoundError, PopupHandlingError
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 logger = logging.getLogger(__name__)
 
@@ -280,13 +282,31 @@ class ProductMasterPage(BasePage):
                 save_button.click()
                 time.sleep(10)
 
-            # Handle "Do you want to add another product?" alert
-            with allure.step("Handling 'Do you wanna add another product?' alert"):
-                body = self.driver.find_element(By.TAG_NAME, "body")
-                body.send_keys(Keys.ENTER)
-                time.sleep(10)
+            # # Handle "Do you want to add another product?" alert
+            # with allure.step("Handling 'Do you want to add another product?' alert"):
+            #     body = self.driver.find_element(By.TAG_NAME, "body")
+            #     body.send_keys(Keys.ENTER)
+            #     time.sleep(8)
 
         except Exception as e:
             logger.error(f"Error saving product: {e}")
             self.take_screenshot("Save Product Error")
             raise PopupHandlingError(f"Failed to save product: {e}")
+
+        try:
+          with allure.step("Handling 'Do you wanna add another product?' alert"):
+               WebDriverWait(self.driver, 10).until(ec.alert_is_present())
+               self.driver.switch_to.alert.dismiss()
+               time.sleep(4)
+               self.driver.switch_to.active_element.send_keys(Keys.ENTER)
+               time.sleep(8)
+
+        except Exception  as e:
+            logger.error(f"Error handling 'Do you wanna add another product?' alert: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Add Another Product Alert Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise PopupHandlingError(f"Failed to handle 'Add Another Product' alert: {e}")
+
+
+

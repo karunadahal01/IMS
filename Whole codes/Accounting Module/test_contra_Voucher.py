@@ -234,16 +234,16 @@ class TestERPFlowCreation:
             #     ec.element_to_be_clickable((By.XPATH, "//button[contains(@class, 'dropdown-toggle') and contains(., 'Journal Voucher')]"))
             # )
             # self.safe_click(journal_voucher_dropdown, "Journal Voucher dropdown")
-            sales_tax_invoice = wait.until(ec.visibility_of_element_located((By.LINK_TEXT, "Journal Voucher")))
+            sales_tax_invoice = wait.until(ec.visibility_of_element_located((By.LINK_TEXT, "Contra Voucher")))
             sales_tax_invoice.click()
             time.sleep(10)
-            logger.info("Clicked on Journal Voucher dropdown")
+            logger.info("Clicked on contra Voucher dropdown")
         except Exception as e:
-            logger.error(f"Failed to click on Journal Voucher dropdown: {e}")
+            logger.error(f"Failed to click on contra Voucher dropdown: {e}")
             allure.attach(self.driver.get_screenshot_as_png(),
-                          name="Journal Voucher Dropdown Error",
+                          name="contra Voucher Dropdown Error",
                           attachment_type=allure.attachment_type.PNG)
-            raise NavigationError(f"Could not navigate to Journal Voucher: {e}")
+            raise NavigationError(f"Could not navigate to contra Voucher: {e}")
 
          # Generate Random Refno
 
@@ -294,6 +294,8 @@ class TestERPFlowCreation:
             self.driver.switch_to.active_element.send_keys(ledgeraccount1 )
            # self.driver.switch_to.active_element.send_keys(Keys.ARROW_DOWN)
             self.driver.switch_to.active_element.send_keys(Keys.ENTER)
+
+
             time.sleep(5)
             logger.info("Entered first Account Ledger")
         except Exception as e:
@@ -305,16 +307,29 @@ class TestERPFlowCreation:
 
         # Entering Amount for first ledger
         try:
-            time.sleep(5)
-            self.driver.switch_to.active_element.send_keys('100', Keys.TAB)
-            time.sleep(3)
+            wait = WebDriverWait(self.driver, 10)
+            input_field = wait.until(ec.visibility_of_element_located((By.ID, "DrAmtInput_0")))
+
+            # Clear any existing value and insert your new value
+            input_field.clear()
+            input_field.send_keys("100")
+            self.driver.switch_to.active_element.send_keys(Keys.TAB , Keys.TAB, Keys.TAB)
+            self.driver.switch_to.active_element.send_keys(Keys.ENTER)
+
+            # time.sleep(5)
+            # self.driver.switch_to.active_element.send_keys('100')
+            # self.driver.switch_to.active_element.send_keys('100', Keys.TAB)
+            # time.sleep(3)
             logger.info("Entered Amount for first ledger")
+
         except Exception as e:
             logger.error(f"Failed to enter Amount for first ledger: {e}")
             allure.attach(self.driver.get_screenshot_as_png(),
                           name="Amount Field Error",
                           attachment_type=allure.attachment_type.PNG)
             raise FormFieldNotFoundError(f"Could not find or interact with Amount field: {e}")
+
+
 
         #Press enter in narration to add another ledger
         try:
@@ -353,8 +368,9 @@ class TestERPFlowCreation:
 
                 self.driver.switch_to.active_element.send_keys(Keys.TAB)
                 self.driver.switch_to.active_element.send_keys(Keys.ENTER)
-                time.sleep(3)
                 self.driver.switch_to.active_element.send_keys('100')
+                time.sleep(3)
+
                 time.sleep(5)
                 logger.info("Entered Amount for second ledger")
         except Exception as e:

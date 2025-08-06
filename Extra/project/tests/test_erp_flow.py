@@ -90,7 +90,7 @@ class TestERPFlowCreation:
             # Create product master
             product_page = ProductMasterPage(driver)
             product_page.create_product_master(
-                product_item="Testtingggg3",
+                product_item="IMS",
                 HS_code="123",
                 unit="Each",
                 item_type="Inventory Item",
@@ -101,17 +101,17 @@ class TestERPFlowCreation:
                 sales_price="140",
                 alt_unit="kg",
                 conversion_factor="1000",
-                barcode_map="222",
+                barcode_map="2949",
                 barcode_unit="Each"
             )
 
             # Create purchase invoice
             purchase_page = PurchaseInvoicePage(driver)
-            purchase_page.create_purchase_invoice(barcode_purchase=222)
+            purchase_page.create_purchase_invoice(barcode_purchase=2948)
 
             # Create sales tax invoice
             sales_page = SalesTaxInvoicePage(driver)
-            sales_page.create_sales_tax_invoice(barcode_sales=222)
+            sales_page.create_sales_tax_invoice(barcode_sales=2949)
 
     # @allure.story("Purchase Return")
     # def test_purchase_return(self, driver):

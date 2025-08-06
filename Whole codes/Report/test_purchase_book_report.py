@@ -12,7 +12,6 @@ import random
 import pyautogui
 from selenium.webdriver.common.action_chains import ActionChains
 
-
 #--------------------------------------------------------
 # Logging setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -24,7 +23,6 @@ logger = logging.getLogger(__name__)
 class LoginFailedError(Exception):
     """Raised when login fails due to invalid credentials or unexpected errors."""
     pass
-
 
 
 class WebDriverInitializationError(Exception):
@@ -46,13 +44,16 @@ class PopupHandlingError(Exception):
     """Raised when a popup/modal cannot be handled as expected."""
     pass
 
+
 class ListNotFoundError(Exception):
     """Raised when saving the sales invoice fails."""
     pass
 
+
 class AccountingError(Exception):
     """Raised when saving the sales invoice fails."""
     pass
+
 
 #################################################################################################
 
@@ -60,7 +61,6 @@ class AccountingError(Exception):
 # Test class
 @allure.feature("Test ERP FLow Creation")
 class TestERPFlowCreation:
-
 
     @allure.step("Setup WebDriver")
     def setup_method(self, method):
@@ -71,7 +71,6 @@ class TestERPFlowCreation:
         except WebDriverException as e:
             logger.error(f"Failed to initialize WebDriver: {e}")
             raise WebDriverInitializationError(f"WebDriver initialization failed: {e}")
-
 
     @allure.step("Teardown WebDriver")
     def teardown_method(self, method):
@@ -96,8 +95,7 @@ class TestERPFlowCreation:
             self.driver.execute_script("arguments[0].click();", element)
             logger.info(f"Clicked {description} using JavaScript click")
 
-
-###########################################login###############################################################################-----------------------------------
+    ###########################################login###############################################################################-----------------------------------
     @allure.step("Login with username: {username}")
     def login(self, username, password, link):
         driver = self.driver
@@ -124,7 +122,7 @@ class TestERPFlowCreation:
                 ec.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Sign In')]"))
             )
             self.safe_click(sign_in_btn, "Sign In button")
-        except Exception  as e:
+        except Exception as e:
             logger.error(f"Sign In button not found or not clickable: {e}")
             allure.attach(driver.get_screenshot_as_png(),
                           name="Sign In Button Error",
@@ -200,9 +198,47 @@ class TestERPFlowCreation:
             # purchase_reports = wait.until(ec.element_to_be_clickable(
             #     (By.XPATH, "//a[@title='Purchase Reports']//span[text()='Purchase Reports']")))
             # purchase_reports.click()
+            #
+            # purchase_reports = wait.until(ec.element_to_be_clickable((By.XPATH, "//a[@title='Purchase Reports']")))
+            # purchase_reports.click()
+            # wait = WebDriverWait(self.driver, 10)
+            # purchase_report = wait.until(
+            #     ec.visibility_of_element_located((By.XPATH, "//span[text()='Purchase Reports']")))
+            #
+            # # Hover over the element
+            # actions = ActionChains(self.driver)
+            # actions.move_to_element(purchase_report).perform()
+            from selenium.webdriver.common.action_chains import ActionChains
 
-            purchase_reports = wait.until(ec.element_to_be_clickable((By.XPATH, "//a[@title='Purchase Reports']")))
-            purchase_reports.click()
+            def Purchasebookreport(self):
+                wait = WebDriverWait(self.driver, 10)
+
+                # Step 1: Click or hover on Reports menu
+                try:
+                    reports_menu = wait.until(ec.element_to_be_clickable(
+                        (By.XPATH, "//a[@title='Reports']//span[contains(text(),'Reports')]")))
+                    ActionChains(self.driver).move_to_element(reports_menu).perform()
+                    time.sleep(1)  # give time for submenu to appear
+                    logger.info("Hovered over Reports menu")
+                except Exception as e:
+                    logger.error(f"Failed to hover Reports menu: {e}")
+                    allure.attach(self.driver.get_screenshot_as_png(),
+                                  name="Reports Menu Hover Error",
+                                  attachment_type=allure.attachment_type.PNG)
+                    raise NavigationError(f"Could not hover over Reports menu: {e}")
+
+                # Step 2: Now click or hover on Purchase Reports
+                try:
+                    purchase_report = wait.until(ec.visibility_of_element_located(
+                        (By.XPATH, "//span[text()='Purchase Reports']")))
+                    ActionChains(self.driver).move_to_element(purchase_report).click().perform()
+                    logger.info("Clicked Purchase Reports menu successfully")
+                except Exception as e:
+                    logger.error(f"Failed to click Purchase Reports menu: {e}")
+                    allure.attach(self.driver.get_screenshot_as_png(),
+                                  name="Purchase Reports Menu Error",
+                                  attachment_type=allure.attachment_type.PNG)
+                    raise NavigationError(f"Could not navigate to Purchase Reports menu: {e}")
 
             logger.info("Clicked Purchase Reports menu successfully")
         except Exception as e:
@@ -214,12 +250,25 @@ class TestERPFlowCreation:
 
         #Navigation to Purchase Book Report
         try:
+            # purchase_book_report_menu = WebDriverWait(self.driver, 10).until(
+            #     ec.element_to_be_clickable(
+            #         (By.XPATH, "//a[@title='Purchase Book Report']//span[text()='Purchase Book Report']"))
+            # )
+            # purchase_book_report_menu.click()
+            # self.safe_click(purchase_book_report_menu, "Purchase Book Report menu")
+            # logger.info("Clicked Purchase Book Report menu successfully")
+            reports_menu = WebDriverWait(self.driver, 10).until(
+                ec.visibility_of_element_located((By.XPATH, "//span[contains(text(), 'Reports')]"))
+            )
+            ActionChains(self.driver).move_to_element(reports_menu).perform()
+            time.sleep(1)  # Allow submenu to render
+
+            # Then proceed to access Purchase Book Report
             purchase_book_report_menu = WebDriverWait(self.driver, 10).until(
-                ec.element_to_be_clickable((By.XPATH, "//a[@title='Purchase Book Report']//span[text()='Purchase Book Report']"))
+                ec.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Purchase Book Report')]"))
             )
             purchase_book_report_menu.click()
-            self.safe_click(purchase_book_report_menu, "Purchase Book Report menu")
-            logger.info("Clicked Purchase Book Report menu successfully")
+
         except Exception as e:
             logger.error(f"Failed to click Purchase Book Report menu: {e}")
             allure.attach(self.driver.get_screenshot_as_png(),
@@ -227,19 +276,14 @@ class TestERPFlowCreation:
                           attachment_type=allure.attachment_type.PNG)
             raise NavigationError(f"Could not navigate to Purchase Book Report menu: {e}")
 
-
-
-##########################################################################################
-
-
-
+    ##########################################################################################
 
     allure.step("Login to the application")
-    def test_login(self):
-         self.login("gedehim917@decodewp.com",
-               "Tebahal1!",
-               "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
-         self.Purchasebookreport()
 
+    def test_login(self):
+        self.login("gedehim917@decodewp.com",
+                   "Tebahal1!",
+                   "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+        self.Purchasebookreport()
 
     time.sleep(20)

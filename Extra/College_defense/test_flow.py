@@ -2210,9 +2210,9 @@ class TestERPFlowCreation:
 ###################################################################################
     def test_product(self):
         allure.step("Testing overall flow of the application")
-        self.login("gedehim917@decodewp.com",
+        self.login("rishav",
                    "Tebahal1!",
-                   "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+                   "https://grn.variantqa.himshang.com.np/")
         self.product_master(
             product_item="citizen23",
 
@@ -2231,16 +2231,16 @@ class TestERPFlowCreation:
 
     def test_purchase_flow(self):
 
-        self.login("gedehim917@decodewp.com",
+        self.login("rishav",
                    "Tebahal1!",
-                   "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+                   "https://grn.variantqa.himshang.com.np/")
         self.Purchase_invoice(
                          barcode_purchase=5456035)
 
     def test_sales_flow(self):
-        self.login("gedehim917@decodewp.com",
-                       "Tebahal1!",
-                       "https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+        self.login("rishav",
+                   "Tebahal1!",
+                   "https://grn.variantqa.himshang.com.np/")
         self.sales_tax_invoice(
                         barcode_sales=5456035)
 

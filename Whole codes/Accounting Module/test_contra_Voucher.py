@@ -314,7 +314,15 @@ class TestERPFlowCreation:
             input_field.clear()
             input_field.send_keys("100")
             self.driver.switch_to.active_element.send_keys(Keys.TAB , Keys.TAB, Keys.TAB)
-            self.driver.switch_to.active_element.send_keys(Keys.ENTER)
+            # self.driver.switch_to.active_element.send_keys(Keys.ENTER)
+            wait = WebDriverWait(self.driver, 10)  # Wait up to 10 seconds
+            narration_field = wait.until(ec.element_to_be_clickable((By.ID, "narration_0")))
+
+            # Click on the element
+            narration_field.click()
+            narration_field.send_keys(Keys.ENTER)
+            narration_field.send_keys(Keys.ENTER)
+            print("Successfully clicked the 'narration_0' field.")
 
             # time.sleep(5)
             # self.driver.switch_to.active_element.send_keys('100')

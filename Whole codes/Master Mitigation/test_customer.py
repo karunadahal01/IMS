@@ -215,9 +215,15 @@ def customer():
 
 
 
+
+
+
+
+
 Login(username="gedehim917@decodewp.com", password="Tebahal1!",
       link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
 customer()
+
 
 # Quit driver
 

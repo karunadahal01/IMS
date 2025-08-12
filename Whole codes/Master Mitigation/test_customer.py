@@ -153,10 +153,19 @@ def customer():
 
     time.sleep(8)
 
+    # # Handle the popup that appears after clicking "Upload File"
+    # body = driver.find_element(By.TAG_NAME, "body")
+    #
+    # # Send the ESC key
+    # body.send_keys(Keys.ESCAPE)
+###########################################################################################################################################
+    driver.find_element(By.TAG_NAME, "body").send_keys(Keys.ESCAPE)
 
-    # Click the "ok" button
-    ok_button = driver.find_element(By.XPATH, "//button[contains(text(), 'ok')]")
-    ok_button.click()
+
+
+    # # Click the "ok" button
+    # ok_button = driver.find_element(By.XPATH, "//button[contains(text(), 'ok')]")
+    # ok_button.click()
 
 
 
@@ -210,11 +219,6 @@ def customer():
     # Click the "Download_Status" button
     Download_Status = driver.find_element(By.XPATH, "//button[contains(text(), ' Download Status ')]")
     Download_Status.click()
-
-
-
-
-
 
 
 

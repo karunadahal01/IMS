@@ -1,17 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait, Select
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
-import random
-import string
+#import random
+#import string
 import time
 
 driver = webdriver.Chrome()
-def Login(username,password,link):
 
+
+def Login(username, password, link):
     driver.maximize_window()
     driver.get(link)
     try:
@@ -56,9 +57,42 @@ def Login(username,password,link):
 
     finally:
         print("Login successfully")
-        time.sleep(30)
+        time.sleep(10)
+
+def sales_tax_invoice():
+    # Navigate to Reports
+    try:
+        # wait = WebDriverWait(driver, 10)
+        # reports_menu = wait.until(EC.element_to_be_clickable(
+        #     (By.XPATH, "//a[@title='Reports']//span[contains(text(),'Reports')]")))
+        # ActionChains(driver).move_to_element(reports_menu).perform()
+        reports_menu = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, "//a[@title='Reports']"))
+        )
+
+        # Hover
+        reports_menu.click()
+        reports_menu.click()
+        reports_menu.click()
+        #ActionChains(driver).move_to_element(reports_menu).perform()
+        time.sleep(10)  # give time for submenu to appear
+
+    except Exception as e:
+        print(f"Error navigating to Reports: {e}")
+
+##############navigation to Sales Report
+    try:
+            wait = WebDriverWait(driver, 10)
+            sales_report = wait.until(EC.visibility_of_element_located(
+                (By.XPATH, "//span[text()='Sales Report']")))
+            ActionChains(driver).move_to_element(sales_report).click().perform()
+            time.sleep(10)
+    except Exception as e:
+            print(f"Error clicking Sales Report: {e}")
 
 
 
 
-Login(username="gedehim917@decodewp.com",password="Tebahal1!",link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+Login(username="gedehim917@decodewp.com", password="Tebahal1!",
+              link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
+sales_tax_invoice()

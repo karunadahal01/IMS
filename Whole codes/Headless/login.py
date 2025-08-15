@@ -1,20 +1,27 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait, Select
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.action_chains import ActionChains
-import random
-import string
 import time
 
 
 
-driver = webdriver.Chrome()
+#########################################################################################
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument("--headless")          # Run in headless mode
+options.add_argument("--no-sandbox")        # For some environments
+options.add_argument("--disable-dev-shm-usage")  # Prevents resource issues
+options.add_argument("--window-size=1920,1080")  # Optional: set window size
+###########################################################################################
+
+driver = webdriver.Chrome(options=options)
 def Login(username,password,link):
 
-    driver.maximize_window()
+    # driver.maximize_window()
     driver.get(link)
     try:
         # Step 1: Enter credentials and click Sign In
@@ -59,7 +66,8 @@ def Login(username,password,link):
     finally:
         print("Login successfully")
         time.sleep(30)
-
+        print(driver.title)  # Just to verify
+        driver.quit()
 
 
 

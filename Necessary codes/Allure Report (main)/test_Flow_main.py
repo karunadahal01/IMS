@@ -1948,5 +1948,3 @@ class TestERPFlowCreation:
 
 print("Keeping browser open for 30 seconds for observation...")
 time.sleep(30)
-
-#

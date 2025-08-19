@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-19T15:39:12.942366" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="C:\Users\karun\PycharmProjects\PythonProject\Robot_framework\Login.robot">
+<test id="s1-t1" name="ERP Login With Popup Handling" line="11">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-19T15:39:13.397016" level="INFO">Opening browser 'chrome' to base url 'https://velvet.webredirect.himshang.com.np/#/pages/dashboard'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-19T15:39:13.396168" elapsed="44.208710"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-19T15:39:57.605919" elapsed="0.006309"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:input[formcontrolname="username"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T15:39:57.613295" elapsed="0.048416"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-19T15:39:57.662829" level="INFO">Typing text 'gedehim917@decodewp.com' into text field 'css:input[formcontrolname="username"]'.</msg>
+<arg>css:input[formcontrolname="username"]</arg>
+<arg>${USER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T15:39:57.662259" elapsed="0.222880"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-19T15:39:57.886865" level="INFO">Typing text 'Tebahal1!' into text field 'css:input[formcontrolname="password"]'.</msg>
+<arg>css:input[formcontrolname="password"]</arg>
+<arg>${PASS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T15:39:57.886142" elapsed="0.172606"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-19T15:39:58.059578" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Sign In')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Sign In')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T15:39:58.059277" elapsed="0.123781"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Already Logged In Popup">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[.//span[text()='Logout']]</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T15:39:58.185275" elapsed="14.417164"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✓ Already Logged In popup detected</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-19T15:40:12.602818" elapsed="0.001139"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-19T15:40:12.604714" level="INFO">Clicking button 'xpath=//button[.//span[text()='Logout']]'.</msg>
+<arg>xpath=//button[.//span[text()='Logout']]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-19T15:40:12.604284" elapsed="0.165423"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T15:40:20.771036" level="INFO">Slept 8 seconds.</msg>
+<arg>8s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T15:40:12.769993" elapsed="8.001618"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'Sign In')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-19T15:40:20.772505" elapsed="0.038067"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-19T15:40:20.811299" level="INFO">Sending key(s) ('ENTER',) to xpath=//button[contains(text(), 'Sign In')] element.</msg>
+<msg time="2025-08-19T15:40:21.117883" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-08-19T15:40:21.118019" level="INFO">Releasing special key ENTER.</msg>
+<arg>xpath=//button[contains(text(), 'Sign In')]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-19T15:40:20.810806" elapsed="0.318517"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✓ Clicked Sign In again after logout</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-19T15:40:21.130216" elapsed="0.001464"/>
+</kw>
+<status status="PASS" start="2025-08-19T15:39:58.184613" elapsed="22.947374"/>
+</kw>
+<arg>Handle Already Logged In Popup</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-19T15:39:58.183797" elapsed="22.948348"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✓ Login successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-19T15:40:21.132599" elapsed="0.001467"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-19T15:40:51.135445" level="INFO">Slept 30 seconds.</msg>
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-19T15:40:21.134615" elapsed="30.001150"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-19T15:40:51.138002" elapsed="2.418016"/>
+</kw>
+<status status="PASS" start="2025-08-19T15:39:13.394406" elapsed="100.163347"/>
+</test>
+<status status="PASS" start="2025-08-19T15:39:12.944881" elapsed="100.618600"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="1" fail="0" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

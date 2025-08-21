@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-21T17:03:03.908732" rpa="false" schemaversion="5">
+<suite id="s1" name="Product Master" source="C:\Users\karun\PycharmProjects\PythonProject\Robot_framework\product_master.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:04.253704" level="INFO">Opening browser 'chrome' to base url 'https://stc21.variantqa.himshang.com.np/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-21T17:03:04.253369" elapsed="7.322827"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-21T17:03:11.576552" elapsed="0.071024"/>
+</kw>
+<status status="PASS" start="2025-08-21T17:03:04.252225" elapsed="7.395792"/>
+</kw>
+<test id="s1-t1" name="Login And Add Product" line="125">
+<kw name="Login">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:input[formcontrolname="username"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-21T17:03:11.656277" elapsed="0.138059"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:11.799965" level="INFO">Typing text 'Sirish' into text field 'css:input[formcontrolname="username"]'.</msg>
+<arg>css:input[formcontrolname="username"]</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:03:11.796625" elapsed="0.196069"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:11.993337" level="INFO">Typing text 'Tebahal1!' into text field 'css:input[formcontrolname="password"]'.</msg>
+<arg>css:input[formcontrolname="password"]</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:03:11.992983" elapsed="0.139066"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:12.132838" level="INFO">Clicking button 'xpath://button[contains(text(), 'Sign In')]'.</msg>
+<arg>xpath://button[contains(text(), 'Sign In')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:03:12.132441" elapsed="0.158622"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Already Logged In Popup">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[.//span[text()='Logout']]</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-21T17:03:12.292550" elapsed="7.999843"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✓ Already Logged In popup detected</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-21T17:03:20.292778" elapsed="0.000700"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:20.295063" level="INFO">Clicking button 'xpath=//button[.//span[text()='Logout']]'.</msg>
+<arg>xpath=//button[.//span[text()='Logout']]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:03:20.294381" elapsed="0.181522"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:03:28.477547" level="INFO">Slept 8 seconds.</msg>
+<arg>8s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:03:20.476245" elapsed="8.001815"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'Sign In')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-21T17:03:28.478925" elapsed="0.032248"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:28.511905" level="INFO">Sending key(s) ('ENTER',) to xpath=//button[contains(text(), 'Sign In')] element.</msg>
+<msg time="2025-08-21T17:03:28.812360" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-08-21T17:03:28.812566" level="INFO">Releasing special key ENTER.</msg>
+<arg>xpath=//button[contains(text(), 'Sign In')]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:03:28.511415" elapsed="0.314227"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:03:48.826392" level="INFO">Slept 20 seconds.</msg>
+<arg>20s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:03:28.825885" elapsed="20.000654"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>✓ Clicked Sign In again after logout</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-21T17:03:48.826753" elapsed="0.000465"/>
+</kw>
+<status status="PASS" start="2025-08-21T17:03:12.291996" elapsed="36.535481"/>
+</kw>
+<arg>Handle Already Logged In Popup</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-21T17:03:12.291452" elapsed="36.536215"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Login successful</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-21T17:03:48.828026" elapsed="0.001080"/>
+</kw>
+<status status="PASS" start="2025-08-21T17:03:11.655363" elapsed="37.173980"/>
+</kw>
+<kw name="Open Product Master">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:48.834367" level="INFO">Clicking link 'Masters'.</msg>
+<arg>Masters</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:03:48.834149" elapsed="0.101151"/>
+</kw>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:48.935789" level="INFO">Simulating Mouse Over on element 'link:Inventory Info'.</msg>
+<arg>link:Inventory Info</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:03:48.935547" elapsed="0.301481"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:49.239139" level="INFO">Clicking element 'link:Product Master'.</msg>
+<arg>link:Product Master</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:03:49.238024" elapsed="0.235437"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:03:59.474649" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:03:49.473772" elapsed="10.001177"/>
+</kw>
+<status status="PASS" start="2025-08-21T17:03:48.833778" elapsed="10.641444"/>
+</kw>
+<kw name="Add Product">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:03:59.477821" level="INFO">Clicking button 'xpath://button[contains(text(), 'Add Product')]'.</msg>
+<arg>xpath://button[contains(text(), 'Add Product')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:03:59.477384" elapsed="0.143772"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:01.622541" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:03:59.621621" elapsed="2.001126"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:01.623432" level="INFO">Clicking element 'xpath://label[contains(text(), 'Add Product')]'.</msg>
+<arg>xpath://label[contains(text(), 'Add Product')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:04:01.623085" elapsed="0.260384"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:01.884799" level="INFO">Executing JavaScript:
+document.body.style.zoom="80%"
+Without any arguments.</msg>
+<arg>document.body.style.zoom="80%"</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2025-08-21T17:04:01.884034" elapsed="0.010488"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:03.895612" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:01.894830" elapsed="2.001010"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:03.896675" level="INFO">Clicking element 'xpath://input[@placeholder='-- Press Enter For Item Group --']'.</msg>
+<arg>xpath://input[@placeholder='-- Press Enter For Item Group --']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:04:03.896220" elapsed="0.115517"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:04.012411" level="INFO">Sending key(s) ('ENTER',) to xpath://input[@placeholder='-- Press Enter For Item Group --'] element.</msg>
+<msg time="2025-08-21T17:04:04.306913" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-08-21T17:04:04.307016" level="INFO">Releasing special key ENTER.</msg>
+<arg>xpath://input[@placeholder='-- Press Enter For Item Group --']</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:04.011959" elapsed="0.324603"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:06.337394" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:04.336817" elapsed="2.000732"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:06.338273" level="INFO">Sending key(s) ('ENTER',) to xpath://ng-select//input[@type='text'] element.</msg>
+<msg time="2025-08-21T17:04:06.638773" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-08-21T17:04:06.638877" level="INFO">Releasing special key ENTER.</msg>
+<arg>xpath://ng-select//input[@type='text']</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:06.337781" elapsed="0.325679"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:06.664598" level="INFO">Sending key(s) ('ENTER',) to xpath://ng-select//input[@type='text'] element.</msg>
+<msg time="2025-08-21T17:04:06.963284" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2025-08-21T17:04:06.963411" level="INFO">Releasing special key ENTER.</msg>
+<arg>xpath://ng-select//input[@type='text']</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:06.663880" elapsed="0.314930"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:11.980409" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:06.979052" elapsed="5.001625"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:11.981683" level="INFO">Clicking button 'xpath://button[.//span[normalize-space()='Ok']]'.</msg>
+<arg>xpath://button[.//span[normalize-space()='Ok']]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:04:11.981130" elapsed="0.150530"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:17.132655" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:12.131888" elapsed="5.000988"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:17.133821" level="INFO">Typing text 'Testing5610' into text field 'xpath://input[@placeholder='Enter Item Name']'.</msg>
+<arg>xpath://input[@placeholder='Enter Item Name']</arg>
+<arg>${PRODUCT_ITEM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:04:17.133238" elapsed="0.136936"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:17.271960" level="INFO">Sending key(s) ('TAB',) to xpath://input[@placeholder='Enter Item Name'] element.</msg>
+<msg time="2025-08-21T17:04:17.577635" level="INFO">Pressing special key TAB to element.</msg>
+<msg time="2025-08-21T17:04:17.577791" level="INFO">Releasing special key TAB.</msg>
+<arg>xpath://input[@placeholder='Enter Item Name']</arg>
+<arg>TAB</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:17.271230" elapsed="0.325914"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:22.598622" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:17.597520" elapsed="5.001362"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:22.600183" level="INFO">Sending key(s) ('123',) to xpath://input[@placeholder='Enter HS Code'] element.</msg>
+<msg time="2025-08-21T17:04:22.903649" level="INFO">Sending keys 123</msg>
+<arg>xpath://input[@placeholder='Enter HS Code']</arg>
+<arg>${HS_CODE}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:22.599301" elapsed="0.345840"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:27.945873" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:22.945360" elapsed="5.000698"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:27.946820" level="INFO">Clicking element 'xpath://input[@type='checkbox']' with TAB.</msg>
+<arg>xpath://input[@type='checkbox']</arg>
+<arg>TAB</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:04:27.946358" elapsed="0.342872"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:33.290380" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:28.289714" elapsed="5.000977"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:33.292421" level="INFO">Sending key(s) ('kg.',) to id=unit element.</msg>
+<msg time="2025-08-21T17:04:33.632546" level="INFO">Sending keys kg.</msg>
+<arg>id=unit</arg>
+<arg>${UNIT}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:33.291277" elapsed="0.374152"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:38.666367" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:33.665728" elapsed="5.000863"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:38.668148" level="INFO">Sending key(s) ('Service Item',) to id=ptype element.</msg>
+<msg time="2025-08-21T17:04:39.017204" level="INFO">Sending keys Service Item</msg>
+<arg>id=ptype</arg>
+<arg>${ITEM_TYPE}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:38.666970" elapsed="0.411223"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:44.079074" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:39.078402" elapsed="5.001117"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:44.080713" level="INFO">Sending key(s) ('This is description',) to xpath://input[@placeholder='Enter Product Description'] element.</msg>
+<msg time="2025-08-21T17:04:44.427311" level="INFO">Sending keys This is description</msg>
+<arg>xpath://input[@placeholder='Enter Product Description']</arg>
+<arg>${DESCRIPTION}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:44.079946" elapsed="0.505153"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:49.586462" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:44.585673" elapsed="5.000933"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:49.587364" level="INFO">Sending key(s) ('N/A',) to id=Category element.</msg>
+<msg time="2025-08-21T17:04:49.918317" level="INFO">Sending keys N/A</msg>
+<arg>id=Category</arg>
+<arg>${CATEGORY}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:49.586847" elapsed="0.363582"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:04:54.951480" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:49.950694" elapsed="5.000985"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:04:54.952794" level="INFO">Sending key(s) ('XYZ',) to xpath://input[@placeholder='Enter Short Name'] element.</msg>
+<msg time="2025-08-21T17:04:55.267810" level="INFO">Sending keys XYZ</msg>
+<arg>xpath://input[@placeholder='Enter Short Name']</arg>
+<arg>${SHORT_NAME}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-08-21T17:04:54.952024" elapsed="0.381520"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:05:00.334532" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:04:55.333936" elapsed="5.000771"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:05:00.335299" level="INFO">Typing text '120' into text field 'xpath://input[@type='number' and @placeholder='Enter Purchase Price']'.</msg>
+<arg>xpath://input[@type='number' and @placeholder='Enter Purchase Price']</arg>
+<arg>${PURCHASE_PRICE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:05:00.334938" elapsed="0.177229"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:05:05.512954" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:05:00.512504" elapsed="5.000642"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:05:05.513917" level="INFO">Typing text '140' into text field 'xpath://input[@type='number' and @placeholder='0']'.</msg>
+<arg>xpath://input[@type='number' and @placeholder='0']</arg>
+<arg>${SALES_PRICE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:05:05.513455" elapsed="1.098532"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-21T17:05:11.612903" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-21T17:05:06.612295" elapsed="5.000768"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:05:11.613635" level="INFO">Clicking element 'xpath://div[@class='mat-tab-label-content' and normalize-space()='Alternate Unit']'.</msg>
+<arg>xpath://div[@class='mat-tab-label-content' and normalize-space()='Alternate Unit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:05:11.613317" elapsed="0.120409"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:05:11.734599" level="INFO">Selecting options from selection list 'xpath://select[contains(@class, 'ng-pristine')]' by label Each.</msg>
+<arg>xpath://select[contains(@class, 'ng-pristine')]</arg>
+<arg>${ALT_UNIT}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-08-21T17:05:11.734090" elapsed="0.260682"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:05:11.995649" level="INFO">Typing text '1000' into text field 'xpath://input[@type='number' and contains(@class, 'ng-valid')]'.</msg>
+<msg time="2025-08-21T17:05:12.335888" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-21T17:05:12.336181" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=139.0.7258.128)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7702c6b25+79621]
+	GetHandleVerifier [0x0x7ff7702c6b80+79712]
+	(No symbol) [0x0x7ff77005bf1c]
+	(No symbol) [0x0x7ff7700a8437]
+	(No symbol) [0x0x7ff7700db13a]
+	(No symbol) [0x0x7ff7700a5926]
+	(No symbol) [0x0x7ff7700db350]
+	(No symbol) [0x0x7ff7701033d0]
+	(No symbol) [0x0x7ff7700daf13]
+	(No symbol) [0x0x7ff7700a4151]
+	(No symbol) [0x0x7ff7700a4ee3]
+	GetHandleVerifier [0x0x7ff77058683d+2962461]
+	GetHandleVerifier [0x0x7ff770580b5d+2938685]
+	GetHandleVerifier [0x0x7ff77059f71d+3064573]
+	GetHandleVerifier [0x0x7ff7702e0c6e+186446]
+	GetHandleVerifier [0x0x7ff7702e8a3f+218655]
+	GetHandleVerifier [0x0x7ff7702cf914+115956]
+	GetHandleVerifier [0x0x7ff7702cfac9+116393]
+	GetHandleVerifier [0x0x7ff7702b5ef8+10968]
+	BaseThreadInitThunk [0x0x7ff8b7057374+20]
+	RtlUserThreadStart [0x0x7ff8b78bcc91+33]
+</msg>
+<arg>xpath://input[@type='number' and contains(@class, 'ng-valid')]</arg>
+<arg>${CONVERSION_FACTOR}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-08-21T17:05:11.995117" elapsed="0.345837">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=139.0.7258.128)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7702c6b25+79621]
+	GetHandleVerifier [0x0x7ff7702c6b80+79712]
+	(No symbol) [0x0x7ff77005bf1c]
+	(No symbol) [0x0x7ff7700a8437]
+	(No symbol) [0x0x7ff7700db13a]
+	(No symbol) [0x0x7ff7700a5926]
+	(No symbol) [0x0x7ff7700db350]
+	(No symbol) [0x0x7ff7701033d0]
+	(No symbol) [0x0x7ff7700daf13]
+	(No symbol) [0x0x7ff7700a4151]
+	(No symbol) [0x0x7ff7700a4ee3]
+	GetHandleVerifier [0x0x7ff77058683d+2962461]
+	GetHandleVerifier [0x0x7ff770580b5d+2938685]
+	GetHandleVerifier [0x0x7ff77059f71d+3064573]
+	GetHandleVerifier [0x0x7ff7702e0c6e+186446]
+	GetHandleVerifier [0x0x7ff7702e8a3f+218655]
+	GetHandleVerifier [0x0x7ff7702cf914+115956]
+	GetHandleVerifier [0x0x7ff7702cfac9+116393]
+	GetHandleVerifier [0x0x7ff7702b5ef8+10968]
+	BaseThreadInitThunk [0x0x7ff8b7057374+20]
+	RtlUserThreadStart [0x0x7ff8b78bcc91+33]
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath://div[@class='mat-tab-label-content' and normalize-space()='Barcode Mapping']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-21T17:05:12.341221" elapsed="0.000056"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath://input[@placeholder='Enter Bar Code']</arg>
+<arg>${BARCODE_MAP}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-21T17:05:12.341439" elapsed="0.000045"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>None</arg>
+<arg>TAB</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-08-21T17:05:12.341708" elapsed="0.000047"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<arg>css:div.col-2.p-0 select</arg>
+<arg>${BARCODE_UNIT}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" start="2025-08-21T17:05:12.341913" elapsed="0.000044"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>id:map</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-21T17:05:12.342108" elapsed="0.000043"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath://button[contains(text(),'SAVE')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-21T17:05:12.342293" elapsed="0.000045"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-21T17:05:12.342481" elapsed="0.000044"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<arg>None</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" start="2025-08-21T17:05:12.342673" elapsed="0.000046"/>
+</kw>
+<status status="FAIL" start="2025-08-21T17:03:59.476669" elapsed="72.866282">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=139.0.7258.128)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7702c6b25+79621]
+	GetHandleVerifier [0x0x7ff7702c6b80+79712]
+	(No symbol) [0x0x7ff77005bf1c]
+	(No symbol) [0x0x7ff7700a8437]
+	(No symbol) [0x0x7ff7700db13a]
+	(No symbol) [0x0x7ff7700a5926]
+	(No symbol) [0x0x7ff7700db350]
+	(No symbol) [0x0x7ff7701033d0]
+	(No symbol) [0x0x7ff7700daf13]
+	(No symbol) [0x0x7ff7700a4151]
+	(No symbol) [0x0x7ff7700a4ee3]
+	GetHandleVerifier [0x0x7ff77058683d+2962461]
+	GetHandleVerifier [0x0x7ff770580b5d+2938685]
+	GetHandleVerifier [0x0x7ff77059f71d+3064573]
+	GetHandleVerifier [0x0x7ff7702e0c6e+186446]
+	GetHandleVerifier [0x0x7ff7702e8a3f+218655]
+	GetHandleVerifier [0x0x7ff7702cf914+115956]
+	GetHandleVerifier [0x0x7ff7702cfac9+116393]
+	GetHandleVerifier [0x0x7ff7702b5ef8+10968]
+	BaseThreadInitThunk [0x0x7ff8b7057374+20]
+	RtlUserThreadStart [0x0x7ff8b78bcc91+33]
+</status>
+</kw>
+<status status="FAIL" start="2025-08-21T17:03:11.648397" elapsed="120.695086">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=139.0.7258.128)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7702c6b25+79621]
+	GetHandleVerifier [0x0x7ff7702c6b80+79712]
+	(No symbol) [0x0x7ff77005bf1c]
+	(No symbol) [0x0x7ff7700a8437]
+	(No symbol) [0x0x7ff7700db13a]
+	(No symbol) [0x0x7ff7700a5926]
+	(No symbol) [0x0x7ff7700db350]
+	(No symbol) [0x0x7ff7701033d0]
+	(No symbol) [0x0x7ff7700daf13]
+	(No symbol) [0x0x7ff7700a4151]
+	(No symbol) [0x0x7ff7700a4ee3]
+	GetHandleVerifier [0x0x7ff77058683d+2962461]
+	GetHandleVerifier [0x0x7ff770580b5d+2938685]
+	GetHandleVerifier [0x0x7ff77059f71d+3064573]
+	GetHandleVerifier [0x0x7ff7702e0c6e+186446]
+	GetHandleVerifier [0x0x7ff7702e8a3f+218655]
+	GetHandleVerifier [0x0x7ff7702cf914+115956]
+	GetHandleVerifier [0x0x7ff7702cfac9+116393]
+	GetHandleVerifier [0x0x7ff7702b5ef8+10968]
+	BaseThreadInitThunk [0x0x7ff8b7057374+20]
+	RtlUserThreadStart [0x0x7ff8b78bcc91+33]
+</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-21T17:05:12.347165" elapsed="2.398486"/>
+</kw>
+<status status="FAIL" start="2025-08-21T17:03:03.911314" elapsed="130.834540"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Product Master" id="s1" pass="0" fail="1" skip="0">Product Master</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -55,15 +55,16 @@ Purchase Invoice
     ${random_invoice}=    Evaluate    "INV-" + "".join(random.sample("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",6))    random
     Input Text    id=invoiceNO    ${random_invoice}
     Log    ✓ Invoice Number entered: ${random_invoice}
+    Sleep    5s
 
     # Account dropdown
     Press Keys    xpath=//input[contains(@placeholder, 'Account')]    ENTER
-    Sleep    2s
+    Sleep    6s
     Press Keys    xpath=//input[contains(@placeholder, 'Account')]    ENTER
-    Sleep    2s
+    Sleep    6s
 
     Input Text    id=remarksid    This is an automated remark for PI.
-    Sleep    2s
+    Sleep    6s
 
     # Barcode and quantity
     Input Text    id=barcodeField    2020
@@ -71,7 +72,7 @@ Purchase Invoice
     ${quantity}=    Evaluate    random.randint(80,200)    random
     Input Text    xpath=//table//tr//td[position()=9]//input    ${quantity}
     Press Keys    xpath=//table//tr//td[position()=9]//input    ENTER
-    Log    ✓ Quantity entered: ${quantity}
+    Log      Quantity entered: ${quantity}
 
     # Discounts
     ${disc1}=    Evaluate    random.randint(1,50)    random

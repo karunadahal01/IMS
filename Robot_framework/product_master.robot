@@ -5,9 +5,14 @@ Suite Setup    Open Browser To Login Page
 Suite Teardown    Close Browser
 
 *** Variables ***
-${URL}           https://velvet.webredirect.himshang.com.np/#/pages/dashboard
+#${URL}           https://velvet.webredirect.himshang.com.np/#/pages/dashboard
+#${BROWSER}       chrome
+#${USERNAME}      gedehim917@decodewp.com
+#${PASSWORD}      Tebahal1!
+
+${URL}           https://stc21.variantqa.himshang.com.np/
 ${BROWSER}       chrome
-${USERNAME}      gedehim917@decodewp.com
+${USERNAME}      Sirish
 ${PASSWORD}      Tebahal1!
 
 ${PRODUCT_ITEM}        Testing5610
@@ -74,24 +79,38 @@ Add Product
     Press Keys       xpath://ng-select//input[@type='text']    ENTER
     Sleep   5s
     Click Button     xpath://button[.//span[normalize-space()='Ok']]
+    Sleep    5s
 
     # Fill Item Details
     Input Text    xpath://input[@placeholder='Enter Item Name']    ${PRODUCT_ITEM}
     Press Keys    xpath://input[@placeholder='Enter Item Name']    TAB
-    Press Keys    None    ${HS_CODE} TAB
-    Click Element    xpath://input[@type='checkbox']
-    Press Keys    None    ${UNIT} TAB
-    Press Keys    None    ${ITEM_TYPE} TAB
-    Press Keys    None    ${DESCRIPTION} TAB
-    Press Keys    None    ${CATEGORY} TAB
-    Press Keys    None    ${SHORT_NAME} TAB
+    Sleep    5s
+    Press Keys    xpath://input[@placeholder='Enter HS Code']    ${HS_CODE}
+    Sleep    5s
+    Click Element    xpath://input[@type='checkbox']  TAB
+    Sleep    5s
+    Press Keys    id=unit  ${UNIT}
+    Sleep    5s
+    Press Keys    id=ptype  ${ITEM_TYPE}
+    Sleep    5s
+    Press Keys    xpath://input[@placeholder='Enter Product Description']  ${DESCRIPTION}
+    Sleep    5s
+    Press Keys    id=Category   ${CATEGORY}
+    Sleep    5s
+    Press Keys    xpath://input[@placeholder='Enter Short Name']   ${SHORT_NAME}
+    Sleep    5s
     Input Text    xpath://input[@type='number' and @placeholder='Enter Purchase Price']    ${PURCHASE_PRICE}
+    Sleep    5s
     Input Text    xpath://input[@type='number' and @placeholder='0']    ${SALES_PRICE}
+    Sleep    5s
 
     # Alternate Unit
     Click Element    xpath://div[@class='mat-tab-label-content' and normalize-space()='Alternate Unit']
+    Sleep    5s
     Select From List By Label    xpath://select[contains(@class, 'ng-pristine')]    ${ALT_UNIT}
+    Sleep    5s
     Input Text    xpath://input[@type='number' and contains(@class, 'ng-valid')]    ${CONVERSION_FACTOR}
+    Sleep    5s
 
     # Barcode Mapping
     Click Element    xpath://div[@class='mat-tab-label-content' and normalize-space()='Barcode Mapping']

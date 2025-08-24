@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-24T10:58:19.178565" rpa="false" schemaversion="5">
+<suite id="s1" name="Sales Tax Invoice" source="C:\Users\karun\PycharmProjects\PythonProject\Robot_framework\sales_tax_invoice.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-24T10:58:19.977349" level="INFO">Opening browser 'Chrome' to base url 'about:blank'.</msg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-24T10:58:19.976662" elapsed="4.615682"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-24T10:58:24.592840" elapsed="0.051835"/>
+</kw>
+<status status="PASS" start="2025-08-24T10:58:19.974251" elapsed="4.670685"/>
+</kw>
+<test id="s1-t1" name="Login And Create Sales Tax Invoice" line="16">
+<kw name="Login">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-08-24T10:58:24.648459" level="INFO">Opening url 'https://velvet.webredirect.himshang.com.np/#/pages/dashboard'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-08-24T10:58:24.648092" elapsed="12.890098"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=input[formcontrolname="username"]</arg>
+<arg>${WAIT_TIME}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-24T10:58:37.538565" elapsed="0.057703"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-24T10:58:37.596918" level="INFO">Typing text 'gedehim917@decodewp.com' into text field 'css=input[formcontrolname="username"]'.</msg>
+<arg>css=input[formcontrolname="username"]</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-24T10:58:37.596564" elapsed="0.248107"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-24T10:58:37.845663" level="INFO">Typing text 'Tebahal1!' into text field 'css=input[formcontrolname="password"]'.</msg>
+<arg>css=input[formcontrolname="password"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-24T10:58:37.845140" elapsed="0.139357"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-24T10:58:37.985133" level="INFO">Clicking button 'xpath=//button[contains(text(), 'Sign In')]'.</msg>
+<arg>xpath=//button[contains(text(), 'Sign In')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-24T10:58:37.984824" elapsed="0.131057"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-08-24T10:58:58.512552" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-24T10:58:58.512799" level="FAIL">Element 'xpath=//button[.//span[text()='Logout']]' not visible after 20 seconds.</msg>
+<arg>xpath=//button[.//span[text()='Logout']]</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-08-24T10:58:38.116900" elapsed="20.401957">Element 'xpath=//button[.//span[text()='Logout']]' not visible after 20 seconds.</status>
+</kw>
+<msg time="2025-08-24T10:58:58.519098" level="INFO">${popup_present} = False</msg>
+<var>${popup_present}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//button[.//span[text()='Logout']]</arg>
+<arg>20s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-24T10:58:38.116268" elapsed="20.402876"/>
+</kw>
+<if>
+<branch type="IF" condition="${popup_present}">
+<kw name="Log" owner="BuiltIn">
+<arg>✓ Already Logged In popup detected</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-24T10:58:58.519563" elapsed="0.000046"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<var>${logout_button}</var>
+<arg>xpath=//button[.//span[text()='Logout']]</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:58:58.519762" elapsed="0.000044"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${logout_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:58:58.519946" elapsed="0.000038"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>8</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:58:58.520103" elapsed="0.000038"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'Sign In')]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-08-24T10:58:58.520274" elapsed="0.000039"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'Sign In')]</arg>
+<arg>\\13</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:58:58.520441" elapsed="0.000036"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>✓ Clicked Sign In again after logout</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-24T10:58:58.520610" elapsed="0.000038"/>
+</kw>
+<status status="NOT RUN" start="2025-08-24T10:58:58.519307" elapsed="0.001398"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-24T10:58:58.523268" level="INFO">ℹ️ No 'Already Logged In' popup detected — continuing without logout</msg>
+<arg>ℹ️ No 'Already Logged In' popup detected — continuing without logout</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-24T10:58:58.520903" elapsed="0.002522"/>
+</kw>
+<status status="PASS" start="2025-08-24T10:58:58.520774" elapsed="0.002757"/>
+</branch>
+<status status="PASS" start="2025-08-24T10:58:58.519263" elapsed="0.004354"/>
+</if>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-24T10:58:58.524158" level="INFO">Login successfully</msg>
+<arg>Login successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-24T10:58:58.523886" elapsed="0.000371"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-24T10:59:08.525789" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-24T10:58:58.524433" elapsed="10.001678"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<arg>${URL}</arg>
+<status status="PASS" start="2025-08-24T10:58:24.646850" elapsed="43.879651"/>
+</kw>
+<kw name="Sales Tax Invoice">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-24T10:59:08.535917" level="INFO">${wait} = 10</msg>
+<var>${wait}</var>
+<arg>${WAIT_TIME}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-24T10:59:08.535271" elapsed="0.000773"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-08-24T10:59:08.536996" level="INFO">Clicking link 'Transactions'.</msg>
+<arg>Transactions</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-24T10:59:08.536484" elapsed="0.111423"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-24T10:59:10.649115" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-24T10:59:08.648160" elapsed="2.001467"/>
+</kw>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-08-24T10:59:10.652408" level="INFO">Simulating Mouse Over on element 'link=Sales Transaction'.</msg>
+<arg>link=Sales Transaction</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="PASS" start="2025-08-24T10:59:10.651299" elapsed="0.329661"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-24T10:59:15.982227" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-24T10:59:10.981496" elapsed="5.001051"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-08-24T10:59:15.983595" level="INFO">Clicking link 'Sales Tax Invoice'.</msg>
+<msg time="2025-08-24T10:59:16.412954" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-24T10:59:16.413208" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=139.0.7258.139)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7b9336b25+79621]
+	GetHandleVerifier [0x0x7ff7b9336b80+79712]
+	(No symbol) [0x0x7ff7b90cbf1c]
+	(No symbol) [0x0x7ff7b9124454]
+	(No symbol) [0x0x7ff7b9116078]
+	(No symbol) [0x0x7ff7b914b13a]
+	(No symbol) [0x0x7ff7b9115926]
+	(No symbol) [0x0x7ff7b914b350]
+	(No symbol) [0x0x7ff7b91733d0]
+	(No symbol) [0x0x7ff7b914af13]
+	(No symbol) [0x0x7ff7b9114151]
+	(No symbol) [0x0x7ff7b9114ee3]
+	GetHandleVerifier [0x0x7ff7b95f683d+2962461]
+	GetHandleVerifier [0x0x7ff7b95f0b5d+2938685]
+	GetHandleVerifier [0x0x7ff7b960f71d+3064573]
+	GetHandleVerifier [0x0x7ff7b9350c6e+186446]
+	GetHandleVerifier [0x0x7ff7b9358a3f+218655]
+	GetHandleVerifier [0x0x7ff7b933f914+115956]
+	GetHandleVerifier [0x0x7ff7b933fac9+116393]
+	GetHandleVerifier [0x0x7ff7b9325ef8+10968]
+	BaseThreadInitThunk [0x0x7ff8b7057374+20]
+	RtlUserThreadStart [0x0x7ff8b78bcc91+33]
+</msg>
+<arg>Sales Tax Invoice</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="FAIL" start="2025-08-24T10:59:15.983051" elapsed="0.439974">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=139.0.7258.139)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7b9336b25+79621]
+	GetHandleVerifier [0x0x7ff7b9336b80+79712]
+	(No symbol) [0x0x7ff7b90cbf1c]
+	(No symbol) [0x0x7ff7b9124454]
+	(No symbol) [0x0x7ff7b9116078]
+	(No symbol) [0x0x7ff7b914b13a]
+	(No symbol) [0x0x7ff7b9115926]
+	(No symbol) [0x0x7ff7b914b350]
+	(No symbol) [0x0x7ff7b91733d0]
+	(No symbol) [0x0x7ff7b914af13]
+	(No symbol) [0x0x7ff7b9114151]
+	(No symbol) [0x0x7ff7b9114ee3]
+	GetHandleVerifier [0x0x7ff7b95f683d+2962461]
+	GetHandleVerifier [0x0x7ff7b95f0b5d+2938685]
+	GetHandleVerifier [0x0x7ff7b960f71d+3064573]
+	GetHandleVerifier [0x0x7ff7b9350c6e+186446]
+	GetHandleVerifier [0x0x7ff7b9358a3f+218655]
+	GetHandleVerifier [0x0x7ff7b933f914+115956]
+	GetHandleVerifier [0x0x7ff7b933fac9+116393]
+	GetHandleVerifier [0x0x7ff7b9325ef8+10968]
+	BaseThreadInitThunk [0x0x7ff8b7057374+20]
+	RtlUserThreadStart [0x0x7ff8b78bcc91+33]
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.423273" elapsed="0.000051"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<var>${random_refno}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.423462" elapsed="0.000041"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Generated Refno: ${random_refno}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.423641" elapsed="0.000040"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>id=refnoInput</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.423811" elapsed="0.000043"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=refnoInput</arg>
+<arg>${random_refno}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.423980" elapsed="0.000036"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.424136" elapsed="0.000036"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>id=customerselectid</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.424294" elapsed="0.000035"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>id=customerselectid</arg>
+<arg>\\13</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.424458" elapsed="0.000035"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.424615" elapsed="0.000037"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>\\13</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.424770" elapsed="0.000034"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.424923" elapsed="0.000036"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>id=remarksid</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.425075" elapsed="0.000034"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=remarksid</arg>
+<arg>This is an automated remark for STI.</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.425222" elapsed="0.000034"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.425369" elapsed="0.000036"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>✅ Remarks entered successfully.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.425521" elapsed="0.000035"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>id=barcodeField</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.425674" elapsed="0.000034"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=barcodeField</arg>
+<arg>${barcode_sales}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.425834" elapsed="0.000036"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>id=barcodeField</arg>
+<arg>\\13</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.425989" elapsed="0.000034"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${quantity}</var>
+<arg>random.randint(10, 80)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.426143" elapsed="0.000036"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Generated quantity: ${quantity}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.426300" elapsed="0.000036"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<var>${xpaths}</var>
+<arg>//table//tr//td[position()=9]//input</arg>
+<arg>//input[contains(@name, 'quantity') or contains(@name, 'Quantity')]</arg>
+<arg>//input[contains(@id, 'quantity') or contains(@id, 'Quantity')]</arg>
+<arg>//td[contains(@class, 'quantity')]//input</arg>
+<arg>//table//tbody//tr[1]//td[9]//input</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.426447" elapsed="0.000151"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<var>${quantity_field}</var>
+<arg>Find Quantity Field And Input Quantity</arg>
+<arg>${xpaths}</arg>
+<arg>${quantity}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.426762" elapsed="0.000039"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${quantity_field}' == 'FAIL'</arg>
+<arg>Log</arg>
+<arg>❌ Could not locate the quantity input field.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.427035" elapsed="0.000043"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>\\xf1</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.427215" elapsed="0.000037"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.427370" elapsed="0.000037"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${flat_discount}</var>
+<arg>random.randint(1, 50)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.427525" elapsed="0.000036"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Generated Flat Discount: ${flat_discount}%</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.427682" elapsed="0.000039"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>id=flatDis1</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.427859" elapsed="0.000038"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=flatDis1</arg>
+<arg>${flat_discount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.428014" elapsed="0.000035"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>id=flatDis1</arg>
+<arg>\\13</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.428168" elapsed="0.000039"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.428319" elapsed="0.000036"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//button[text()='AFTER']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.428469" elapsed="0.000034"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'SAVE') and contains(@class, 'btn-info')]</arg>
+<arg>${WAIT_TIME}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.428619" elapsed="0.000035"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'SAVE') and contains(@class, 'btn-info')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.428771" elapsed="0.000038"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.428925" elapsed="0.000035"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'Balance Amount') and contains(@class, 'btn-info')]</arg>
+<arg>${WAIT_TIME}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.429076" elapsed="0.000035"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'Balance Amount') and contains(@class, 'btn-info')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.429225" elapsed="0.000034"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.429367" elapsed="0.000034"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'Add') and contains(@class, 'btn-info')]</arg>
+<arg>${WAIT_TIME}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.429522" elapsed="0.000036"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'Add') and contains(@class, 'btn-info')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.429677" elapsed="0.000034"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.429822" elapsed="0.000036"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>\\ue00f</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.429970" elapsed="0.000034"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.430114" elapsed="0.000035"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'VIEW')]</arg>
+<arg>${WAIT_TIME}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.430264" elapsed="0.000034"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'VIEW')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.430418" elapsed="0.000034"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.430559" elapsed="0.000034"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<arg>\\13</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.430704" elapsed="0.000034"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.430858" elapsed="0.000035"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'RESET')]</arg>
+<arg>${WAIT_TIME}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.431012" elapsed="0.000035"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'RESET')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.431171" elapsed="0.000065"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.431444" elapsed="0.000070"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${alert_present}</var>
+<arg>Alert Should Be Present</arg>
+<arg>5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.431699" elapsed="0.000105"/>
+</kw>
+<if>
+<branch type="IF" condition="${alert_present}">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.432113" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2025-08-24T10:59:16.431963" elapsed="0.000256"/>
+</branch>
+<status status="NOT RUN" start="2025-08-24T10:59:16.431928" elapsed="0.000359"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.432408" elapsed="0.000048"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'BACK')]</arg>
+<arg>${WAIT_TIME}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.432607" elapsed="0.000042"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), 'BACK')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.432798" elapsed="0.000048"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-24T10:59:16.432983" elapsed="0.000040"/>
+</kw>
+<arg>2020</arg>
+<status status="FAIL" start="2025-08-24T10:59:08.533084" elapsed="7.900160">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=139.0.7258.139)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7b9336b25+79621]
+	GetHandleVerifier [0x0x7ff7b9336b80+79712]
+	(No symbol) [0x0x7ff7b90cbf1c]
+	(No symbol) [0x0x7ff7b9124454]
+	(No symbol) [0x0x7ff7b9116078]
+	(No symbol) [0x0x7ff7b914b13a]
+	(No symbol) [0x0x7ff7b9115926]
+	(No symbol) [0x0x7ff7b914b350]
+	(No symbol) [0x0x7ff7b91733d0]
+	(No symbol) [0x0x7ff7b914af13]
+	(No symbol) [0x0x7ff7b9114151]
+	(No symbol) [0x0x7ff7b9114ee3]
+	GetHandleVerifier [0x0x7ff7b95f683d+2962461]
+	GetHandleVerifier [0x0x7ff7b95f0b5d+2938685]
+	GetHandleVerifier [0x0x7ff7b960f71d+3064573]
+	GetHandleVerifier [0x0x7ff7b9350c6e+186446]
+	GetHandleVerifier [0x0x7ff7b9358a3f+218655]
+	GetHandleVerifier [0x0x7ff7b933f914+115956]
+	GetHandleVerifier [0x0x7ff7b933fac9+116393]
+	GetHandleVerifier [0x0x7ff7b9325ef8+10968]
+	BaseThreadInitThunk [0x0x7ff8b7057374+20]
+	RtlUserThreadStart [0x0x7ff8b78bcc91+33]
+</status>
+</kw>
+<status status="FAIL" start="2025-08-24T10:58:24.645120" elapsed="51.788754">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=139.0.7258.139)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7b9336b25+79621]
+	GetHandleVerifier [0x0x7ff7b9336b80+79712]
+	(No symbol) [0x0x7ff7b90cbf1c]
+	(No symbol) [0x0x7ff7b9124454]
+	(No symbol) [0x0x7ff7b9116078]
+	(No symbol) [0x0x7ff7b914b13a]
+	(No symbol) [0x0x7ff7b9115926]
+	(No symbol) [0x0x7ff7b914b350]
+	(No symbol) [0x0x7ff7b91733d0]
+	(No symbol) [0x0x7ff7b914af13]
+	(No symbol) [0x0x7ff7b9114151]
+	(No symbol) [0x0x7ff7b9114ee3]
+	GetHandleVerifier [0x0x7ff7b95f683d+2962461]
+	GetHandleVerifier [0x0x7ff7b95f0b5d+2938685]
+	GetHandleVerifier [0x0x7ff7b960f71d+3064573]
+	GetHandleVerifier [0x0x7ff7b9350c6e+186446]
+	GetHandleVerifier [0x0x7ff7b9358a3f+218655]
+	GetHandleVerifier [0x0x7ff7b933f914+115956]
+	GetHandleVerifier [0x0x7ff7b933fac9+116393]
+	GetHandleVerifier [0x0x7ff7b9325ef8+10968]
+	BaseThreadInitThunk [0x0x7ff8b7057374+20]
+	RtlUserThreadStart [0x0x7ff8b78bcc91+33]
+</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-24T10:59:16.437354" elapsed="2.411875"/>
+</kw>
+<status status="FAIL" start="2025-08-24T10:58:19.181933" elapsed="59.667794"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Sales Tax Invoice" id="s1" pass="0" fail="1" skip="0">Sales Tax Invoice</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

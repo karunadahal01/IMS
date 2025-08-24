@@ -26,7 +26,7 @@ ${PURCHASE_PRICE}      120
 ${SALES_PRICE}         140
 ${ALT_UNIT}            Each
 ${CONVERSION_FACTOR}   1000
-${BARCODE_MAP}         200
+${BARCODE_MAP}         0900
 ${BARCODE_UNIT}        kg.
 
 *** Keywords ***
@@ -114,15 +114,18 @@ Add Product
 
     # Barcode Mapping
     Click Element    xpath://div[@class='mat-tab-label-content' and normalize-space()='Barcode Mapping']
+    Sleep    5s
     Input Text    xpath://input[@placeholder='Enter Bar Code']    ${BARCODE_MAP}
-    Press Keys    None    TAB
-    Select From List By Label    css:div.col-2.p-0 select    ${BARCODE_UNIT}
-    Click Button    id:map
+    Sleep    5s
+    Press Keys    class=form-control ng-pristine ng-valid ng-touched  ${BARCODE_UNIT}
+    Click Button    id=map
+    Sleep    5s
 
     # Save Product
     Click Button    xpath://button[contains(text(),'SAVE')]
-    Sleep    2s
+    Sleep    5s
     Press Keys    None    ENTER
+    Sleep    5s
 
 *** Test Cases ***
 Login And Add Product

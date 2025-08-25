@@ -10,7 +10,7 @@ ${URL}            https://velvet.webredirect.himshang.com.np/#/pages/dashboard
 ${USERNAME}       gedehim917@decodewp.com
 ${PASSWORD}       Tebahal1!
 ${BROWSER}        Chrome
-${WAIT_TIME}
+${WAIT_TIME}      10
 
 *** Test Cases ***
 Login And Create Sales Tax Invoice

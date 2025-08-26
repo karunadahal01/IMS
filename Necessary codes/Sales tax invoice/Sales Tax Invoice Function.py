@@ -222,7 +222,7 @@ def sales_tax_invoice(driver, barcode_sales):
     back_btn.click()
 
 sales_tax_invoice(driver,
-                  barcode_sales=2020)
+                  barcode_sales=822)
 
 print("Keeping browser open for 30 seconds for observation...")
 time.sleep(30)

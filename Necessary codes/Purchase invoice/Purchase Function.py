@@ -199,7 +199,7 @@ def Purchase_invoice(driver, barcode_purchase):
             print(f"✓ Successfully entered Invoice Number: {random_invoice}")
         except Exception as e:
             print(f"⚠️ Failed to enter Invoice Number: {e}")
-
+################################################################
         print("Step 10: Opening Account dropdown by pressing Enter...")
         try:
             account_field_selectors = [
@@ -424,7 +424,7 @@ Login(
     link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard")
 
 Purchase_invoice(driver,
-                 barcode_purchase=2020)
+                 barcode_purchase=822)
 
 
 print("Keeping browser open for 30 seconds for observation...")

@@ -1,5 +1,3 @@
-# pages/product_master_page.py
-
 import time
 import logging
 import allure
@@ -7,286 +5,403 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.wait import WebDriverWait
+
 from pages.base_page import BasePage
-from exceptions.custom_exceptions import NavigationError, FormFieldNotFoundError, PopupHandlingError
+from exceptions.custom_exceptions import NavigationError, FormFieldNotFoundError
 
 logger = logging.getLogger(__name__)
-
-
+#
+#
 class ProductMasterPage(BasePage):
-    """Product Master page class with product creation functionality."""
+#     """Product Master page class with product creation functionality."""
+#
 
-    # Locators
-    MASTERS_MENU = (By.LINK_TEXT, "Masters")
-    INVENTORY_INFO_MENU = (By.LINK_TEXT, "Inventory Info")
-    PRODUCT_MASTER_MENU = (By.LINK_TEXT, "Product Master")
-    ADD_PRODUCT_BUTTON = (By.XPATH, "//button[contains(text(), 'Add Product')]")
-    ADD_PRODUCT_LABEL = (By.XPATH, "//label[contains(text(), 'Add Product')]")
-    ITEM_GROUP_INPUT = (By.XPATH, "//input[@placeholder='-- Press Enter For Item Group --']")
-    MAIN_GROUP_INPUT = (By.XPATH, "//ng-select//input[@type='text']")
-    OK_BUTTON = (By.XPATH, "//button[.//span[normalize-space()='Ok']]")
-    ITEM_NAME_INPUT = (By.XPATH, "//input[@placeholder='Enter Item Name']")
-    VATABLE_CHECKBOX = (By.XPATH, "//input[@type='checkbox' and contains(@class, 'ng-pristine')]")
-    PURCHASE_PRICE_INPUT = (By.XPATH, "//input[@type='number' and @placeholder='Enter Purchase Price']")
-    SALES_PRICE_INPUT = (By.XPATH, "//input[@type='number' and @placeholder='0']")
-    ALTERNATE_UNIT_TAB = (By.XPATH, "//div[@class='mat-tab-label-content' and normalize-space()='Alternate Unit']")
-    UNIT_SELECT = (By.XPATH, "//select[contains(@class, 'ng-pristine')]")
-    CONVERSION_FACTOR_INPUT = (By.XPATH, "//input[@type='number' and contains(@class, 'ng-valid')]")
-    BARCODE_MAPPING_TAB = (By.XPATH, "//div[@class='mat-tab-label-content' and normalize-space()='Barcode Mapping']")
-    BARCODE_INPUT = (By.XPATH, "//input[@placeholder='Enter Bar Code']")
-    BARCODE_UNIT_SELECT = (By.CSS_SELECTOR, 'div.col-2.p-0 select')
-    MAP_BUTTON = (By.ID, "map")
-    SAVE_BUTTON = (By.XPATH, "//button[contains(text(),'SAVE')]")
-
+#####################################################Procudt Master Creation#############################################################-----------------------------------
     @allure.step("Creating product master for item: {product_item}")
-    def create_product_master(self, product_item, HS_code, unit, item_type,
-                              description, category, short_name, purchase_price, sales_price,
-                              alt_unit, conversion_factor, barcode_map, barcode_unit):
-        """Create a new product master."""
-
-        # Navigate to Masters menu
+    def product_master(self, product_item, hs_code, unit, item_type,
+                       description, category, short_name, purchase_price, sales_price,
+                    barcode_map, barcode_unit):
+        # Wait until the menu is loaded
+        wait = WebDriverWait(self.driver, 10)
+        # Click on "Masters"
         try:
-            with allure.step("Clicking on 'Masters' menu"):
-                Master_menu = self.driver.find_element(*self.MASTERS_MENU)
-                Master_menu.click()
-                print("Clicked on 'Masters'")
+           with allure.step("Clicking on 'Masters' menu"):
+            master_menu = self.driver.find_element(By.LINK_TEXT, "Masters")
+            master_menu.click()
+            print("Clicked on 'Masters'")
         except Exception as e:
             logger.error(f"Error clicking 'Masters': {e}")
-            self.take_screenshot("Masters Menu Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Masters Menu Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise NavigationError(f"Failed to click 'Masters': {e}")
         time.sleep(5)
-
-        # Hover over Inventory Info
+        # Hover over "inventory_info"
         try:
-            inventory_info = self.wait.until(ec.presence_of_element_located(self.INVENTORY_INFO_MENU))
+            inventory_info = wait.until(ec.presence_of_element_located((By.LINK_TEXT, "Inventory Info")))
             ActionChains(self.driver).move_to_element(inventory_info).perform()
             time.sleep(5)
         except Exception as e:
+
             logger.error(f"Error hovering over 'Inventory Info': {e}")
-            self.take_screenshot("Inventory Info Hover Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Inventory Info Hover Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise NavigationError(f"Failed to hover over 'Inventory Info': {e}")
 
-        # Click Product Master
+        # Wait for "Product Master" to be visible and click it
         try:
             with allure.step("Waiting for 'Product Master' to be visible and clicking it"):
-                product_master = self.wait.until(ec.visibility_of_element_located(self.PRODUCT_MASTER_MENU))
-                product_master.click()
-                print("Clicked 'Product Master'")
-                time.sleep(5)
+               product_master = wait.until(ec.visibility_of_element_located((By.LINK_TEXT, "Product Master")))
+               product_master.click()
+               print("Clicked 'Product Master'")
+               time.sleep(5)
         except Exception as e:
             logger.error(f"Error clicking 'Product Master': {e}")
-            self.take_screenshot("Product Master Click Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Product Master Click Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise NavigationError(f"Failed to click 'Product Master': {e}")
-
-        # Click Add Product button
+        # Click on "Add Product" button
         try:
             with allure.step("Clicking on 'Add Product' button"):
-                add_product_btn = self.wait.until(ec.element_to_be_clickable(self.ADD_PRODUCT_BUTTON))
+                add_product_btn = wait.until(ec.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Add Product')]")))
                 self.safe_click(add_product_btn, "Add Product button")
                 time.sleep(10)
         except Exception as e:
             logger.error(f"Error clicking 'Add Product' button: {e}")
-            self.take_screenshot("Add Product Button Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Add Product Button Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise NavigationError(f"Failed to click 'Add Product': {e}")
 
-        # Click Add Product label
+
+        # Click the "Add Product" label
+
         try:
             with allure.step("Clicking 'Add Product' label"):
-                add_product = self.wait.until(ec.element_to_be_clickable(self.ADD_PRODUCT_LABEL))
+                wait = WebDriverWait(self.driver, 10)
+                add_product = wait.until(ec.element_to_be_clickable((By.XPATH, "//label[contains(text(), 'Add Product')]")))
+                # Click the "Add Product" label
                 add_product.click()
                 time.sleep(8)
+
         except Exception as e:
             logger.error(f"Error clicking 'Add Product' label: {e}")
-            self.take_screenshot("Add Product Label Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Add Product Label Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise NavigationError(f"Failed to click 'Add Product' label: {e}")
-
-        # Set page zoom
-        self.set_page_zoom()
+        # Zoom out screen
+        self.driver.execute_script("document.body.style.zoom='80%'")
         time.sleep(3)
 
-        # Handle Item Group selection
+        # Click on the Item Group input field
         try:
             with allure.step("Clicking on Item Group input field"):
-                item_group_input = self.wait.until(ec.element_to_be_clickable(self.ITEM_GROUP_INPUT))
+                item_group_input = wait.until(
+                    ec.element_to_be_clickable((By.XPATH, "//input[@placeholder='-- Press Enter For Item Group --']")))
                 item_group_input.click()
                 time.sleep(5)
+                # Press Enter on the Item Group field
                 item_group_input.send_keys(Keys.ENTER)
                 time.sleep(5)
         except Exception as e:
             logger.error(f"Error clicking Item Group input field: {e}")
-            self.take_screenshot("Item Group Input Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Item Group Input Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise FormFieldNotFoundError(f"Failed to click Item Group input field: {e}")
+        wait = WebDriverWait(self.driver, 5)
 
-        # Handle Main Group selection
+        # Find and click the main group input field
         try:
             with allure.step("Clicking on main group input field"):
-                main_group_input = self.wait.until(ec.element_to_be_clickable(self.MAIN_GROUP_INPUT))
+                main_group_input = wait.until(
+                    ec.element_to_be_clickable((By.XPATH, "//ng-select//input[@type='text']")))
                 main_group_input.click()
+                # Send Enter key to trigger dropdown
+                main_group_input.send_keys(Keys.ENTER)
+                # Send Enter again to select the first dropdown option
                 main_group_input.send_keys(Keys.ENTER)
                 main_group_input.send_keys(Keys.ENTER)
-                main_group_input.send_keys(Keys.ENTER)
+
                 time.sleep(8)
 
-                ok_button = self.wait.until(ec.element_to_be_clickable(self.OK_BUTTON))
+                ok_button = wait.until(
+                    ec.element_to_be_clickable((By.XPATH, "//button[.//span[normalize-space()='Ok']]")))
                 ok_button.click()
         except Exception as e:
             logger.error(f"Error clicking main group input field: {e}")
-            self.take_screenshot("Main Group Input Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Main Group Input Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise FormFieldNotFoundError(f"Failed to click main group input field: {e}")
 
-        # Enter item name
+        # Find the input by placeholder and enter item name
+
         try:
             with allure.step("Entering product item name"):
-                item_name_input = self.wait.until(ec.element_to_be_clickable(self.ITEM_NAME_INPUT))
+                # Find the input by placeholder and enter item name
+                item_name_input = wait.until(
+                    ec.element_to_be_clickable((By.XPATH, "//input[@placeholder='Enter Item Name']")))
                 item_name_input.clear()
                 item_name_input.send_keys(product_item)
                 item_name_input.send_keys(Keys.ENTER)
         except Exception as e:
             logger.error(f"Error entering product item name: {e}")
-            self.take_screenshot("Item Name Input Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Item Name Input Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise FormFieldNotFoundError(f"Failed to enter product item name: {e}")
 
-        # Fill form fields using TAB navigation
-        self._fill_basic_product_info(HS_code, unit, item_type, description, category, short_name)
+        # Press Tab from keyboard
+        self.driver.switch_to.active_element.send_keys(Keys.TAB)
+        time.sleep(5)
 
-        # Enter purchase price
+        # Enter HSC code
+        try:
+            with allure.step("Entering HSC code"):
+                self.driver.switch_to.active_element.send_keys(hs_code , Keys.TAB)
+        except Exception as e:
+            logger.error(f"Error entering HSC code: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="HSC Code Input Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to enter HSC code: {e}")
+
+        # Click on vatable check box
+        try:
+            with allure.step("Clicking on vatable checkbox"):
+                wait = WebDriverWait(self.driver, 10)
+                checkbox = wait.until(ec.element_to_be_clickable(
+                    (By.XPATH, "//input[@type='checkbox' and contains(@class, 'ng-pristine')]")))
+                checkbox.click()
+                time.sleep(5)
+
+                # press TAB
+                self.driver.switch_to.active_element.send_keys(Keys.TAB)
+        except Exception as e:
+            logger.error(f"Error clicking vatable checkbox: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Vatable Checkbox Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to click vatable checkbox: {e}")
+
+        # To select Unit
+        try:
+            with allure.step("Selecting unit"):
+                self.driver.switch_to.active_element.send_keys(unit, Keys.TAB)
+                time.sleep(5)
+        except Exception as e:
+            logger.error(f"Error selecting unit: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Unit Selection Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to select unit: {e}")
+
+        # To select item type
+        try:
+            with allure.step("Selecting item type"):
+                self.driver.switch_to.active_element.send_keys(item_type, Keys.TAB)
+                time.sleep(5)
+        except Exception as e:
+            logger.error(f"Error selecting item type: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Item Type Selection Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to select item type: {e}")
+
+        # Description
+        try:
+            with allure.step("Entering description"):
+                self.driver.switch_to.active_element.send_keys(Keys.TAB)
+                self.driver.switch_to.active_element.send_keys(description, Keys.TAB)
+                time.sleep(5)
+        except Exception as e:
+            logger.error(f"Error entering description: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Description Input Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to enter description: {e}")
+
+        # Category
+        try:
+            with allure.step("Entering category"):
+                self.driver.switch_to.active_element.send_keys(category, Keys.TAB)
+                time.sleep(5)
+        except Exception as e:
+            logger.error(f"Error entering category: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Category Input Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to enter category: {e}")
+
+        # Short name
+        try:
+            with allure.step("Entering short name"):
+                self.driver.switch_to.active_element.send_keys(short_name, Keys.TAB)
+                time.sleep(5)
+        except Exception as e:
+            logger.error(f"Error entering short name: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Short Name Input Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to enter short name: {e}")
+
+        # Purchase price
         try:
             with allure.step("Entering purchase price"):
-                price_input = self.wait.until(ec.element_to_be_clickable(self.PURCHASE_PRICE_INPUT))
+                price_input = wait.until(ec.element_to_be_clickable(
+                    (By.XPATH, "//input[@type='number' and @placeholder='Enter Purchase Price']")))
                 price_input.clear()
                 price_input.send_keys(purchase_price)
                 time.sleep(10)
         except Exception as e:
             logger.error(f"Error entering purchase price: {e}")
-            self.take_screenshot("Purchase Price Input Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Purchase Price Input Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise FormFieldNotFoundError(f"Failed to enter purchase price: {e}")
 
-        # Enter sales price
+        # Sales price
         try:
             with allure.step("Entering sales price"):
-                number_input = self.wait.until(ec.element_to_be_clickable(self.SALES_PRICE_INPUT))
+                number_input = wait.until(
+                    ec.element_to_be_clickable((By.XPATH, "//input[@type='number' and @placeholder='0']")))
                 number_input.clear()
                 number_input.send_keys(sales_price)
                 time.sleep(10)
         except Exception as e:
             logger.error(f"Error entering sales price: {e}")
-            self.take_screenshot("Sales Price Input Error")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Sales Price Input Error",
+                          attachment_type=allure.attachment_type.PNG)
             raise FormFieldNotFoundError(f"Failed to enter sales price: {e}")
 
-        # Handle Alternate Unit
-        self._handle_alternate_unit(alt_unit, conversion_factor)
+        # #Alternate Unit
+        # try:
+        #    with allure.step("Navigating to Alternate Unit tab"):
+        #     alternate_unit_tab = wait.until(ec.element_to_be_clickable(
+        #         (By.XPATH, "//div[@class='mat-tab-label-content' and normalize-space()='Alternate Unit']")))
+        #     alternate_unit_tab.click()
+        #     time.sleep(8)
+        #
+        # except Exception as e:
+        #     logger.error(f"Error clicking Alternate Unit tab: {e}")
+        #     allure.attach(self.driver.get_screenshot_as_png(),
+        #                   name="Alternate Unit Tab Error",
+        #                   attachment_type=allure.attachment_type.PNG)
+        #     raise NavigationError(f"Failed to click Alternate Unit tab: {e}")
+        #
+        # # Click on "Add Alternate Unit" button
+        # try:
+        #     with allure.step("Clicking on 'Add Alternate Unit' button"):
+        #       # Select unit: gm
+        #       select_element = wait.until(ec.element_to_be_clickable((By.XPATH, "//select[contains(@class, 'ng-pristine')]")))
+        #       select_element.click()
+        #       self.driver.switch_to.active_element.send_keys(alt_unit, Keys.TAB)
+        #       print("Unit selected.")
+        #
+        # except Exception as e:
+        #     logger.error(f"Error clicking 'Add Alternate Unit' button: {e}")
+        #     allure.attach(self.driver.get_screenshot_as_png(),
+        #                   name="Add Alternate Unit Button Error",
+        #                   attachment_type=allure.attachment_type.PNG)
+        #     raise NavigationError(f"Failed to click 'Add Alternate Unit': {e}")
+        #
+        # # Enter conversion factor
+        # try:
+        #     with allure.step("Entering conversion factor"):
+        #         input_field = wait.until(
+        #             ec.element_to_be_clickable((By.XPATH, "//input[@type='number' and contains(@class, 'ng-valid')]")))
+        #         input_field.clear()
+        #         input_field.send_keys(conversion_factor)
+        #         time.sleep(5)
+        # except Exception as e:
+        #     logger.error(f"Error entering conversion factor: {e}")
+        #     allure.attach(self.driver.get_screenshot_as_png(),
+        #                   name="Conversion Factor Input Error",
+        #                   attachment_type=allure.attachment_type.PNG)
+        #     raise FormFieldNotFoundError(f"Failed to enter conversion factor: {e}")
 
-        # Handle Barcode Mapping
-        self._handle_barcode_mapping(barcode_map, barcode_unit)
-
-        # Save product
-        self._save_product()
-
-    def _fill_basic_product_info(self, HS_code, unit, item_type, description, category, short_name):
-        """Fill basic product information using TAB navigation."""
-        try:
-            # Press Tab and enter HSC code
-            self.driver.switch_to.active_element.send_keys(Keys.TAB)
-            time.sleep(5)
-            self.driver.switch_to.active_element.send_keys(HS_code, Keys.TAB)
-
-            # Click vatable checkbox
-            checkbox = self.wait.until(ec.element_to_be_clickable(self.VATABLE_CHECKBOX))
-            checkbox.click()
-            time.sleep(5)
-            self.driver.switch_to.active_element.send_keys(Keys.TAB)
-
-            # Fill remaining fields
-            self.driver.switch_to.active_element.send_keys(unit, Keys.TAB)
-            time.sleep(5)
-            self.driver.switch_to.active_element.send_keys(item_type, Keys.TAB)
-            time.sleep(5)
-            self.driver.switch_to.active_element.send_keys(Keys.TAB)
-            self.driver.switch_to.active_element.send_keys(description, Keys.TAB)
-            time.sleep(5)
-            self.driver.switch_to.active_element.send_keys(category, Keys.TAB)
-            time.sleep(5)
-            self.driver.switch_to.active_element.send_keys(short_name, Keys.TAB)
-            time.sleep(5)
-
-        except Exception as e:
-            logger.error(f"Error filling basic product info: {e}")
-            self.take_screenshot("Basic Info Error")
-            raise FormFieldNotFoundError(f"Failed to fill basic product info: {e}")
-
-    def _handle_alternate_unit(self, alt_unit, conversion_factor):
-        """Handle alternate unit configuration."""
-        try:
-            with allure.step("Navigating to Alternate Unit tab"):
-                alternate_unit_tab = self.wait.until(ec.element_to_be_clickable(self.ALTERNATE_UNIT_TAB))
-                alternate_unit_tab.click()
-                time.sleep(8)
-
-            # Select unit
-            select_element = self.wait.until(ec.element_to_be_clickable(self.UNIT_SELECT))
-            select_element.click()
-            self.driver.switch_to.active_element.send_keys(alt_unit, Keys.TAB)
-            print("Unit selected.")
-
-            # Enter conversion factor
-            input_field = self.wait.until(ec.element_to_be_clickable(self.CONVERSION_FACTOR_INPUT))
-            input_field.clear()
-            input_field.send_keys(conversion_factor)
-            time.sleep(5)
-
-        except Exception as e:
-            logger.error(f"Error handling alternate unit: {e}")
-            self.take_screenshot("Alternate Unit Error")
-            raise NavigationError(f"Failed to handle alternate unit: {e}")
-
-    def _handle_barcode_mapping(self, barcode_map, barcode_unit):
-        """Handle barcode mapping configuration."""
+        # Click on "Add Barcode" mapping tab
         try:
             with allure.step("Clicking on 'Add Barcode' button"):
-                barcode_mapping = self.wait.until(ec.element_to_be_clickable(self.BARCODE_MAPPING_TAB))
+                # Barcode Mapping tab
+                barcode_mapping = wait.until(ec.element_to_be_clickable(
+                    (By.XPATH, "//div[@class='mat-tab-label-content' and normalize-space()='Barcode Mapping']")))
                 barcode_mapping.click()
                 time.sleep(8)
+        except Exception as e:
+            logger.error(f"Error clicking 'Add Barcode' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Add Barcode Button Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click 'Add Barcode': {e}")
 
-            # Enter barcode
-            barcode_input = self.wait.until(ec.presence_of_element_located(self.BARCODE_INPUT))
-            barcode_input.clear()
-            barcode_input.send_keys(barcode_map)
-            barcode_input.click()
-            time.sleep(5)
-            self.driver.switch_to.active_element.send_keys(Keys.TAB)
-            time.sleep(5)
+        # Enter barcode
+        try:
+            with allure.step("Entering barcode"):
+                barcode_input = wait.until(
+                    ec.presence_of_element_located((By.XPATH, "//input[@placeholder='Enter Bar Code']")))
+                barcode_input.clear()
+                barcode_input.send_keys(barcode_map)
+                barcode_input.click()
+                time.sleep(5)
+                self.driver.switch_to.active_element.send_keys(Keys.TAB)
+                time.sleep(5)
 
-            # Select barcode unit
-            select_element = self.driver.find_element(*self.BARCODE_UNIT_SELECT)
-            select_element.click()
-            self.driver.switch_to.active_element.send_keys(barcode_unit, Keys.TAB)
-            time.sleep(5)
-
-            # Click Map button
-            map_button = self.wait.until(ec.element_to_be_clickable(self.MAP_BUTTON))
-            map_button.click()
-            time.sleep(10)
+                select_element = self.driver.find_element(By.CSS_SELECTOR, 'div.col-2.p-0 select')
+                select_element.click()
+                self.driver.switch_to.active_element.send_keys(barcode_unit, Keys.TAB)
+                time.sleep(5)
 
         except Exception as e:
-            logger.error(f"Error handling barcode mapping: {e}")
-            self.take_screenshot("Barcode Mapping Error")
-            raise FormFieldNotFoundError(f"Failed to handle barcode mapping: {e}")
+            logger.error(f"Error entering barcode: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Barcode Input Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise FormFieldNotFoundError(f"Failed to enter barcode: {e}")
 
-    def _save_product(self):
-        """Save the product and handle confirmation."""
+        # Click on "Map" button
+        try:
+            with allure.step("Clicking on 'Map' button"):
+                wait = WebDriverWait(self.driver, 10)
+                map_button = wait.until(ec.element_to_be_clickable((By.ID, "map")))
+                map_button.click()
+                time.sleep(10)
+        except Exception as e:
+            logger.error(f"Error clicking 'Map' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Map Button Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click 'Map': {e}")
+
+        # Click on "Save" button
         try:
             with allure.step("Clicking on 'Save' button"):
-                save_button = self.driver.find_element(*self.SAVE_BUTTON)
+                save_button = self.driver.find_element(By.XPATH, "//button[contains(text(),'SAVE')]")
                 save_button.click()
                 time.sleep(10)
-
-            # Handle "Do you want to add another product?" alert
-            with allure.step("Handling 'Do you wanna add another product?' alert"):
-                body = self.driver.find_element(By.TAG_NAME, "body")
-                body.send_keys(Keys.ENTER)
-                time.sleep(10)
-
         except Exception as e:
-            logger.error(f"Error saving product: {e}")
-            self.take_screenshot("Save Product Error")
-            raise PopupHandlingError(f"Failed to save product: {e}")
+            logger.error(f"Error clicking 'Save' button: {e}")
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name="Save Button Error",
+                          attachment_type=allure.attachment_type.PNG)
+            raise NavigationError(f"Failed to click 'Save': {e}")
+        time.sleep(10)
+        # # Press enter to handle alert of "Do you want to add another product?"
+        # try:
+        #    with allure.step("Handling 'Do you want to add another product?' alert"):
+        #         body = self.driver.find_element(By.TAG_NAME, "body")
+        #         body.send_keys(Keys.ENTER)
+        #         time.sleep(10)
+        #
+        # except Exception  as e:
+        #     logger.error(f"Error handling 'Do you want to add another product?' alert: {e}")
+        #     allure.attach(self.driver.get_screenshot_as_png(),
+        #                   name="Add Another Product Alert Error",
+        #                   attachment_type=allure.attachment_type.PNG)
+        #     raise PopupHandlingError(f"Failed to handle 'Add Another Product' alert: {e}")

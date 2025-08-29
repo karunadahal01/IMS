@@ -23,7 +23,7 @@ class SalesReturnPage(BasePage):
     # TRANSACTIONS_MENU = (By.LINK_TEXT, "Transactions")
     # SALES_TRANSACTION_MENU = (By.LINK_TEXT, "Sales Transaction")
     # CREDIT_NOTE_MENU = (By.LINK_TEXT, "Credit Note (Sales Return)")
-    # PARTIAL_RETURN_CHECKBOX = (By.XPATH, "//input[@type='checkbox' and contains(@class, 'ng-pristine')]")
+    # PARTIAL_RETURN_CHECKBO33X = (By.XPATH, "//input[@type='checkbox' and contains(@class, 'ng-pristine')]")
     # REFBILL_INPUT = (By.ID, "refbill")
     # REMARKS_INPUT = (By.ID, "remarksid")
     # BARCODE_INPUT = (By.ID, "barcodeField")

@@ -6,7 +6,7 @@ from config.settings import DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL
 from pages.purchase_return_page import PurchaseReturnPage
 from pages.sales_tax_invoice_page import SalesTaxInvoicePage
 from pages.sales_return_page import SalesReturnPage
-
+from pages.master_mitigation_page import MasterMitigtionPage
 # Initialize driver
 
 driver_manager = DriverManager()
@@ -52,8 +52,14 @@ login_page.login(DEFAULT_USERNAME, DEFAULT_PASSWORD, BASE_URL)
 # sales_return.create_sales_return_full()
 
 ###########################################################################################
-sales_return_partial = SalesReturnPage(driver)
-sales_return_partial.create_sales_return_partial(barcode=822)
+# sales_return_partial = SalesReturnPage(driver)
+# sales_return_partial.create_sales_return_partial(barcode=822)
 ############################################################################################
+master_mitigation = MasterMitigtionPage(driver)
+master_mitigation.customer()
+##########################################################################################
+
+
+
 # Cleanup
 driver_manager.cleanup_driver()

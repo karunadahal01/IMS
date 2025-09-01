@@ -116,7 +116,7 @@ def sales_tax_invoice(driver, barcode_sales):
     time.sleep(5)
     print("✅ Remarks entered successfully.")
 
-    # --- Barcode Section ---
+ ############## --- Barcode Section ---#################################3
     try:
         barcode_input = driver.find_element(By.ID, "barcodeField")
         barcode_input.clear()

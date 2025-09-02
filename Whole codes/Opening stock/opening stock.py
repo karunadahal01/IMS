@@ -127,10 +127,10 @@ def opening_stock(barcode_stock):
 
 
 
-login(username="Sirish", password="Tebahal1!",
+login(username="sirish", password="Tebahal1!",
           link="https://stc21.variantqa.himshang.com.np/#")
 
-opening_stock(barcode_stock=12)
-time.sleep(30)
+opening_stock(barcode_stock=822)
+time.sleep(10)
 
 

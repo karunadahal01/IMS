@@ -9,10 +9,22 @@ import random
 import string
 import time
 
-driver = webdriver.Chrome()
+#########################################################################################
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument("--headless")          # Run in headless mode
+options.add_argument("--no-sandbox")        # For some environments
+options.add_argument("--disable-dev-shm-usage")  # Prevents resource issues
+options.add_argument("--window-size=1920,1080")  # Optional: set window size
+###########################################################################################
+
+
+
+driver = webdriver.Chrome(options=options)
 def login(username,password,link):
 
-    driver.maximize_window()
+    #driver.maximize_window()
     driver.get(link)
     try:
         # Step 1: Enter credentials and click Sign In
@@ -133,7 +145,7 @@ def sales_return_partial(driver, barcode):
                 )
                 quantity_field.clear()
                 quantity_field.send_keys(str(quantity) + Keys.ENTER)
-                print(f"✅ Quantity entered for barcode {barcode}")
+                print(f" Quantity entered for barcode {barcode}")
                 time.sleep(2)
                 break
             except Exception as e:
@@ -156,8 +168,10 @@ def sales_return_partial(driver, barcode):
     back_btn.click()
     print("Keeping browser open for 15 seconds for observation...")
     time.sleep(15)
+    print(driver.title)  # Just to verify
+    driver.quit()
 
- #############################
+ ##################################################################################
 login(username="gedehim917@decodewp.com",
       password="Tebahal1!",
       link="https://velvet.webredirect.himshang.com.np/#/pages/dashboard")

@@ -23,6 +23,7 @@ options.add_argument("--window-size=1920,1080")  # Optional: set window size
 
 driver = webdriver.Chrome(options=options)
 def login(username,password,link):
+    print("Starting login process...")
 
     #driver.maximize_window()
     driver.get(link)
@@ -43,6 +44,7 @@ def login(username,password,link):
 
         # Step 2: Handle "Already Logged In" popup if present
         try:
+            print("Checking for 'Already Logged In' popup...")
             logout_btn = WebDriverWait(driver, 20).until(
                 EC.element_to_be_clickable((By.XPATH, "//button[.//span[text()='Logout']]"))
             )
@@ -58,6 +60,7 @@ def login(username,password,link):
 
             time.sleep(8)
             # Wait for the "Sign In" button to be clickable
+            print("Waiting for 'Sign In' button to be clickable again...")
             sign_in_btn = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Sign In')]"))
             )
@@ -78,10 +81,12 @@ def login(username,password,link):
 
 def sales_return_full(driver):
     # Wait until the menu is loaded
+    print("Navigating to Sales Return...")
     wait = WebDriverWait(driver, 10)
 
     # Click on "Transactions"
     try:
+        print("Clicking on 'Transactions' menu...")
         transaction_menu = driver.find_element(By.LINK_TEXT, "Transactions")
         transaction_menu.click()
         print("Clicked on 'Transactions'")

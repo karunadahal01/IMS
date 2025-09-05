@@ -136,7 +136,7 @@ def sales_return_partial(driver, barcode):
     remarks_field.clear()
     remarks_field.send_keys("Partial sales Return by automation. ")
     time.sleep(5)
-    print("✅ Remarks entered successfully.")
+    print("Remarks entered successfully.")
 
     # === Item Entry for single barcode ===
     try:
